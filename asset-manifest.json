@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Enyanjyoti/static/css/main.fb7741ea.css",
+    "main.js": "/Enyanjyoti/static/js/main.48933ea8.js",
+    "static/js/787.448a8517.chunk.js": "/Enyanjyoti/static/js/787.448a8517.chunk.js",
+    "index.html": "/Enyanjyoti/index.html",
+    "main.fb7741ea.css.map": "/Enyanjyoti/static/css/main.fb7741ea.css.map",
+    "main.48933ea8.js.map": "/Enyanjyoti/static/js/main.48933ea8.js.map",
+    "787.448a8517.chunk.js.map": "/Enyanjyoti/static/js/787.448a8517.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb7741ea.css",
+    "static/js/main.48933ea8.js"
+  ]
+}

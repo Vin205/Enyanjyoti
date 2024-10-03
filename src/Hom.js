@@ -151,9 +151,7 @@ import {
    
    </main>
 
-   <footer style={{ backgroundColor: '#333', color: '#fff', padding: '20px', textAlign: 'center' }}>
-      <p>&copy; Edu@enyanjyoti. All rights reserved.</p>
-    </footer>
+  
          </div>
   );
 }

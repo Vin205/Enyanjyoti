@@ -1,0 +1,35 @@
+/* Nabar.css */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 12px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4a5568;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #4299e1;
+}

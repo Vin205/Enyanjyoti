@@ -1,63 +1,87 @@
+/* footer.css */
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px;
-    text-align: center;
-    border-top: 5px solid #1565C0;
-  }
-  
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .footer-content p {
-    max-width: 600px;
-    line-height: 1.6;
-  }
-  
-  .footer-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .btn {
-    background-color: #1565C0;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .btn:hover {
-    background-color: #0d47a1;
-  }
-  
-  hr {
-    margin: 20px 0;
-    border-color: #fff;
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .social-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .social-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .copyright {
-    margin-top: 20px;
-  }
-  
+  background-color: #2B4B77; /* Updated background for better contrast */
+  color: #ffffff;
+  padding: 60px 80px;
+  border-top: 5px solid #1565C0;
+  text-align: left;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-title {
+  font-size: 32px; /* Increased font size for better visibility */
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.footer-description {
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #e0e7ff; /* Lighter color for better readability */
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 20px; /* Increased gap for visual clarity */
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #3D6DA3; /* Lighter shade to contrast with background */
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Softer corner radius */
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern look */
+  transition: transform 0.3s ease, background 0.3s ease; /* Smooth transition */
+}
+
+.btn-light {
+  background-color: #5678B3; /* Lighter button style */
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #4A73B5; /* Darker shade on hover */
+  transform: translateY(-3px); /* Lift effect */
+}
+
+hr {
+  margin: 30px 0;
+  border-color: #b0c7e1; /* Subtle separator */
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px; /* Increased spacing */
+  margin-top: 30px;
+}
+
+.social-links a {
+  color: #e0e7ff; /* Light color for links */
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #b0c7e1; /* Light gray for muted text */
+}

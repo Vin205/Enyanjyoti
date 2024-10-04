@@ -1,3 +1,32 @@
+# Eyanjyoti Learning Portal
+The Eyanjyoti Learning Portal is a comprehensive, React-based web application designed to provide an interactive and engaging platform for both creative and conceptual learning. This portal features a variety of educational resources, creative DIY projects, quizzes, and activities aimed at fostering holistic learning. By integrating dynamic content such as video tutorials, quizzes, and hands-on activities, the portal is ideal for learners of all ages, combining both academic and creative skill development.
+### Key Features:
+- **Multi-Section Learning Environment**: The portal is structured into multiple sections, each catering to different learning styles and subjects, including:
+- **Home**: An introductory overview of the portal.
+- **Educational Resources**: Conceptual learning through embedded educational videos.
+- **Art and Craft**: Creative DIY projects with step-by-step video tutorials.
+- **Self-Learning and Development**: Resources focused on personal growth and skill-building.
+- **Quizzes**: Interactive quizzes to test knowledge and reinforce learning.
+- **Activities**: Engaging activities designed to complement conceptual learning.
+### Technologies Used:
+- React: Core library used for building the user interface.
+- React Router: For dynamic routing and navigation between different sections.
+- CSS: Custom styling for a clean and responsive layout.
+- YouTube API: Embedded YouTube videos for instructional content in the craft and educational sections.
+### How to Run the Project:
+- Clone the repository:
+   - git clone https://github.com/your-username/eyanjyoti-portal.git
+- Navigate to the project directory:
+   - cd eyanjyoti-portal
+- Install dependencies:
+   - npm install
+- Run the project:
+   - npm start
+- Open your browser and go to http://localhost:3000 to view the app.
+
+## License:
+This project is licensed under the MIT License.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

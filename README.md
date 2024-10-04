@@ -16,21 +16,55 @@ The Eyanjyoti Learning Portal is a comprehensive, React-based web application de
 ### How to Run the Project:
 - Clone the repository:
    - ``` bash
-     git clone https://github.com/your-username/eyanjyoti-portal.git
-     ```
+     git clone https://github.com/Vin205/Enyanjyoti
+
 - Navigate to the project directory:
    - ``` bash
-     cd eyanjyoti-portal
-     ```
+     cd Enyanjyoti
+
 - Install dependencies:
    - ``` bash
      npm install
-     ```
+
 - Run the project:
    - ``` bash 
      npm start
-     ```
+
 - Open your browser and go to  ```http://localhost:3000 ``` to view the app.
+
+### How to Contribute and Make a Pull Request:
+- Fork the repository:
+   - Click the "Fork" button on the upper right corner of the repository page to copy the repository to your GitHub account.
+- Clone the forked repository:
+   - ``` bash
+     git clone https://github.com/your-user-name/Enyanjyoti
+- Navigate to the project directory:
+   - ``` bash
+     cd Enyanjyoti
+- Create a new branch for your feature:
+  - Replace branchName with a descriptive name:
+   - ``` bash
+     git checkout -b branchName
+- Make your changes:
+   - Make changes or add new features in your local branch.
+- Add the changes:
+   - ``` bash
+     git add .
+- Commit your changes:
+   - ``` bash
+     git commit -m "Description of the changes"
+- Add the remote repository (if not already added):
+   - ``` bash
+     git remote add origin https://github.com/your-username/eyanjyoti-portal.git
+- Push the changes to GitHub:
+   - ``` bash
+     git push -u origin branchName
+- **Create a Pull Request**:
+
+   - Go to your forked repository on GitHub.
+   - Click the "Compare & pull request" button next to your pushed branch.
+   - Add a meaningful title and description for the pull request.
+   - Click "Create pull request".
 
 ## License:
 This project is licensed under the MIT License.

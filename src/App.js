@@ -21,22 +21,6 @@ function App  () {
   return (
     <>
     <div>
-
-         <Navbar/>
-    <Routes>
-  
-    <Route path ='/' element={<Hom/>}/>
-    <Route path ='educ' element={<Educ/>}/>
-    <Route path ='sef' element={<Sef/>}/>
-    <Route path ='craft' element={<Craft/>}/>
-    <Route path ='quiz' element={<Quiz/>}/>
-    <Route path ='act' element={<Act/>}/>
-    <Route path ='login' element={<Login/>}/>
-    <Route path ='signup' element={<Signup/>}/>
-    </Routes>
-    
-     
-
       <Navbar />
       <main>
         <Routes>
@@ -49,8 +33,6 @@ function App  () {
         </Routes>
       </main>
       <Footer/>
-
-
     </div>
   </>
   );

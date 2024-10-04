@@ -1,3 +1,74 @@
+# Eyanjyoti Learning Portal
+The Eyanjyoti Learning Portal is a comprehensive, React-based web application designed to provide an interactive and engaging platform for both creative and conceptual learning. This portal features a variety of educational resources, creative DIY projects, quizzes, and activities aimed at fostering holistic learning. By integrating dynamic content such as video tutorials, quizzes, and hands-on activities, the portal is ideal for learners of all ages, combining both academic and creative skill development.
+### Key Features:
+- **Multi-Section Learning Environment**: The portal is structured into multiple sections, each catering to different learning styles and subjects, including:
+- **Home**: An introductory overview of the portal.
+- **Educational Resources**: Conceptual learning through embedded educational videos.
+- **Art and Craft**: Creative DIY projects with step-by-step video tutorials.
+- **Self-Learning and Development**: Resources focused on personal growth and skill-building.
+- **Quizzes**: Interactive quizzes to test knowledge and reinforce learning.
+- **Activities**: Engaging activities designed to complement conceptual learning.
+### Technologies Used:
+- React: Core library used for building the user interface.
+- React Router: For dynamic routing and navigation between different sections.
+- CSS: Custom styling for a clean and responsive layout.
+- YouTube API: Embedded YouTube videos for instructional content in the craft and educational sections.
+### How to Run the Project:
+- Clone the repository:
+   - ``` bash
+     git clone https://github.com/Vin205/Enyanjyoti
+
+- Navigate to the project directory:
+   - ``` bash
+     cd Enyanjyoti
+
+- Install dependencies:
+   - ``` bash
+     npm install
+
+- Run the project:
+   - ``` bash 
+     npm start
+
+- Open your browser and go to  ```http://localhost:3000 ``` to view the app.
+
+### How to Contribute and Make a Pull Request:
+- Fork the repository:
+   - Click the "Fork" button on the upper right corner of the repository page to copy the repository to your GitHub account.
+- Clone the forked repository:
+   - ``` bash
+     git clone https://github.com/your-user-name/Enyanjyoti
+- Navigate to the project directory:
+   - ``` bash
+     cd Enyanjyoti
+- Create a new branch for your feature:
+  - Replace branchName with a descriptive name:
+   - ``` bash
+     git checkout -b branchName
+- Make your changes:
+   - Make changes or add new features in your local branch.
+- Add the changes:
+   - ``` bash
+     git add .
+- Commit your changes:
+   - ``` bash
+     git commit -m "Description of the changes"
+- Add the remote repository (if not already added):
+   - ``` bash
+     git remote add origin https://github.com/your-username/eyanjyoti-portal.git
+- Push the changes to GitHub:
+   - ``` bash
+     git push -u origin branchName
+- **Create a Pull Request**:
+
+   - Go to your forked repository on GitHub.
+   - Click the "Compare & pull request" button next to your pushed branch.
+   - Add a meaningful title and description for the pull request.
+   - Click "Create pull request".
+
+## License:
+This project is licensed under the MIT License.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

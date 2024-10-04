@@ -1,48 +1,138 @@
-/* Navbar.css (CSS) */
+/* Nabar.css */
+
+/* General styles for the navbar */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+/* Logo styles */
+.logo img {
+  height: 50px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px;
+  transition: 0.4s;
+}
+
+/* Change hamburger into "X" on click */
+.change {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger .change + .bar {
+  opacity: 0;
+}
+
+.hamburger .change + .change {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navbar links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  font-size: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Auth buttons (Login and Sign Up) */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .btn {
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-buttons .btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.auth-buttons .btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
     display: flex;
-    justify-content: space-between;
+  }
+
+  .nav-links,
+  .auth-buttons {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
     align-items: center;
-    padding: 2 rem ;
-    background-color: black;
-    color: white;
+    justify-content: center;
+    gap: 15px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
   }
-  
-  .logo img{
-    height : 50px;
-    width :200;
+
+  .nav-links.open,
+  .auth-buttons.open {
+    height: 200px;
   }
-  
-  .nav-links {
-    list-style : none ;
-    display: flex;
-  }
-  
+
   .nav-links li {
-    margin-right: 1rem;
-    padding: 0.5rem ,1rem;
+    font-size: 24px;
   }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
+
+  .auth-buttons .btn {
+    width: 100%;
   }
-  
-  .auth-buttons button {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem ;
-    cursor: pointer;
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links {
+    gap: 15px;
   }
-  
-  .sign-up {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+
+  .auth-buttons .btn {
+    padding: 7px 12px;
   }
-  
-  .sign-in {
-    background-color: #2196F3;
-    color: white;
-    border: none;
-  }
-  
+}

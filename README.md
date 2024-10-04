@@ -15,13 +15,13 @@ The Eyanjyoti Learning Portal is a comprehensive, React-based web application de
 - YouTube API: Embedded YouTube videos for instructional content in the craft and educational sections.
 ### How to Run the Project:
 - Clone the repository:
-   - git clone https://github.com/your-username/eyanjyoti-portal.git
+   - ```git clone https://github.com/your-username/eyanjyoti-portal.git```
 - Navigate to the project directory:
-   - cd eyanjyoti-portal
+   - ```cd eyanjyoti-portal```
 - Install dependencies:
-   - npm install
+   - ```npm install```
 - Run the project:
-   - npm start
+   - ```npm start```
 - Open your browser and go to http://localhost:3000 to view the app.
 
 ## License:

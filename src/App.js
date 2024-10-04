@@ -24,10 +24,14 @@ function App  () {
 
          <Navbar/>
     <Routes>
+
   
     <Route path ='/' element={<Hom/>}/>
+
     <Route path ='educ' element={<Educ/>}/>
+
     <Route path ='sef' element={<Sef/>}/>
+    
     <Route path ='craft' element={<Craft/>}/>
     <Route path ='quiz' element={<Quiz/>}/>
     <Route path ='act' element={<Act/>}/>

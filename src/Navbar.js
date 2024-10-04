@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Nabar.css';
+import './Navbar.css';
 
-function Nabar() {
+function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -44,4 +44,4 @@ function Nabar() {
   );
 }
 
-export default Nabar;
+export default Navbar;

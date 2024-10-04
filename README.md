@@ -88,7 +88,7 @@ We welcome contributions to the Enyanjyoti platform! To get started:
 1. Fork the repository.
 2. Create a new branch with a descriptive name:
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b branch_name
    ```
 3. Make your changes and commit them:
    ```bash
@@ -96,7 +96,7 @@ We welcome contributions to the Enyanjyoti platform! To get started:
    ```
 4. Push to your branch:
    ```bash
-   git push origin feature/your-feature-name
+   git push origin main
    ```
 5. Create a pull request to the main branch.
 

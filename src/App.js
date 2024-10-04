@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar.js'
 import Hom from './Hom.js'
 import Educ from './Educ.js';
@@ -17,24 +17,30 @@ import Footer from './Footer.js';
 
 
 
-function App  () {
+function App() {
   return (
     <>
-    <div>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path='/' element={<Hom />} />
-          <Route path='educ' element={<Educ />} />
-          <Route path='sef' element={<Sef />} />
-          <Route path='craft' element={<Craft />} />
-          <Route path='quiz' element={<Quiz />} />
-          <Route path='act' element={<Act />} />
-        </Routes>
-      </main>
-      <Footer/>
-    </div>
-  </>
+      <div>
+
+
+        
+
+
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path='/' element={<Hom />} />
+            <Route path='educ' element={<Educ />} />
+            <Route path='sef' element={<Sef />} />
+            <Route path='craft' element={<Craft />} />
+            <Route path='quiz' element={<Quiz />} />
+            <Route path='act' element={<Act />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 

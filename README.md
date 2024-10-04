@@ -27,7 +27,7 @@ The Eyanjyoti Learning Portal is a comprehensive, React-based web application de
      npm install
     ```
 - Run the project:
-   - ```bash 
+   - ``` bash 
      npm start
      ```
 - Open your browser and go to  ```http://localhost:3000 ``` to view the app.

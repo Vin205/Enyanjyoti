@@ -1,158 +1,79 @@
-import React from 'react'
-import './Hom.css'
-import { Navigate } from 'react-router-dom'
-import {
-  MDBCard,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBRow,
-  MDBCol
-} from 'mdb-react-ui-kit';
-function Hom() {
-  const [goToEduc, setGoToEduc] = React.useState(false);
-  if (goToEduc) {
-    return <Navigate to='/educ' />;
-  }
+import React, { useEffect } from "react";
+import "./Hom.css";
+
+export default function Hom() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
+    script.type = "module";
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-
-
-    <div style={{ backgroundImage: 'url("./images/e13.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <main>
-        <section>
-          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-
-            </div>
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img src="./images/e2.png" class="d-block w-100" alt="..." />
-
-              </div>
-
-
-            </div>
-
-
+    <div className="hom-container">
+      <main className="main-content">
+        <div className="intro-section">
+          <div className="animation-container">
+            <dotlottie-player
+              src="https://lottie.host/b1cad9ac-0380-434e-8c9c-8d840821f788/Xf4k2KSbTr.json"
+              background="transparent"
+              speed="1"
+              className="lottie-animation"
+              loop
+              autoplay
+            ></dotlottie-player>
           </div>
-          <b></b>
-        </section>
-
-        <section class="" >
-          <div class="py-5">
-            <div className="container">
-              <div className="col">
-                <h1 align="center" style={{ color: 'white' }}>Dive into the World of Knowledge, Skills and Wisdom</h1>
-                <div class="py-5">
-
-                </div>
-
-                <div>
-                  <MDBCard style={{ maxWidth: '700px', margin: 'auto', marginBottom: '200px', borderRadius: '5px', borderColor: 'black', backgroundColor: '#1565C0', }}>
-                    <MDBRow className='g-0'>
-                      <MDBCol md='4'>
-                        <MDBCardImage src='./images/e3.png' alt='...' fluid style={{ height: '100%', width: 'auto' }} />
-                      </MDBCol>
-                      <MDBCol md='8'>
-                        <MDBCardBody>
-                          <div class="card-header" style={{ backgroundColor: 'lightblue' }}>
-                            <MDBCardTitle className='card-title' align='center' style={{ fontWeight: 'bold' }} >Education</MDBCardTitle>
-                          </div>
-                          <div class="py-5">
-                            <MDBCardText className='card-text' style={{ color: 'white' }} >
-                              Get complete understanding of concepts. Adapt life skills.
-                              Gain general knowledge and enjoy activity based learning.
-                            </MDBCardText>
-                          </div>
-                          <div class="py-2">
-                            <button type="button" class="btn btn-primary" onClick={() => { setGoToEduc(true); }}>Learn Now</button>
-                          </div>
-
-                        </MDBCardBody>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCard>
-
-
-
-
-                </div>
-                <div>
-                  <MDBCard style={{ maxWidth: '700px', margin: 'auto', marginBottom: '200px', borderRadius: '5px', borderColor: 'black', backgroundColor: '#4527A0' }}>
-                    <MDBRow className='g-0'>
-                      <MDBCol md='4'>
-                        <MDBCardImage src='./images/e4.png' alt='...' fluid style={{ height: '100%', width: 'auto' }} />
-                      </MDBCol>
-                      <MDBCol md='8'>
-                        <MDBCardBody>
-                          <div class="card-header" style={{ backgroundColor: 'lightblue' }}>
-                            <MDBCardTitle className='card-title' align='center' style={{ fontcolor: 'white', fontWeight: 'bold' }}>Career </MDBCardTitle>
-                          </div>
-                          <div class="py-5">
-                            <MDBCardText className='card-text' style={{ color: 'white' }}>
-                              Explore Career opportunities and make yourself ready for employment in various fields.
-                              Learn how to build your own startup and become a successful Entrepreneur
-                            </MDBCardText>
-                          </div>
-                          <div class="py-2">
-                            <button type="button" class="btn btn-primary">Explore Now</button>
-                          </div>
-                          <div>
-
-                          </div>
-                        </MDBCardBody>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCard>
-
-
-
-
-                </div>
-                <div>
-                  <MDBCard style={{ maxWidth: '700px', margin: 'auto', marginBottom: '200px', borderRadius: '5px', borderColor: 'black', backgroundColor: '#00838F' }}>
-                    <MDBRow className='g-0'>
-                      <MDBCol md='4'>
-                        <MDBCardImage src='./images/e5.png' alt='...' fluid style={{ height: '100%', width: 'auto' }} />
-                      </MDBCol>
-                      <MDBCol md='8'>
-                        <MDBCardBody>
-                          <div class="card-header" style={{ backgroundColor: 'lightblue' }}>
-                            <MDBCardTitle className='card-title' align='center' style={{ fontcolor: 'white', fontWeight: 'bold' }}>Loans and Grants</MDBCardTitle>
-                          </div>
-                          <div class="py-5">
-                            <MDBCardText className='card-text' style={{ color: 'white' }}>
-                              Complete information about loans, grants and scholarships. Simple procedure and steps to apply easily.
-                            </MDBCardText>
-                          </div>
-                          <div class="py-2">
-                            <button type="button" class="btn btn-primary">Check Now </button>
-                          </div>
-                        </MDBCardBody>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCard>
-
-
-
-
-                </div>
-
-
-
-              </div>
+          <div className="intro-text">
+            <h1 className="title">Dive into the World of Knowledge, Skills and Wisdom</h1>
+            <p className="subtitle">Empower yourself with our comprehensive learning platform</p>
+            <div className="button-group">
+              <button className="btn-default">Sign Up</button>
+              <button className="btn-outline">Login</button>
             </div>
           </div>
-        </section>
+        </div>
 
-
+        <div className="card-grid">
+          {[
+            {
+              title: "Education",
+              description:
+                "Get complete understanding of concepts. Adapt life skills. Gain general knowledge and enjoy activity-based learning.",
+              image: "./images/e3.png",
+              action: "Learn Now",
+            },
+            {
+              title: "Career",
+              description:
+                "Explore career opportunities and make yourself ready for employment in various fields. Learn how to build your own startup and become a successful entrepreneur.",
+              image: "./images/e4.png",
+              action: "Explore Now",
+            },
+            {
+              title: "Loans and Grants",
+              description:
+                "Complete information about loans, grants, and scholarships. Simple procedure and steps to apply easily.",
+              image: "./images/e5.png",
+              action: "Check Now",
+            },
+          ].map((item, index) => (
+            <div key={index} className="card">
+              <div className="card-header">
+                <h2 className="card-title">{item.title}</h2>
+              </div>
+              <div className="card-content">
+                <img src={item.image} alt={item.title} className="card-image" />
+                <p className="card-description">{item.description}</p>
+                <button className="btn-default card-button">{item.action}</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </main>
-
-
     </div>
   );
 }
-
-export default Hom;

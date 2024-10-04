@@ -143,9 +143,7 @@ Turn lessons into adventures with activity-based discovery.
    
    </main>
 
-   <footer style={{ backgroundColor: '#333', color: '#fff', padding: '20px', textAlign: 'center' }}>
-      <p>&copy; Edu@enyanjyoti. All rights reserved.</p>
-    </footer>
+   
   
 
     

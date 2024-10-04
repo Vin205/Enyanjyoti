@@ -11,7 +11,7 @@ function Nabar() {
   };
 
   const handleSignup = () => {
-    navigate('/refer');
+    navigate('/signup');
   };
 
   const toggleMobileMenu = () => {

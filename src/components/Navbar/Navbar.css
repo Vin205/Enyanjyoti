@@ -1,15 +1,16 @@
-/* Navbar.css */
 .navbar {
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  position: relative; /* Ensure positioning context for absolute elements */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  position: relative;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
+  padding: 0;
 }
 
 .logo {
@@ -19,109 +20,131 @@
 .nav-links {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: centre;
 }
 
 .nav-links li {
-  margin: 0 12px;
+  margin: 0 20px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #4a5568;
-  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover {
-  color: #4299e1;
+  color: #ffffff;
+  background-color: #4299e1;
 }
 
-/* Improved Hamburger Button Styles */
 .navbar-toggle {
-  background-color: #4299e1; /* Background color */
-  border: none; /* Remove default button border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Change cursor to pointer */
-  font-size: 24px; /* Increase font size for visibility */
-  color: #ffffff; /* Text color */
-  padding: 10px 15px; /* Padding for better touch area */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for effects */
+  background-color: #4299e1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover Effect for Hamburger Button */
 .navbar-toggle:hover {
-  background-color: #357ae8; /* Darker shade on hover */
-  transform: scale(1.05); /* Slightly scale up on hover */
+  background-color: #357ae8;
+  transform: scale(1.05);
 }
 
-/* Menu Styles */
 .nav-menu {
-  position: fixed; /* Fixed position for sliding effect */
+  position: fixed;
   top: 0;
-  right: -250px; /* Start off-screen */
-  width: 200px; /* Width of the menu */
-  height: 30%; /* Full height */
-  background-color: #ffffff; /* Background color */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-  transition: right 0.3s ease; /* Transition for sliding effect */
-  z-index: 10; /* Ensure it appears above other content */
-  border-radius: 10px;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 10;
 }
 
-/* Active Menu */
 .nav-menu.active {
-  right: 0; /* Slide in */
+  right: 0;
 }
 
-/* Improved Close Button Styles */
 .close-button {
-  /* background-color: #ff4d4d;  */
-  border: none; /* Remove default button background */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 30px; /* Increase font size for visibility */
-  color: #ffffff; /* White color for the close button */
-  cursor: pointer; /* Change cursor to pointer */
-  position: absolute; /* Position it in the menu */
-  /* top: 20px;  */
-  right: 20px; /* Position from the right */
-  /* padding: 2px 2px; */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for effects */
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover Effect for Close Button */
 .close-button:hover {
-  /* Darker red on hover */
-  transform: scale(1.1); /* Slightly scale up on hover */
+  background-color: #e60000;
+  transform: scale(1.1);
 }
 
-/* Media Queries for Navbar */
 @media (max-width: 768px) {
   .container {
-    justify-content: space-between; /* Ensure space between logo and hamburger */
-  }
-
-  .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    align-items: flex-start; /* Align links to the start */
-    display: flex; /* Show links by default in the menu */
-    width: 100%; /* Full width for mobile */
-    padding: 16px 0; /* Add padding */
-    background-color: #ffffff; /* Background color for dropdown */
-    position: absolute; /* Positioning for dropdown */
-    top: 60px; /* Position below the navbar */
-    left: 0; /* Align to the left */
-    z-index: 10; /* Ensure it appears above other content */
-  }
-
-  .navbar.active .nav-links {
-    display: flex; /* Show links when navbar is active */
-  }
-
-  .container {
-    flex-direction: row; /* Ensure logo and hamburger are in a row */
-    align-items: center; /* Center align items vertically */
+    justify-content: space-between;
   }
 
   .navbar-toggle {
-    margin-left: auto; /* Push the hamburger button to the right */
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    width: 100%;
+    padding: 16px 0;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 10;
+  }
+
+  .nav-menu.active .nav-links {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar-toggle {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none;
+  }
+
+  .nav-links.desktop-links {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
   }
 }

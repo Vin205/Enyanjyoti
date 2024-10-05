@@ -137,3 +137,38 @@ body, html {
   width: 100%;
   padding: 12px 0;
 }
+
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .lottie-animation {
+    width: 100%; /* Make the animation responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .title {
+    font-size: 36px; /* Reduce title size */
+  }
+
+  .subtitle {
+    font-size: 18px; /* Reduce subtitle size */
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons vertically */
+    margin-top: 8px; /* Adjust margin */
+  }
+
+  .btn-default, .btn-outline {
+    width: 100%; /* Make buttons full width */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 8px; /* Add bottom margin for spacing */
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+  }
+}

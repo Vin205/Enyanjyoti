@@ -245,3 +245,33 @@ hr {
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
+
+/* Media Queries for Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack footer content vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .footer-socials {
+    text-align: left; /* Align socials to the left */
+    margin-top: 20px; /* Add margin for spacing */
+  }
+
+  .footer-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .footer-title {
+    font-size: 24px; /* Reduce title size */
+  }
+
+  .footer-description {
+    font-size: 14px; /* Reduce description size */
+  }
+
+  .copyright {
+    font-size: 12px; /* Reduce copyright size */
+  }
+}

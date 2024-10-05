@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Hom.css";
 
 export default function Hom() {
@@ -13,8 +13,30 @@ export default function Hom() {
     };
   }, []);
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="hom-container">
+      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
+        <span class="material-symbols-outlined" style={{
+          color:'#333'
+        }}>
+arrow_upward
+</span>  </button>
       <main className="main-content">
         <div className="intro-section">
           <div className="animation-container">

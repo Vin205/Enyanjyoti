@@ -33,24 +33,53 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/en/) (v14 or above)
 - [npm](https://www.npmjs.com/get-npm)
 
-### Installation
+### Project Set Up 
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/enyanjyoti.git
+1. 🍴 Fork this repository. 
+
+- Click the `Fork` button at the top-right corner of this repository page to create a copy of the repository under your GitHub account.
+
+2. 📥 Clone the repository:
+```bash
+   git clone https://github.com/<your-username>/enyanjyoti.git
+   ```
+
+3. 📂 Change the working directory: 
+```bash
    cd enyanjyoti
    ```
 
-2. Install dependencies:
-   ```bash
+4. 🔗 Add a reference to the original repository.
+```bash
+   git remote add upstream https://github.com/Vin205/Enyanjyoti.git
+   ```
+
+5. 🔍 Check the remotes for this repository.
+```bash
+   git remote -v
+   ```
+
+6. ⬇️ Always take a pull from the upstream repository to your main branch to keep it up-to-date with the main project (updated repository).
+```bash
+   git pull upstream main
+   ```
+
+7. 🌿 Create a new branch. 
+```bash
+   git checkout -b <your-branch-name>
+   ```
+
+8. 🛠️ Install dependencies:
+```bash
    npm install
    ```
 
-3. Start the development server:
-   ```bash
+9. 📊 Start the development server:
+```bash
    npm start
    ```
 
+You are all set! 🎉
 The app should now be running at [http://localhost:3000](http://localhost:3000).
 
 ---
@@ -83,22 +112,49 @@ For more scripts and configurations, refer to the [official Create React App doc
 
 ## 📥 How to Contribute
 
+### 🐛 Issues
+
+Found a bug? Want to request a feature? Head over to the [Issues section](https://github.com/your-repo/issues) and let us know. Please check if the issue already exists before submitting a new one.
+
+---
+
 We welcome contributions to the Enyanjyoti platform! To get started:
 
-1. Fork the repository.
-2. Create a new branch with a descriptive name:
-   ```bash
-   git checkout -b branch_name
+1. Set up the project. (Refer to the Project set up guide for the same)
+
+2. Perform your desired changes to the code base. 
+
+3. Track your changes.
+```bash
+   git add .
    ```
-3. Make your changes and commit them:
-   ```bash
-   git commit -m "Add your detailed message here"
+
+4. Commit your changes with a relevant commit message. 
+
+```bash
+    git commit -m "Add feature X"
    ```
-4. Push to your branch:
-   ```bash
+   Or if you fixed a bug, you could use:
+
+```bash
+    git commit -m "Fix issue Y"
+   ```
+
+5. Push the commited changes in your branch to your remote repo:
+
+```bash
    git push origin main
    ```
-5. Create a pull request to the main branch.
+
+6. Create a pull request to the main branch. 
+
+- Go to your forked repository on GitHub and click on `Compare & pull request`.
+
+🎉 Voila! You have made a PR to the Enyanjyoti project. Sit back patiently and relax while the project maintainers review your PR.
+
+---
+
+Thank you for your contributions!
 
 ### Contribution Guidelines:
 - Keep code clean and well-documented.
@@ -111,12 +167,6 @@ We welcome contributions to the Enyanjyoti platform! To get started:
 ## 📜 Code of Conduct
 
 We follow the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). Please read it before contributing.
-
----
-
-## 🐛 Issues
-
-Found a bug? Want to request a feature? Head over to the [Issues section](https://github.com/your-repo/issues) and let us know. Please check if the issue already exists before submitting a new one.
 
 ---
 

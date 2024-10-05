@@ -1,7 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import "./Hom.css";
 
 export default function Hom() {
+
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
@@ -16,6 +34,12 @@ export default function Hom() {
   return (
     <div className="hom-container">
       <main className="main-content">
+      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)} style={{
+        color:'#333'
+      }}>
+        <span class="material-symbols-outlined">
+arrow_upward
+</span>  </button>
         <div className="intro-section">
           <div className="animation-container">
             <dotlottie-player

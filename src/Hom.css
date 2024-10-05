@@ -7,6 +7,18 @@ body, html {
   -webkit-font-smoothing: antialiased; /* Smooth font rendering */
   -moz-osx-font-smoothing: grayscale;
 }
+.scroll-up-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #DBF5EF;
+  border-radius: 50%;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+}
 
 .hom-container {
   width: 100%;

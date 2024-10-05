@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom"; // Resolved spacing issue
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Hom from "./pages/Home/Hom.js";
 import Educ from "./components/Education/Educ.js";
@@ -20,12 +20,14 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Hom />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
-            <Route path="educ" element={<Educ />} />
-            <Route path="sef" element={<Sef />} />
-            <Route path="craft" element={<Craft />} />
-            <Route path="quiz" element={<Quiz />} />
-            <Route path="act" element={<Act />} />
+            <Route path="/educ" element={<Educ />} />
+            <Route path="/sef" element={<Sef />} />
+            <Route path="/craft" element={<Craft />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/act" element={<Act />} />
           </Routes>
         </main>
         <Footer />

@@ -1,16 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom"; // Resolved spacing issue
-import Navbar from "./Navbar.js";
-import Hom from "./Hom.js";
-import Educ from "./Educ.js";
-import Quiz from "./Quiz.js";
-import Craft from "./Craft.js";
-import Sef from "./Sef.js";
-import Act from "./Act.js";
-import Login from "./Login.js";
-import Signup from "./Signup.js";
-import Footer from "./Footer.js";
-import About from "./About.js";
+import Navbar from "./components/Navbar/Navbar.js";
+import Hom from "./pages/Home/Hom.js";
+import Educ from "./components/Education/Educ.js";
+import Quiz from "./components/Quiz/Quiz.js";
+import Craft from "./components/Craft/Craft.js";
+import Sef from "./components/Sef/Sef.js";
+import Act from "./components/Act/Act.js";
+import Login from "./components/Login/Login.js";
+import Signup from "./components/Signup/Signup.js";
+import Footer from "./components/Footer/Footer.js";
+import About from "./pages/About/About.js";
 
 function App() {
   return (

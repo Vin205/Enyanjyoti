@@ -16,10 +16,11 @@ We aim to bridge the gap between education and employment while providing essent
 1. [Getting Started](#getting-started)
 2. [Available Scripts](#available-scripts)
 3. [How to Contribute](#how-to-contribute)
-4. [Code of Conduct](#code-of-conduct)
-5. [Issues](#issues)
-6. [Pull Requests](#pull-requests)
-7. [Additional Resources](#additional-resources)
+4. [Contributers](#our-contributors)
+5. [Code of Conduct](#code-of-conduct)
+6. [Issues](#issues)
+7. [Pull Requests](#pull-requests)
+8. [Additional Resources](#additional-resources)
 
 ---
 
@@ -161,6 +162,19 @@ Thank you for your contributions!
 - Follow the coding style used in the project.
 - Ensure that tests pass before submitting pull requests.
 - Open an issue before working on new features.
+
+---
+
+## Our Contributors
+
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating Ratna-Supermarket to greater heights.
+- Make sure you show some love by giving ⭐ to our repository.
+
+<div align="center">
+  <a href="https://github.com/Vin205/Enyanjyoti">
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&&max=1000&&cachebust=1" />
+  </a>
+</div>
 
 ---
 

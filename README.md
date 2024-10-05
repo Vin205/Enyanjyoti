@@ -170,12 +170,6 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 
 ---
 
-## 🐛 Issues
-
-Found a bug? Want to request a feature? Head over to the [Issues section](https://github.com/your-repo/issues) and let us know. Please check if the issue already exists before submitting a new one.
-
----
-
 ## 🔄 Pull Requests
 
 All contributions are made through pull requests. To submit a pull request, follow these steps:

@@ -1,6 +1,6 @@
 // src/Login.js
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, replace } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     setError(''); // Reset error state
-
+    
     // Basic validation
     if (!username || !password) {
       setError('Both fields are required.');
@@ -25,6 +25,7 @@ function Login() {
     // Clear fields after successful login
     setUsername('');
     setPassword('');
+    navigate('/', {replace:true});
   };
 
   const handleSignupRedirect = () => {

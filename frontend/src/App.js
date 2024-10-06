@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom"; // Resolved spacing issue
+import { Routes, Route, useLocation } from "react-router-dom"; // Resolved spacing issue
 import Navbar from "./components/Navbar/Navbar.js";
 import Hom from "./pages/Home/Hom.js";
 import Educ from "./components/Education/Educ.js";
@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer.js";
 import About from "./pages/About/About.js";
 
 function App() {
+  const location = useLocation();
   return (
     <>
       <div>
@@ -30,8 +31,7 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
           </Routes>
         </main>
-        <Footer />
-      </div>
+        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && <Footer />}      </div>
     </>
   );
 }

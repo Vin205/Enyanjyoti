@@ -26,8 +26,6 @@ function Navbar() {
           <li><a href="/loan">Loan</a></li>
         </ul>
       </div>
-
-
       <div className={`nav-menu ${isActive ? 'active' : ''}`}>
         <button className="close-button" onClick={closeNavbar}>
           &times; {/* Close icon */}

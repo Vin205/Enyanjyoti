@@ -6,7 +6,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 📚 **Make sure to read our [Wiki](https://github.com/Vin205/Enyanjyoti/wiki)** and familiarize yourself with the repository’s structure and objectives before making any contributions.
 
-❌ **Do not open issues for general support questions** — we want to keep GitHub issues focused on bug reports and feature requests. If you have any questions, feel free to email us via our [mailing list](mailto:someone@example.com) or join our real-time discussion on [Gitter](https://gitter.im/Vin205/Enyanjyoti).
+❌ **Do not open issues for general support questions** — we want to keep GitHub issues focused on bug reports and feature requests. If you have any questions, feel free to email us via our [Discord: sk_miraj](https://discord.com/users/sk_miraj) or join our real-time discussion on [Discort: GSSOC](https://discord.com/channels/1231112132595028008/1235286614909911110).
 
 **Please remember**: This is an inclusive community. We are committed to fostering a safe and positive environment. Be sure to follow our [Code of Conduct](https://github.com/Vin205/Enyanjyoti/blob/main/CODE_OF_CONDUCT.md) in all interactions.
 

@@ -1,56 +1,195 @@
-/* General styling for the navbar */
 .navbar {
-  background-color: #fff; /* Navbar background */
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 40px; /* Rounded corners */
-  position: fixed;
-  top: 20px; /* To give the floating effect */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%; /* Adjust width */
-  z-index: 1000; /* Stay on top */
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  position: relative;
 }
 
-/* Flexbox for the content of the navbar */
-.navbar-container {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  height: 60px;
+  padding: 0;
 }
 
-/* Logo on the left */
-.logo img {
-  height: 50px; /* Adjust size of logo */
+.themechangebtn{
+  background-color: #fff;
 }
 
-/* Align the navigation links to the right */
+.themechangebtn:hover{
+  background-color: #fff;
+}
+
+.themechangebtn img{
+  height:25px;
+  width: 25px;
+  background-color: none;
+}
+
+.dark-mode .navbar {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .nav-links a {
+  color: #fff;
+}
+
+.dark-mode .nav-links a:hover {
+  color: #ccc;
+}
+
+.dark-mode .logo {
+  filter: invert(1);
+}
+
+.theme-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  background-color: #444;
+}
+
+
+.logo {
+  height: 40px;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: auto; /* Push the links to the right */
+  align-items: centre;
 }
 
 .nav-links li {
-  margin-left: 20px; /* Space between each link */
+  margin: 0 20px;
 }
 
 .nav-links a {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: #333;
-  padding: 10px 15px; /* Padding around the links */
-  border-radius: 30px; /* To create the box effect */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  color: #4a5568;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Slight black box effect on hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
-  color: #000; /* Change text color on hover */
+  color: #ffffff;
+  background-color: #4299e1;
+}
+
+.navbar-toggle {
+  background-color: #4299e1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-toggle:hover {
+  background-color: #357ae8;
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 10;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+.close-button {
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #e60000;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    width: 100%;
+    padding: 16px 0;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 10;
+  }
+
+  .nav-menu.active .nav-links {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar-toggle {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none;
+  }
+
+  .nav-links.desktop-links {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
+  }
 }

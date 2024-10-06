@@ -32,14 +32,14 @@ function Login() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="mt-5 mx-auto">
       <div className="row justify-content-center">
-        <div className="col-md-6">
+        <div className="col-4">
           <div className="card shadow">
             <div className="card-body">
               <h2 className="text-center mb-4">Login</h2>
               {error && <div className="alert alert-danger">{error}</div>}
-              <form onSubmit={handleLogin}>
+              <form onSubmit={handleLogin} className=' p-4'>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">Username:</label>
                   <input
@@ -64,7 +64,7 @@ function Login() {
                     required
                   />
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                <button type="submit" className="btn btn-primary w-100 ">Login</button>
               </form>
               <p className="mt-3 text-center">
                 Don't have an account? <span className="text-primary" style={{ cursor: 'pointer' }} onClick={handleSignupRedirect}>Sign Up</span>

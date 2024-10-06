@@ -42,7 +42,7 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className=" mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow">
@@ -50,7 +50,7 @@ function Signup() {
               <h2 className="text-center mb-4">Sign Up</h2>
               {error && <div className="alert alert-danger">{error}</div>}
               {successMessage && <div className="alert alert-success">{successMessage}</div>}
-              <form onSubmit={handleSignup}>
+              <form onSubmit={handleSignup} className='p-4'>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">Username:</label>
                   <input

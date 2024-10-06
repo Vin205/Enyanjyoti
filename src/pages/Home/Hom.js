@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import "./Hom.css";
 import Faqs from './Faqs';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Hom() {
+  const navigate = useNavigate();
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
@@ -33,8 +35,8 @@ export default function Hom() {
             <h1 className="title">Dive into the World of Knowledge, Skills and Wisdom</h1>
             <p className="subtitle">Empower yourself with our comprehensive learning platform</p>
             <div className="button-group">
-              <button className="btn-default">Sign Up</button>
-              <button className="btn-outline">Login</button>
+              <button className="btn-default" onClick={()=> navigate("/signup")}>Sign Up</button>
+              <button className="btn-outline" onClick={() => navigate("/login")}>Login</button>
             </div>
           </div>
         </div>

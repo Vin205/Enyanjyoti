@@ -9,8 +9,8 @@ import Sef from "./components/Sef/Sef.js";
 import Act from "./components/Act/Act.js";
 import Footer from "./components/Footer/Footer.js";
 import About from "./pages/About/About.js";
-import Login from "./components/Login/Login.js";
-import Signup from "./components/Signup/Signup.js";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
   return (

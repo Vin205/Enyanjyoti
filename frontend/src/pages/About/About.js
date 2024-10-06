@@ -1,19 +1,10 @@
-import React, { useEffect , useState } from "react";
-import Slider from "react-slick";
-import "./About.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-function Arrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", scale: "2", filter: "invert(100%)" }}
-      onClick={onClick}
-    />
-  );
-}
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import './About.css';
 
 const About = () => {
   const galleryData = [
@@ -62,84 +53,38 @@ const About = () => {
     },
   ];
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <Arrow />,
-    nextArrow: <Arrow />,
-  };
-
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className="about-container">
-      <main className="about-main-content">
-      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
-        <span class="material-symbols-outlined" style={{
-          color:'#333'
-        }}>
-arrow_upward
-</span>  </button>
-        <div className="about-intro-section">
-          <div className="about-intro-text">
-            <h1 className="about-title">About Us</h1>
-            <p className="about-subtitle">
-              {" "}
-              Deserunt est deserunt pariatur ea cillum voluptate id do voluptate
-              nisi ea aliquip.{" "}
-            </p>
-          </div>
-        </div>
-        <div className="about-slider-wrapper">
-          <div className="about-slider-header">
-            <h2> Our Gallery</h2>
-            <hr></hr>
-          </div>
-          <div className="about-slider">
-            <Slider {...settings}>
-              {galleryData.map((item) => (
-                <div key={item.title} className="about-card">
-                  <div className="about-card-image-container">
-                    <img
-                      src={item.img}
-                      alt=""
-                      className="about-card-image"
-                    ></img>
-                  </div>
-
-                  <div className="about-card-content">
-                    <p className="about-card-title">{item.title}</p>
-                    <p className="about-card-subtitle">{item.subtitle}</p>
-                    <button className="about-card-button">
-                      {" "}
-                      <a className="about-card-link" href={item.link}>
-                        Read More
-                      </a>{" "}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-      </main>
+      <h1 className="carousel-title">Our Gallery</h1>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination]}
+        className="swiper-container"
+      >
+        {galleryData.map((item, index) => (
+          <SwiperSlide key={index} className="swiper-slide">
+            <div className="picture">
+              <img src={item.img} alt={item.title} />
+            </div>
+            <div className="details">
+              <h3 className="title">{item.title}</h3>
+              <span className="subtitle">{item.subtitle}</span>
+            </div>
+          </SwiperSlide>
+        ))}
+        <div className="swiper-pagination"></div>
+      </Swiper>
     </div>
   );
 };

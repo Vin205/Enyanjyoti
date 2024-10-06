@@ -73,6 +73,7 @@ Make sure you have the following installed:
 8. 🛠️ Install dependencies:
 ```bash
    npm install
+   npm install swiper@latest
    ```
 
 9. 📊 Start the development server:

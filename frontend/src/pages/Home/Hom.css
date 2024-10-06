@@ -8,6 +8,20 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scroll-up-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #DBF5EF;
+  border-radius: 50%;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 .hom-container {
   width: 100%;
   background: linear-gradient(to right, #DBECFB, #DBF5EF); /* Updated background gradient */
@@ -138,4 +152,22 @@ body, html {
 .card-button {
   width: 100%;
   padding: 12px 0;
+}
+
+.dark-mode .main-content{
+  background-color: black;
+}
+
+.dark-mode .intro-text h1{
+  color: #fff;
+}
+
+.dark-mode .card{
+  background-color: black;
+  border: 2px solid #fff;
+}
+
+.dark-mode .card-header{
+  border-bottom: 1px solid #fff;
+  color: #fff;
 }

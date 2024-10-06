@@ -11,6 +11,18 @@ function Signup() {
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
 
+const [showPassword, setShowPassword] = useState(false);
+const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+const handlePasswordVisibility = () => {
+  setShowPassword(!showPassword);
+};
+
+const handleConfirmPasswordVisibility = () => {
+  setShowConfirmPassword(!showConfirmPassword);
+};
+
+
   const handleSignup = (e) => {
     e.preventDefault();
 
@@ -25,7 +37,7 @@ function Signup() {
     }
 
     // Replace with actual signup logic
-    console.log('Signing up with:', { username, email, password: '****' });
+    console.log('Signing up with:', { username, email, password: '' });
     
     // Clear fields and show success message
     setUsername('');
@@ -78,7 +90,7 @@ function Signup() {
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password:</label>
                   <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     id="password"
                     className="form-control"
                     placeholder="Enter your password"
@@ -86,11 +98,22 @@ function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  <button onClick={handlePasswordVisibility} style={{
+                    backgroundColor: '#fff',
+                    position: 'relative',
+                    bottom: '30px',
+                    left: '550px',
+                    height: '1px'
+                  }}>
+                    <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
+                      {showPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                    </span>
+                  </button>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
                   <input
-                    type="password"
+                    type={showConfirmPassword ? 'text' : 'password'}
                     id="confirmPassword"
                     className="form-control"
                     placeholder="Confirm your password"
@@ -98,6 +121,17 @@ function Signup() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
+                  <button onClick={handleConfirmPasswordVisibility} style={{
+                    backgroundColor: '#fff',
+                    position: 'relative',
+                    bottom: '30px',
+                    left: '550px',
+                    height: '1px'
+                  }}>
+                    <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
+                      {showConfirmPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                    </span>
+                  </button>
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Sign Up</button>
               </form>

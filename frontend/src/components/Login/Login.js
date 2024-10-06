@@ -6,6 +6,7 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -32,6 +33,11 @@ function Login() {
     navigate('/signup');
   };
 
+  const handleOnClick = () => { // Define the handleOnClick function
+    setShowPassword(!showPassword); // Toggle the showPassword state
+  };
+
+
   return (
     <div className="container mt-5 justify-content-center" style={{ height: 'auto'}}>
       <div className="row justify-content-center" style={{ width: '100%'}}>
@@ -56,7 +62,7 @@ function Login() {
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password:</label>
                   <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'} // Toggle input type based on showPassword state
                     id="password"
                     className="form-control"
                     placeholder="Enter your password"
@@ -64,7 +70,18 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                </div>
+                  <button onClick={handleOnClick} style={{
+                    backgroundColor: '#fff',
+                    position: 'relative',
+                    bottom: '30px',
+                    left: '550px',
+                    height: '1px'
+                  }}>
+                    <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
+                      {showPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                    </span>
+                  </button>
+                  </div>
                 <button type="submit" className="btn btn-primary w-100">Login</button>
               </form>
               <p className="mt-3 text-center">

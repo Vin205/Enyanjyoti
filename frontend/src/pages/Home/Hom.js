@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import { Link } from 'react-router-dom';
 import "./Hom.css";
 import Faqs from './Faqs';
@@ -16,9 +16,31 @@ export default function Hom() {
     };
   }, []);
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="hom-container">
       <main className="main-content">
+      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
+        <span class="material-symbols-outlined" style={{
+          color:'#333'
+        }}>
+arrow_upward
+</span>  </button>
         <div className="intro-section">
           <div className="animation-container">
             <dotlottie-player

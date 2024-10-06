@@ -8,6 +8,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scroll-up-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #dbf5ef;
+  border-radius: 50%;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .about-container {
   width: 100%;
   background: linear-gradient(

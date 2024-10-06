@@ -42,8 +42,17 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
+    <div className="container" style={{
+      position:'fixed',
+      width:"1500px",
+      height:'auto'
+    }}>
+      <div className="row justify-content-center" style={{
+        width:'1000px',
+        position:"relative",
+        top:'50px',
+        left:'250px'
+      }}>
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">

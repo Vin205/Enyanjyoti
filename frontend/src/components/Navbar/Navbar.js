@@ -26,14 +26,6 @@ function Navbar() {
         </ul>
       </div>
 
-      <ul className="nav-links desktop-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/loan">Loan</a></li>
-      </ul>
-
-
       <div className={`nav-menu ${isActive ? 'active' : ''}`}>
         <button className="close-button" onClick={closeNavbar}>
           &times; {/* Close icon */}

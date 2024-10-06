@@ -8,6 +8,20 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scroll-up-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #DBF5EF;
+  border-radius: 50%;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 .hom-container {
   width: 100%;
   background: linear-gradient(to right, #DBECFB, #DBF5EF); /* Updated background gradient */

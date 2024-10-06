@@ -1,14 +1,16 @@
-/* Nabar.css */
 .navbar {
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  position: relative;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
+  padding: 0;
 }
 
 .themechangebtn{
@@ -63,18 +65,131 @@
 .nav-links {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: centre;
 }
 
 .nav-links li {
-  margin: 0 12px;
+  margin: 0 20px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #4a5568;
-  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover {
-  color: #4299e1;
+  color: #ffffff;
+  background-color: #4299e1;
+}
+
+.navbar-toggle {
+  background-color: #4299e1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-toggle:hover {
+  background-color: #357ae8;
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 10;
+}
+
+.nav-menu.active {
+  right: 0;
+}
+
+.close-button {
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #e60000;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    width: 100%;
+    padding: 16px 0;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 10;
+  }
+
+  .nav-menu.active .nav-links {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navbar-toggle {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none;
+  }
+
+  .nav-links.desktop-links {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
+  }
 }

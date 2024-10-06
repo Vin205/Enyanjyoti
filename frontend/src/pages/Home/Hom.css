@@ -154,20 +154,37 @@ body, html {
   padding: 12px 0;
 }
 
-.dark-mode .main-content{
-  background-color: black;
-}
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: flex-start; /* Align items to the start */
+  }
 
-.dark-mode .intro-text h1{
-  color: #fff;
-}
+  .lottie-animation {
+    width: 100%; /* Make the animation responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
 
-.dark-mode .card{
-  background-color: black;
-  border: 2px solid #fff;
-}
+  .title {
+    font-size: 36px; /* Reduce title size */
+  }
 
-.dark-mode .card-header{
-  border-bottom: 1px solid #fff;
-  color: #fff;
+  .subtitle {
+    font-size: 18px; /* Reduce subtitle size */
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons vertically */
+    margin-top: 8px; /* Adjust margin */
+  }
+
+  .btn-default, .btn-outline {
+    width: 100%; /* Make buttons full width */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 8px; /* Add bottom margin for spacing */
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+  }
 }

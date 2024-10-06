@@ -1,3 +1,4 @@
+
 /* footer.css */
 footer {
   background-color: #2B4B77; /* Updated background for better contrast */
@@ -13,6 +14,22 @@ footer {
 }
 
 /* Add a subtle background pattern */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  opacity: 0.1;
+  z-index: 0;
+}
 
 .footer-content {
   display: flex;
@@ -230,6 +247,33 @@ hr {
   100% { transform: translateY(0px); }
 }
 
-.dark-mode footer{
-background: black !important;
+/* Media Queries for Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack footer content vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .footer-socials {
+    text-align: left; /* Align socials to the left */
+    margin-top: 20px; /* Add margin for spacing */
+  }
+
+  .footer-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .footer-title {
+    font-size: 24px; /* Reduce title size */
+  }
+
+  .footer-description {
+    font-size: 14px; /* Reduce description size */
+  }
+
+  .copyright {
+    font-size: 12px; /* Reduce copyright size */
+  }
 }
+

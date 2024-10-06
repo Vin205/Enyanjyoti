@@ -1,6 +1,6 @@
 // src/Login.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -70,7 +70,9 @@ function Login() {
                 Don't have an account? <span className="text-primary" style={{ cursor: 'pointer' }} onClick={handleSignupRedirect}>Sign Up</span>
               </p>
               <p className="text-center mt-2">
-                <a href="#" className="text-muted">Forgot Password?</a>
+                <Link to="/forgot-password" className="text-muted">
+                  Forgot Password?
+                </Link>
               </p>
             </div>
           </div>

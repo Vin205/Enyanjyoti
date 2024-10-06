@@ -1,0 +1,247 @@
+/* footer.css */
+footer {
+  background-color: #2B4B77; /* Updated background for better contrast */
+  color: #ffffff;
+  padding: 60px 80px;
+  border-top: 5px solid #1565C0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #2B4B77, #3D6DA3, #1565C0, #4A73B5);
+  background-size: 400% 400%;
+  animation: gradientBG 5s ease-in-out infinite;
+}
+
+/* Add a subtle background pattern */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
+                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-main {
+  flex: 1;
+}
+
+.footer-socials {
+  text-align: right;
+}
+
+.footer-socials h4 {
+  font-size: 28px; /* Increased from 24px */
+  margin-bottom: 20px; /* Slightly increased from 15px */
+  font-weight: 600; /* Added for emphasis */
+  color: #ffffff; /* Ensuring high contrast */
+  text-transform: uppercase; /* Optional: adds more emphasis */
+  letter-spacing: 1px; /* Optional: improves readability for uppercase text */
+  animation: float 3s ease-in-out infinite;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: #e0e7ff;
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.social-icons a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #FFD700;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #b0c7e1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.copyright::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.copyright:hover::before {
+  left: 100%;
+}
+
+.copyright:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.footer-main, .footer-socials {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.footer-main {
+  animation-delay: 0.2s;
+}
+
+.footer-socials {
+  animation-delay: 0.4s;
+}
+
+.footer-title {
+  font-size: 32px; /* Increased font size for better visibility */
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.footer-description {
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #e0e7ff; /* Lighter color for better readability */
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 20px; /* Increased gap for visual clarity */
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #3D6DA3; /* Lighter shade to contrast with background */
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px; /* Softer corner radius */
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern look */
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.6s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background-color: #4A73B5; /* Darker shade on hover */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  color: #FFD700; /* Gold color on hover */
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-light {
+  background-color: #5678B3; /* Lighter button style */
+  color: #ffffff;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b0c7e1, transparent);
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px; /* Increased spacing */
+  margin-top: 30px;
+}
+
+.social-links a {
+  color: #e0e7ff; /* Light color for links */
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Hom.css";
-import Faqs from './Faqs';
-
+import Faqs from "./Faqs";
 
 export default function Hom() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
+    script.src =
+      "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
     script.type = "module";
     document.body.appendChild(script);
 
@@ -15,7 +15,6 @@ export default function Hom() {
       document.body.removeChild(script);
     };
   }, []);
-
 
   const [, setShowScrollTop] = useState(false);
   useEffect(() => {
@@ -26,21 +25,49 @@ export default function Hom() {
         setShowScrollTop(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  let cardDetails = [
+    {
+      title: "Education",
+      description:
+        "Get complete understanding of concepts. Adapt life skills. Gain general knowledge and enjoy activity-based learning.",
+      image: "./images/e3.png",
+      action: "Learn Now",
+    },
+    {
+      title: "Career",
+      description:
+        "Explore career opportunities and make yourself ready for employment in various fields. Learn how to build your own startup and become a successful entrepreneur.",
+      image: "./images/e4.png",
+      action: "Explore Now",
+    },
+    {
+      title: "Loans and Grants",
+      description:
+        "Complete information about loans, grants, and scholarships. Simple procedure and steps to apply easily.",
+      image: "./images/e5.png",
+      action: "Check Now",
+    },
+  ];
 
   return (
     <div className="hom-container">
       <main className="main-content">
         <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
-          <span class="material-symbols-outlined" style={{
-            color: '#333'
-          }}>
+          <span
+            class="material-symbols-outlined"
+            style={{
+              color: "#333",
+            }}
+          >
             arrow_upward
-          </span>  </button>
+          </span>{" "}
+        </button>
         <div className="intro-section">
           <div className="animation-container">
             <dotlottie-player
@@ -53,8 +80,12 @@ export default function Hom() {
             ></dotlottie-player>
           </div>
           <div className="intro-text">
-            <h1 className="title">Dive into the World of Knowledge, Skills and Wisdom</h1>
-            <p className="subtitle">Empower yourself with our comprehensive learning platform</p>
+            <h1 className="title">
+              Dive into the World of Knowledge, Skills and Wisdom
+            </h1>
+            <p className="subtitle">
+              Empower yourself with our comprehensive learning platform
+            </p>
             <div className="button-group">
               <Link to="/Signup" className="btn-default">
                 Sign Up
@@ -66,43 +97,27 @@ export default function Hom() {
           </div>
         </div>
 
-        <div className="card-grid">
-          {[
-            {
-              title: "Education",
-              description:
-                "Get complete understanding of concepts. Adapt life skills. Gain general knowledge and enjoy activity-based learning.",
-              image: "./images/e3.png",
-              action: "Learn Now",
-            },
-            {
-              title: "Career",
-              description:
-                "Explore career opportunities and make yourself ready for employment in various fields. Learn how to build your own startup and become a successful entrepreneur.",
-              image: "./images/e4.png",
-              action: "Explore Now",
-            },
-            {
-              title: "Loans and Grants",
-              description:
-                "Complete information about loans, grants, and scholarships. Simple procedure and steps to apply easily.",
-              image: "./images/e5.png",
-              action: "Check Now",
-            },
-          ].map((item, index) => (
-            <div key={index} className="card">
+        <div className="d-flex flex-wrap gap-3 justify-content-center">
+          {cardDetails.map((item, index) => (
+            <div key={index} className="card" style={{maxWidth: "350px"}}>
               <div className="card-header">
                 <h2 className="card-title">{item.title}</h2>
               </div>
               <div className="card-content">
-                <img src={item.image} alt={item.title} className="card-image" />
+                <img src={item.image} alt={item.title} className="card-image " style={{objectFit:"cover"}} />
                 <p className="card-description">{item.description}</p>
                 {item.title === "Loans and Grants" && (
-                  <Link to="/Loan"><button className="btn-default card-button">{item.action}</button></Link>
+                  <Link to="/Loan">
+                    <button className="btn-default card-button">
+                      {item.action}
+                    </button>
+                  </Link>
                 )}
 
                 {item.title !== "Loans and Grants" && (
-                  <button className="btn-default card-button">{item.action}</button>
+                  <button className="btn-default card-button">
+                    {item.action}
+                  </button>
                 )}
               </div>
             </div>

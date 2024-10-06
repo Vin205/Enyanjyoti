@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect , useState } from "react";
 import Slider from "react-slick";
 import "./About.css";
 import "slick-carousel/slick/slick.css";
@@ -71,9 +71,32 @@ const About = () => {
     prevArrow: <Arrow />,
     nextArrow: <Arrow />,
   };
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="about-container">
       <main className="about-main-content">
+      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
+        <span class="material-symbols-outlined" style={{
+          color:'#333'
+        }}>
+arrow_upward
+</span>  </button>
         <div className="about-intro-section">
           <div className="about-intro-text">
             <h1 className="about-title">About Us</h1>

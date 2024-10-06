@@ -8,6 +8,20 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scroll-up-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: #DBF5EF;
+  border-radius: 50%;
+  border: none;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 .hom-container {
   width: 100%;
   background: linear-gradient(to right, #DBECFB, #DBF5EF); /* Updated background gradient */
@@ -71,6 +85,7 @@ body, html {
   border-radius: 5px;
   margin-right: 12px;
   font-size: 18px;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
@@ -86,6 +101,7 @@ body, html {
   cursor: pointer;
   border-radius: 5px;
   font-size: 18px;
+  text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
 }
 

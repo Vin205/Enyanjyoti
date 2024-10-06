@@ -25,7 +25,7 @@ function Signup() {
     }
 
     // Replace with actual signup logic
-    console.log('Signing up with:', { username, email, password });
+    console.log('Signing up with:', { username, email, password: '****' });
     
     // Clear fields and show success message
     setUsername('');

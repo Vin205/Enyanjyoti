@@ -21,11 +21,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Hom />} />
             <Route path="/about" element={<About />} />
-            <Route path="educ" element={<Educ />} />
-            <Route path="sef" element={<Sef />} />
-            <Route path="craft" element={<Craft />} />
-            <Route path="quiz" element={<Quiz />} />
-            <Route path="act" element={<Act />} />
+            <Route path="/educ" element={<Educ />} />
+            <Route path="/sef" element={<Sef />} />
+            <Route path="/craft" element={<Craft />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/act" element={<Act />} />
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/Signup" element={<Signup />} />
           </Routes>
         </main>
         <Footer />

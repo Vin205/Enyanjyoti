@@ -1,5 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Hom.css";
+import Faqs from './Faqs';
+
 
 export default function Hom() {
   useEffect(() => {
@@ -13,9 +16,31 @@ export default function Hom() {
     };
   }, []);
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="hom-container">
       <main className="main-content">
+      <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
+        <span class="material-symbols-outlined" style={{
+          color:'#333'
+        }}>
+arrow_upward
+</span>  </button>
         <div className="intro-section">
           <div className="animation-container">
             <dotlottie-player
@@ -31,8 +56,12 @@ export default function Hom() {
             <h1 className="title">Dive into the World of Knowledge, Skills and Wisdom</h1>
             <p className="subtitle">Empower yourself with our comprehensive learning platform</p>
             <div className="button-group">
-              <button className="btn-default">Sign Up</button>
-              <button className="btn-outline">Login</button>
+              <Link to="/Signup" className="btn-default">
+                Sign Up
+              </Link>
+              <Link to="/login" className="btn-outline">
+                Login
+              </Link>
             </div>
           </div>
         </div>
@@ -72,6 +101,9 @@ export default function Hom() {
               </div>
             </div>
           ))}
+        </div>
+        <div>
+          <Faqs/>
         </div>
       </main>
     </div>

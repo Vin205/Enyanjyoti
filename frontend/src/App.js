@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Routes, Route, useLocation } from "react-router-dom"; // Resolved spacing issue
 
 import Navbar from "./components/Navbar/Navbar.js";

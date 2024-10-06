@@ -7,10 +7,10 @@ import Quiz from "./components/Quiz/Quiz.js";
 import Craft from "./components/Craft/Craft.js";
 import Sef from "./components/Sef/Sef.js";
 import Act from "./components/Act/Act.js";
-import Footer from "./components/Footer/Footer.js";
-import About from "./pages/About/About.js";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Footer from "./components/Footer/Footer.js";
+import About from "./pages/About/About.js";
 
 function App() {
   return (

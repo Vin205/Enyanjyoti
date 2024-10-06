@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const location = useLocation();
 
   const toggleNavbar = () => {
     setIsActive(!isActive);
@@ -15,33 +17,32 @@ function Navbar() {
   return (
     <nav className={`navbar`}>
       <div className="container">
-        <img src="/images/e1.png" alt="Logo" className="logo" />
+        <Link to="/" className="logo-link" onClick={closeNavbar}>
+          <img src="/images/e1.png" alt="Logo" className="logo" />
+        </Link>
         <button className="navbar-toggle" onClick={toggleNavbar}>
-          ☰ {/* Hamburger icon */}
+          ☰ 
         </button>
         <ul className="nav-links desktop-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact Us</a></li>
+          {location.pathname !== '/' && (
+            <li><Link to="/">Home</Link></li>
+          )}
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
+          <li><Link to="/loan">Loan</Link></li>
         </ul>
       </div>
 
-      <ul className="nav-links desktop-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/loan">Loan</a></li>
-      </ul>
-
-
       <div className={`nav-menu ${isActive ? 'active' : ''}`}>
         <button className="close-button" onClick={closeNavbar}>
-          &times; {/* Close icon */}
+          &times;
         </button>
         <ul className="nav-links">
-          <li><a href="/" onClick={closeNavbar}>Home</a></li>
-          <li><a href="/about" onClick={closeNavbar}>About Us</a></li>
-          <li><a href="/contact" onClick={closeNavbar}>Contact Us</a></li>
+          {location.pathname !== '/' && (
+            <li><Link to="/" onClick={closeNavbar}>Home</Link></li>
+          )}
+          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
+          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
         </ul>
       </div>
     </nav>

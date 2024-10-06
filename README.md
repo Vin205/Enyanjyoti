@@ -1,9 +1,9 @@
 
-# 🎉 Welcome to the Enyanjyoti Platform! 🌟
+# 🎉 Welcome to the E-nyanjyoti Platform! 🌟
 
 This repository is part of **GirlScript Summer of Code 2024 Extended Edition!** 🚀
 
-Enyanjyoti serves as a **one-stop solution** for:
+E-nyanjyoti serves as a **one-stop solution** for:
 - 📚 **Conceptual Learning**
 - 💼 **Career and Employment Opportunities**
 - 💰 **Information about Loans and Grants**
@@ -167,7 +167,7 @@ Thank you for your contributions!
 
 ## Our Contributors
 
-- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating Ratna-Supermarket to greater heights.
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">

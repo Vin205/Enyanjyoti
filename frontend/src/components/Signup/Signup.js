@@ -42,8 +42,8 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
+    <div className="container mt-5 justify-content-center" style={{ height: 'auto'}}>
+      <div className="row justify-content-center" style={{ width: '100%'}}>
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">

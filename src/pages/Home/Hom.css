@@ -151,3 +151,31 @@ body, html {
   width: 100%;
   padding: 12px 0;
 }
+
+.dark-mode .main-content{
+  background-color: black;
+  color: #fff;
+}
+
+.dark-mode .title{
+  color: #fff;
+}
+
+.dark-mode .card {
+  background-color: #222222;
+  border: 2px solid #fff;
+}
+
+.dark-mode .card-title{
+  color: #fff;
+}
+
+.dark-mode .card-button{
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-mode .card-header{
+  border-bottom: 2px solid #fff;
+}
+

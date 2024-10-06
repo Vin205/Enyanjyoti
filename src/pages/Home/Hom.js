@@ -17,7 +17,7 @@ export default function Hom() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 150) {
+      if (window.scrollY > 120) {
         setShowScrollTop(true);
       } else {
         setShowScrollTop(false);

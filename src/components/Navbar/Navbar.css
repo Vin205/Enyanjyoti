@@ -1,4 +1,43 @@
 /* Nabar.css */
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .nav-links a {
+  color: #fff;
+}
+
+.dark-mode .nav-links a:hover {
+  color: #ccc;
+}
+
+.dark-mode .logo {
+  filter: invert(1);
+}
+.dark-mode .navbar{
+  background-color: #333;
+}
+
+.dark-mode .theme-button{
+  background-color: #333;
+}
+
+
+.theme-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  background-color: #444;
+}
+
 .navbar {
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

@@ -33,17 +33,8 @@ function Login() {
   };
 
   return (
-    <div className="container" style={{
-      position:'fixed',
-      width:"1500px",
-      height:'auto'
-    }}>
-      <div className="row justify-content-center" style={{
-        width:'1000px',
-        position:"relative",
-        top:'100px',
-        left:'250px'
-      }}>
+    <div className="container mt-5 justify-content-center" style={{ height: 'auto'}}>
+      <div className="row justify-content-center" style={{ width: '100%'}}>
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">

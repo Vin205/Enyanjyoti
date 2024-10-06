@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "./Hom.css";
+import Faqs from './Faqs';
+
 
 export default function Hom() {
   useEffect(() => {
@@ -72,6 +74,9 @@ export default function Hom() {
               </div>
             </div>
           ))}
+        </div>
+        <div>
+          <Faqs/>
         </div>
       </main>
     </div>

@@ -1,167 +1,97 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  width: 100%;
-  -webkit-font-smoothing: antialiased; /* Smooth font rendering */
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.scroll-up-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 30px;
-  height: 40px;
-  width: 40px;
-  background-color: #dbf5ef;
-  border-radius: 50%;
-  border: none;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .about-container {
+  background: linear-gradient(to right, #DBECFB, #DBF5EF);
+}
+
+.carousel-container {
   width: 100%;
-  background: linear-gradient(
-    to right,
-    #dbecfb,
-    #dbf5ef
-  ); /* Updated background gradient */
-}
-
-.about-main-content {
-  width: 100%;
-  margin: 0 auto;
-  padding: 32px 0;
-}
-
-.about-intro-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 40vh; /* Make the section take up the full viewport height */
-  padding: 16px 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-intro-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 16px;
-  align-items: center;
-  justify-content: center;
-  text-align: center; /* Ensure the text is centered within the intro-text div */
-}
-
-.about-title {
-  font-size: 56px;
-  color: #18181b; /* Darker text color for better contrast */
-  font-weight: 900; /* Bolder text */
-  line-height: 1.2; /* Improved line-height for better readability */
-}
-
-.about-subtitle {
-  font-size: 24px;
-  color: #4a4a4a; /* Slightly darker subtitle */
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.about-slider-wrapper {
-  padding: 16px;
-  background-color: white;
-  z-index: 10;
-  width: 100%;
-}
-
-.about-slider-header {
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-slider-header > h2 {
-  margin: 0;
+  padding: 50px 0;
   text-align: center;
-  font-weight: 700;
 }
 
-.about-slider-header > hr {
-  width: 20%;
-  border-bottom: 2px solid rgb(153, 192, 214);
-  opacity: 0.5;
+.carousel-title {
+  font-size: 48px; 
+  font-weight: 900;
+  text-align: center; 
+  padding-top: 40px;
+  margin-bottom: 20px; 
+  color: #333;
+  text-transform: uppercase; 
 }
 
-.about-slider {
-  padding: 2rem;
+.carousel-title::after {
+  content: ""; 
+  display: block;
+  width: 100px; 
+  height: 4px; 
+  background-color: #000; 
+  margin: 10px auto 0;
+  margin-bottom: 20px; 
 }
 
-.about-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+.swiper-container {
+  width: 80%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
 }
 
-.about-card-image-container {
-  width: 100%; /* Example width */
-  height: 200px; /* Example height */
-  overflow: hidden; /* Ensure any overflow is clipped */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.about-card-image {
+.picture {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.swiper-container img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
 }
 
-.about-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  padding: 0.5rem 2rem 2rem 2rem;
-  margin-top: 1rem;
+.details {
+  padding: 20px;
+  font-weight: 600;
+  text-align: center;
 }
 
-.about-card-title {
-  font-weight: 700;
+.title {
+  margin: 0;
+  font-size: 20px;
+  color: #000;
 }
 
-.about-card-subtitle {
-  color: #718096;
-  margin-top: 2px;
-  margin-bottom: 2rem;
+.subtitle {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
 }
 
-.about-card-button {
-  background-color: #18181b; /* Dark background for "Sign Up" button */
-  color: #ffffff;
-  padding: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 25px;
-  /* margin-right: 12px; */
-  font-size: 18px;
-  transition: background 0.3s ease;
-}
-.about-card-button:hover {
-  background-color: #333333; /* Slightly lighter on hover */
+.dark-mode .swiper-slide{
+  background-color: #333;
+  border: 2px solid #fff;
 }
 
-.about-card-link {
-  text-decoration: none;
-  color: #ffffff;
+.dark-mode .about-container{
+  background: black !important;
 }
 
-.slick-slide > div {
-  margin: 0 10px;
+.dark-mode .carousel-title{
+  color: #fff;
+}
+
+.dark-mode .details .title{
+  color: #fff;
+}
+
+.dark-mode .details .subtitle{
+  color: #fff;
 }

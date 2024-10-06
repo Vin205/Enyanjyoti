@@ -1,68 +1,55 @@
-// src/Login.js
-import React, { useState } from 'react';
-import { useNavigate, Link, replace } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../Firebase/firebase';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    setError(''); // Reset error state
-    
-    // Basic validation
-    if (!username || !password) {
-      setError('Both fields are required.');
-      return;
-    }
-
-    // Placeholder for actual login logic
-    console.log('Logging in with username:', username);
-    alert('Login successful!'); // This would be replaced with actual logic
-
-    // Clear fields after successful login
-    setUsername('');
-    setPassword('');
-    navigate('/', {replace:true});
+    await signInWithEmailAndPassword(email, password);
   };
 
-  const handleSignupRedirect = () => {
-    navigate('/signup');
-  };
-
-  const handleOnClick = () => { // Define the handleOnClick function
-    setShowPassword(!showPassword); // Toggle the showPassword state
-  };
-
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        navigate('/dashboard', { replace: true });
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: 'auto'}}>
-      <div className="row justify-content-center" style={{ width: '100%'}}>
+    <div className="container mt-5 justify-content-center" style={{ height: 'auto' }}>
+      <div className="row justify-content-center" style={{ width: '100%' }}>
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
               <h2 className="text-center mb-4">Login</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
+              {error && <div className="alert alert-danger">{error.message}</div>}
               <form onSubmit={handleLogin}>
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username:</label>
+                  <label htmlFor="email" className="form-label">Email:</label>
                   <input
-                    type="text"
-                    id="username"
+                    type="email"
+                    id="email"
                     className="form-control"
-                    placeholder="Enter your username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password:</label>
                   <input
-                    type={showPassword ? 'text' : 'password'} // Toggle input type based on showPassword state
+                    type={showPassword ? 'text' : 'password'}
                     id="password"
                     className="form-control"
                     placeholder="Enter your password"
@@ -70,27 +57,25 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <button onClick={handleOnClick} style={{
-                    backgroundColor: '#fff',
-                    position: 'relative',
-                    bottom: '30px',
-                    left: '550px',
-                    height: '1px'
-                  }}>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ backgroundColor: '#fff', position: 'relative', bottom: '30px', left: '550px', height: '1px' }}
+                  >
                     <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
-                      {showPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                      {showPassword ? 'visibility_off' : 'visibility'}
                     </span>
                   </button>
-                  </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                </div>
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                  {loading ? 'Logging in...' : 'Login'}
+                </button>
               </form>
               <p className="mt-3 text-center">
-                Don't have an account? <span className="text-primary" style={{ cursor: 'pointer' }} onClick={handleSignupRedirect}>Sign Up</span>
+                Don't have an account? <span className="text-primary" style={{ cursor: 'pointer' }} onClick={() => navigate('/signup')}>Sign Up</span>
               </p>
               <p className="text-center mt-2">
-                <Link to="/forgot-password" className="text-muted">
-                  Forgot Password?
-                </Link>
+                <Link to="/forgot-password" className="text-muted">Forgot Password?</Link>
               </p>
             </div>
           </div>

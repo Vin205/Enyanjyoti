@@ -19,7 +19,7 @@ function Login() {
     }
 
     // Placeholder for actual login logic
-    console.log('Logging in with:', { username, password });
+    console.log('Logging in with username:', username);
     alert('Login successful!'); // This would be replaced with actual logic
 
     // Clear fields after successful login

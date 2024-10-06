@@ -1,7 +1,10 @@
 .about-container {
   background: linear-gradient(to right, #DBECFB, #DBF5EF);
 }
-
+.about-hero{
+  width: 100%;
+  height: 80vh;
+}
 .carousel-container {
   width: 100%;
   padding: 50px 0;
@@ -94,4 +97,92 @@
 
 .dark-mode .details .subtitle{
   color: #fff;
+}
+/* About Hero Section Styling */
+.about-hero {
+  background: linear-gradient(135deg, #286db1 30%, #dfe9f3 100%);
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.about-intro-section {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+}
+
+.about-intro-text {
+  margin-top: 20px;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .about-intro-section {
+    padding: 20px;
+  }
+
+  .about-image {
+    width: 90%;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .about-image {
+    width: 100%;
+  }
 }

@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Routes, Route } from "react-router-dom"; 
-
-import { Routes, Route, useLocation } from "react-router-dom"; // Resolved spacing issue
+import { useLocation } from "react-router-dom"; // Resolved spacing issue
 
 import Navbar from "./components/Navbar/Navbar.js";
 import Hom from "./pages/Home/Hom.js";

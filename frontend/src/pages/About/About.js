@@ -55,36 +55,53 @@ const About = () => {
 
   return (
     <div className="about-container">
-      <h1 className="carousel-title">Our Gallery</h1>
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
-        className="swiper-container"
-      >
-        {galleryData.map((item, index) => (
-          <SwiperSlide key={index} className="swiper-slide">
-            <div className="picture">
-              <img src={item.img} alt={item.title} />
-            </div>
-            <div className="details">
-              <h3 className="title">{item.title}</h3>
-              <span className="subtitle">{item.subtitle}</span>
-            </div>
-          </SwiperSlide>
-        ))}
-        <div className="swiper-pagination"></div>
-      </Swiper>
+      <div className="about-hero">
+        <div className="about-intro-section">
+          <img src="/images/aboutimage.png" alt="About Us Image" className="about-image" />
+          <div className="about-intro-text">
+            <h1 className="about-title">About Us</h1>
+            <p className="about-subtitle">
+              Deserunt est deserunt pariatur ea cillum voluptate id do voluptate nisi ea aliquip.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <h1 className="carousel-title">Our Gallery</h1>
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={true}
+          modules={[EffectCoverflow, Pagination]}
+          className="swiper-container"
+        >
+          {galleryData.map((item, index) => (
+            <SwiperSlide key={index} className="swiper-slide">
+              <div className="picture">
+                <img src={item.img} alt={item.title} />
+              </div>
+              <div className="details">
+                <h3 className="title">{item.title}</h3>
+                <span className="subtitle">{item.subtitle}</span>
+              </div>
+            </SwiperSlide>
+          ))}
+          <div className="swiper-pagination"></div>
+        </Swiper>
+
+      </div>
+
     </div>
   );
 };

@@ -97,7 +97,13 @@ arrow_upward
               <div className="card-content">
                 <img src={item.image} alt={item.title} className="card-image" />
                 <p className="card-description">{item.description}</p>
-                <button className="btn-default card-button">{item.action}</button>
+                {item.title === "Loans and Grants" && (
+                  <Link to="/Loan"><button className="btn-default card-button">{item.action}</button></Link>
+                )}
+
+                {item.title !== "Loans and Grants" && (
+                  <button className="btn-default card-button">{item.action}</button>
+                )}
               </div>
             </div>
           ))}

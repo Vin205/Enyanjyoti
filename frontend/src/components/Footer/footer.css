@@ -13,22 +13,6 @@ footer {
 }
 
 /* Add a subtle background pattern */
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3);
-  background-size: 80px 140px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
-  opacity: 0.1;
-  z-index: 0;
-}
 
 .footer-content {
   display: flex;
@@ -244,4 +228,8 @@ hr {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
+}
+
+.dark-mode footer{
+background: black !important;
 }

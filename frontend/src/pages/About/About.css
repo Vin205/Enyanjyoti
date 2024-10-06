@@ -72,4 +72,26 @@
   display: block;
   font-size: 16px;
   color: #555;
+  margin-top: 10px;
+}
+
+.dark-mode .swiper-slide{
+  background-color: #333;
+  border: 2px solid #fff;
+}
+
+.dark-mode .about-container{
+  background: black !important;
+}
+
+.dark-mode .carousel-title{
+  color: #fff;
+}
+
+.dark-mode .details .title{
+  color: #fff;
+}
+
+.dark-mode .details .subtitle{
+  color: #fff;
 }

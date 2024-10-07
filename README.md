@@ -172,10 +172,12 @@ Thank you for your contributions!
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">
-  <a href="https://github.com/Vin205/Enyanjyoti">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&&cachebust=2" />
+  <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=19&cachebust=3" />
   </a>
 </div>
+
+
 
 [![Contributors](https://img.shields.io/github/contributors/Vin205/Enyanjyoti)](https://github.com/Vin205/Enyanjyoti/graphs/contributors)
 

@@ -18,7 +18,7 @@ We aim to bridge the gap between education and employment while providing essent
 3. [How to Contribute](#how-to-contribute)
 4. [Contributers](#our-contributors)
 5. [Code of Conduct](#code-of-conduct)
-6. [Issues](#issues)
+6. [Issues](https://github.com/Vin205/Enyanjyoti/issues)
 7. [Pull Requests](#pull-requests)
 8. [Additional Resources](#additional-resources)
 

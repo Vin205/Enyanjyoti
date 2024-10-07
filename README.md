@@ -173,7 +173,7 @@ Thank you for your contributions!
 
 <div align="center">
   <a href="https://github.com/Vin205/Enyanjyoti">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&&max=1000&&cachebust=1" />
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&&cachebust=2" />
   </a>
 </div>
 

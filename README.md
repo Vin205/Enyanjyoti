@@ -59,7 +59,14 @@ We aim to bridge the gap between education and employment while providing essent
 [![Contributors](https://img.shields.io/github/contributors/Vin205/Enyanjyoti)](https://github.com/Vin205/Enyanjyoti/graphs/contributors)
 Thank you for your contributions!
 
-
+---
+<h3>- : Officially Part of GirlScript Summer Of Code & hacktoberfest 2024 : -</h3>
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif">
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*fqJaH_oISOR96gLgpJBwWQ.png" height="90" >
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif">
+<p align="center"> 
+  
 ---
 
 ## Table of Contents

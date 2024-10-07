@@ -250,4 +250,29 @@ All contributions are made through pull requests. To submit a pull request, foll
   
 ---
 
+## Project Admin & Mentor assigned under GSSoC ext & Hacktoberfest 2024
+Feel free to ask, and don’t hesitate to raise your problem. They are always ready to help you!
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Vin205">
+        <img src="https://avatars.githubusercontent.com/u/138381350?v=4" width="100" height="100" style="border-radius: 50%;" alt="Project Admin Profile Picture"/>
+      </a>
+      <p><strong><a href="https://github.com/Vin205">Vinisha Dsouza</a></strong></p>
+      <p><em>Project Admin</em></p>
+    </td>
+    <td align="center">
+      <a href="https://github.com/skmirajulislam">
+        <img src="https://avatars.githubusercontent.com/u/122096119?v=4" width="100" height="100" style="border-radius: 50%;" alt="Project Mentor Profile Picture"/>
+      </a>
+      <p><strong><a href="https://github.com/skmirajulislam">Sk Mirajul Islam</a></strong></p>
+      <p><em>Project Mentor</em></p>
+    </td>
+  </tr>
+</table>
+
+
+
+
 Happy Coding! 😄

@@ -15,7 +15,7 @@ We aim to bridge the gap between education and employment while providing essent
 ## Table of Contents
 1. [Getting Started](#getting-started)
 2. [Available Scripts](#available-scripts)
-3. [How to Contribute](#how-to-contribute)
+3. [How to Contribute](https://github.com/Vin205/Enyanjyoti/blob/main/CONTRIBUTING.md)
 4. [Contributers](#our-contributors)
 5. [Code of Conduct](#code-of-conduct)
 6. [Issues](https://github.com/Vin205/Enyanjyoti/issues)

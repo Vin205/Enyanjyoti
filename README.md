@@ -10,6 +10,19 @@ E-nyanjyoti serves as a **one-stop solution** for:
 
 We aim to bridge the gap between education and employment while providing essential information about financial support. Join us in building a platform that empowers learners and professionals alike!
 
+## Our Contributors
+
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
+- Make sure you show some love by giving ⭐ to our repository.
+
+<div align="center">
+  <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=19&cachebust=3" />
+  </a>
+</div>
+
+[![Contributors](https://img.shields.io/github/contributors/Vin205/Enyanjyoti)](https://github.com/Vin205/Enyanjyoti/graphs/contributors)
+
 ---
 
 ## Table of Contents
@@ -163,23 +176,6 @@ Thank you for your contributions!
 - Follow the coding style used in the project.
 - Ensure that tests pass before submitting pull requests.
 - Open an issue before working on new features.
-
----
-
-## Our Contributors
-
-- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
-- Make sure you show some love by giving ⭐ to our repository.
-
-<div align="center">
-  <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=19&cachebust=3" />
-  </a>
-</div>
-
-
-
-[![Contributors](https://img.shields.io/github/contributors/Vin205/Enyanjyoti)](https://github.com/Vin205/Enyanjyoti/graphs/contributors)
 
 ---
 

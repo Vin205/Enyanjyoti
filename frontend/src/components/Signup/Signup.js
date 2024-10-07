@@ -1,33 +1,44 @@
 // src/Signup.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../Firebase/firebase'; // Import Firebase auth
 
 function Signup() {
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
-const [showPassword, setShowPassword] = useState(false);
-const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [createUserWithEmailAndPassword, user, loading, firebaseError] = useCreateUserWithEmailAndPassword(auth);
 
-const handlePasswordVisibility = () => {
-  setShowPassword(!showPassword);
-};
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-const handleConfirmPasswordVisibility = () => {
-  setShowConfirmPassword(!showConfirmPassword);
-};
+  const handleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        navigate('/dashboard', { replace: true });
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
+    setError(''); // Reset error state
 
-    // Simple validation
-    if (!username || !email || !password || !confirmPassword) {
+    // Basic validation
+    if (!email || !password || !confirmPassword) {
       setError('Please fill in all fields.');
       return;
     }
@@ -36,26 +47,24 @@ const handleConfirmPasswordVisibility = () => {
       return;
     }
 
-    // Replace with actual signup logic
-    console.log('Signing up with:', { username, email, password: '' });
-    
-    // Clear fields and show success message
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
-    setError('');
-    setSuccessMessage('Signup successful! Redirecting to login...');
-    
-    // Redirect after a short delay
-    setTimeout(() => {
-      navigate('/login');
-    }, 2000); // Redirects after 2 seconds
+    // Firebase signup
+    try {
+      await createUserWithEmailAndPassword(email, password);
+      setSuccessMessage('Signup successful! Redirecting to login...');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000); // Redirect after 2 seconds
+    } catch (firebaseError) {
+      setError(firebaseError?.message || 'Error signing up.');
+    }
   };
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: 'auto'}}>
-      <div className="row justify-content-center" style={{ width: '100%'}}>
+    <div className="container mt-5 justify-content-center" style={{ height: 'auto' }}>
+      <div className="row justify-content-center" style={{ width: '100%' }}>
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
@@ -63,18 +72,6 @@ const handleConfirmPasswordVisibility = () => {
               {error && <div className="alert alert-danger">{error}</div>}
               {successMessage && <div className="alert alert-success">{successMessage}</div>}
               <form onSubmit={handleSignup}>
-                <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username:</label>
-                  <input
-                    type="text"
-                    id="username"
-                    className="form-control"
-                    placeholder="Enter your username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                  />
-                </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email:</label>
                   <input
@@ -106,7 +103,7 @@ const handleConfirmPasswordVisibility = () => {
                     height: '1px'
                   }}>
                     <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
-                      {showPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                      {showPassword ? 'visibility_off' : 'visibility'}
                     </span>
                   </button>
                 </div>
@@ -129,11 +126,13 @@ const handleConfirmPasswordVisibility = () => {
                     height: '1px'
                   }}>
                     <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
-                      {showConfirmPassword ? 'visibility_off' : 'visibility'} {/* Toggle eye icon based on showPassword state */}
+                      {showConfirmPassword ? 'visibility_off' : 'visibility'}
                     </span>
                   </button>
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Sign Up</button>
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                  {loading ? 'Signing up...' : 'Sign Up'}
+                </button>
               </form>
               <p className="mt-3 text-center">
                 Already have an account? <span className="text-primary" style={{ cursor: 'pointer' }} onClick={() => navigate('/login')}>Login</span>
@@ -145,4 +144,5 @@ const handleConfirmPasswordVisibility = () => {
     </div>
   );
 }
+
 export default Signup;

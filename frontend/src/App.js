@@ -17,7 +17,8 @@ import Login from "./components/Login/Login.js";
 import Signup from "./components/Signup/Signup.js";
 import Footer from "./components/Footer/Footer.js";
 import About from "./pages/About/About.js";
-import Loan from "./pages/Loan/Loan.js"; // Ensure the path is correct
+import Loan from "./pages/Loan/Loan.js";
+import Dashboard from "./pages/Dashboard/Dashboard.js";
 import Contact from "./pages/Contact/Contact.js";
 function App() {
   const location = useLocation();
@@ -28,7 +29,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Hom />} />
-            <Route path="/loan" element={<Loan />} /> {/* Corrected this line */}
+            <Route path="/loan" element={<Loan />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<About />} />
             <Route path="/educ" element={<Educ />} />
             <Route path="/sef" element={<Sef />} />

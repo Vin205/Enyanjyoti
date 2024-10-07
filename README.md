@@ -22,7 +22,7 @@ We aim to bridge the gap between education and employment while providing essent
 </div>
 
 [![Contributors](https://img.shields.io/github/contributors/Vin205/Enyanjyoti)](https://github.com/Vin205/Enyanjyoti/graphs/contributors)
-
+Thank you for your contributions!
 ---
 
 ## Table of Contents
@@ -169,13 +169,13 @@ We welcome contributions to the Enyanjyoti platform! To get started:
 
 ---
 
-Thank you for your contributions!
-
 ### Contribution Guidelines:
 - Keep code clean and well-documented.
 - Follow the coding style used in the project.
 - Ensure that tests pass before submitting pull requests.
 - Open an issue before working on new features.
+
+for more details of contribution follow this link - [How to Contribute](https://github.com/Vin205/Enyanjyoti/blob/main/CONTRIBUTING.md)
 
 ---
 

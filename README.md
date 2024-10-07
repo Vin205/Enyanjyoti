@@ -1,7 +1,22 @@
 
-# 🎉 Welcome to the E-nyanjyoti Platform! 🌟
 
-This repository is part of **GirlScript Summer of Code 2024 Extended Edition!** 🚀
+
+<div align="center">
+  <h1 align="center" style="display: block; font-size: 3em; font-weight: bold; margin-block-end: 1em;"><strong>🎉 Welcome to the E-nyanjyoti Platform! 🌟</strong></h1>
+  <P align="center"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition!</b> 🚀</p>
+  <p>
+    <img src="https://img.shields.io/github/stars/Vin205/Enyanjyoti?style=social"/>
+    <img src="https://img.shields.io/github/forks/Vin205/Enyanjyoti?style=social"/>
+    <img src="https://img.shields.io/github/watchers/Vin205/Enyanjyoti?style=social"/>
+  <p>
+    <a href="https://github.com/Vin205/Enyanjyoti/issues"><img src="https://custom-icon-badges.demolab.com/github/issues/Vin205/Enyanjyoti?label=Issues&labelColor=302d41&color=FF6347&logoColor=FF6347&logo=issue&style=for-the-badge" alt="GitHub Readme Profile Issues"/></a>
+    <a href="https://github.com/Vin205/Enyanjyoti/pull"><img src="https://custom-icon-badges.demolab.com/github/issues-pr/Vin205/Enyanjyoti?&label=Pull%20requests&labelColor=302d41&color=98FF98&logoColor=98FF98&logo=git-pull-request&style=for-the-badge" alt="GitHub Readme Profile PRs"/></a>
+    <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors"><img src="https://custom-icon-badges.demolab.com/github/contributors/Vin205/Enyanjyoti?label=Contributors&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&logo=people&style=for-the-badge"/></a>
+  <p>
+    <img src="http://forthebadge.com/images/badges/license-mit.svg"/>
+  <p>
+   <img height=40 src="https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap">
+</div>
 
 E-nyanjyoti serves as a **one-stop solution** for:
 - 📚 **Conceptual Learning**

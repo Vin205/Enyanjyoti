@@ -1,6 +1,3 @@
-
-
-
 <div align="center">
   <h1 align="center" style="display: block; font-size: 3em; font-weight: bold; margin-block-end: 1em;"><strong>🎉 Welcome to the E-nyanjyoti Platform! 🌟</strong></h1>
   <P align="center"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024!</b> 🚀</p>
@@ -45,14 +42,14 @@ We aim to bridge the gap between education and employment while providing essent
     </tr>
 </table>
 
-## Our Contributors
+## Our Top Contributors
 
 - We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">
   <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=20&cachebust=3" />
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=25&cachebust=4" />
   </a>
 </div>
 

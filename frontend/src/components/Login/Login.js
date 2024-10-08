@@ -57,15 +57,6 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{ backgroundColor: '#fff', position: 'relative', bottom: '30px', left: '550px', height: '1px' }}
-                  >
-                    <span style={{ color: "black", position: 'relative', bottom: '10px' }} className="material-symbols-outlined">
-                      {showPassword ? 'visibility_off' : 'visibility'}
-                    </span>
-                  </button>
                 </div>
                 <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                   {loading ? 'Logging in...' : 'Login'}

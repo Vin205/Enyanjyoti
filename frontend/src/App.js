@@ -20,6 +20,7 @@ import About from "./pages/About/About.js";
 import Loan from "./pages/Loan/Loan.js";
 import Dashboard from "./pages/Dashboard/Dashboard.js";
 import Contact from "./pages/Contact/Contact.js";
+import Error from "./pages/Error/index.js";
 function App() {
   const location = useLocation();
   return (
@@ -40,6 +41,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} /> {/* Use lowercase for consistency */}
             <Route path="/contact" element={<Contact />} />
+            <Route
+              path="*"
+              element={<Error />}></Route>
           </Routes>
         </main>
         {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && <Footer />}      </div>

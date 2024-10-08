@@ -34,6 +34,7 @@ function Navbar() {
           <li><a href="/" onClick={closeNavbar}>Home</a></li>
           <li><a href="/about" onClick={closeNavbar}>About Us</a></li>
           <li><a href="/contact" onClick={closeNavbar}>Contact Us</a></li>
+          <li><a href="/loan" onClick={closeNavbar}>Loan</a></li>
         </ul>
       </div>
     </nav>

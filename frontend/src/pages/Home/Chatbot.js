@@ -4,7 +4,7 @@ import Groq from 'groq-sdk';
 
 
 const groq = new Groq({
-  apiKey: process.env.REACT_APP_GROQ_API_KEY, dangerouslyAllowBrowser: true
+  apiKey: "your api key", dangerouslyAllowBrowser: true
 });
 
 const systemMessage = {

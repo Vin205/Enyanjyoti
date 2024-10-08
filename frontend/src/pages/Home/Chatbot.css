@@ -50,13 +50,16 @@
     align-self: flex-end; 
     color : black;
     padding : 10px;
-    width: 75%;
+    width: fit-content;
+    max-width: 75%;
     border-radius: 10px;
 
   }
   
   .ai-message {
-    width: 75%;
+    width: fit-content;
+    max-width: 75%;
+
     background-color: #c0bdbd; 
     color: black;
     align-self: flex-start; 

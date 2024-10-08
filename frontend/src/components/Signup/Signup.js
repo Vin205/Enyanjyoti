@@ -124,6 +124,7 @@ function Signup() {
                   >
                     {showPassword ? "visibility_off" : "visibility"}
                   </span>
+
                 </div>
 
                 <div
@@ -158,6 +159,7 @@ function Signup() {
                   >
                     {showConfirmPassword ? "visibility_off" : "visibility"}
                   </span>
+
                 </div>
                 <button
                   type="submit"

@@ -68,6 +68,7 @@ function Login() {
                     required
                   />
 
+
                   <span
                     style={{
                       color: "black",
@@ -82,6 +83,7 @@ function Login() {
                   >
                     {showPassword ? "visibility_off" : "visibility"}
                   </span>
+
                 </div>
                 <button
                   type="submit"

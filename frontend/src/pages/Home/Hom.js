@@ -1,9 +1,14 @@
+// Hom.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Hom.css";
 import Faqs from "./Faqs";
+import message from './Images/message.png';
+import Chatbot from "./Chatbot"; 
 
 export default function Hom() {
+  const [messageOpen, setMessageOpen] = useState(false);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -16,20 +21,9 @@ export default function Hom() {
     };
   }, []);
 
-  const [, setShowScrollTop] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleMessageButton = () => {
+    setMessageOpen(!messageOpen);
+  };
 
   let cardDetails = [
     {
@@ -58,15 +52,11 @@ export default function Hom() {
   return (
     <div className="hom-container">
       <main className="main-content">
-        <button class="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
-          <span
-            class="material-symbols-outlined"
-            style={{
-              color: "#333",
-            }}
-          >
-            arrow_upward
-          </span>{" "}
+        <button className="message">
+          <div onClick={handleMessageButton}>
+            <img src={message} width={40} height={40} alt="message icon"/>
+          </div>
+          {messageOpen && <Chatbot />} 
         </button>
         <div className="intro-section">
           <div className="animation-container">
@@ -87,37 +77,27 @@ export default function Hom() {
               Empower yourself with our comprehensive learning platform
             </p>
             <div className="button-group">
-              <Link to="/Signup" className="btn-default">
-                Sign Up
-              </Link>
-              <Link to="/login" className="btn-outline">
-                Login
-              </Link>
+              <Link to="/Signup" className="btn-default">Sign Up</Link>
+              <Link to="/login" className="btn-outline">Login</Link>
             </div>
           </div>
         </div>
 
         <div className="d-flex flex-wrap gap-3 justify-content-center">
           {cardDetails.map((item, index) => (
-            <div key={index} className="card" style={{maxWidth: "350px"}}>
+            <div key={index} className="card" style={{ maxWidth: "350px" }}>
               <div className="card-header">
                 <h2 className="card-title">{item.title}</h2>
               </div>
               <div className="card-content">
-                <img src={item.image} alt={item.title} className="card-image " style={{objectFit:"cover"}} />
+                <img src={item.image} alt={item.title} className="card-image" style={{ objectFit: "cover" }} />
                 <p className="card-description">{item.description}</p>
-                {item.title === "Loans and Grants" && (
+                {item.title === "Loans and Grants" ? (
                   <Link to="/Loan">
-                    <button className="btn-default card-button">
-                      {item.action}
-                    </button>
+                    <button className="btn-default card-button">{item.action}</button>
                   </Link>
-                )}
-
-                {item.title !== "Loans and Grants" && (
-                  <button className="btn-default card-button">
-                    {item.action}
-                  </button>
+                ) : (
+                  <button className="btn-default card-button">{item.action}</button>
                 )}
               </div>
             </div>

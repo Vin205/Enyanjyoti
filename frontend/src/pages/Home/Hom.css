@@ -8,17 +8,17 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.scroll-up-btn {
+.message {
   position: fixed;
   bottom: 25px;
   right: 30px;
-  height: 40px;
-  width: 40px;
-  background-color: #DBF5EF;
+  height: 60px;
+  width: 60px;
+  /* background-color: #898b8e; */
   border-radius: 50%;
-  border: none;
+  /* border: none; */
   justify-content: center;
-  cursor: pointer;
+  /* cursor: pointer; */
   z-index: 1000;
 }
 
@@ -89,9 +89,9 @@ body, html {
   transition: background 0.3s ease;
 }
 
-.btn-default:hover {
-  background-color: #333333; /* Slightly lighter on hover */
-}
+/* .btn-default:hover {
+  background-color: #333333; 
+} */
 
 .btn-outline {
   background-color: #ffffff; /* Light gray background for "Login" button */
@@ -105,10 +105,10 @@ body, html {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.btn-outline:hover {
+/* .btn-outline:hover {
   background-color: #18181B;
   color: #ffffff;
-}
+} */
 
 .card-grid {
   display: grid;

@@ -60,7 +60,7 @@ const About = () => {
 				<div className='about-intro-section'>
 					<img
 						src='/images/aboutimage.png'
-						alt='About Us Image'
+						alt='About Us'
 						className='about-image'
 					/>
 					<div className='about-intro-text'>

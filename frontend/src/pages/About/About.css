@@ -114,14 +114,13 @@
 
 .about-intro-section {
 	background: white;
-	padding: 20px;
+	padding: 20px 20px 20px 0;
 	border-radius: 20px;
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-	max-width: 700px;
+	max-width: 900px;
 	width: 100%;
-	text-align: center;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 }
 
@@ -129,7 +128,6 @@
 	width: 80%;
 	max-width: 400px;
 	height: auto;
-	margin-bottom: 30px;
 	border-radius: 20px;
 	transition: transform 0.3s ease-in-out;
 }
@@ -138,15 +136,10 @@
 	transform: scale(1.05);
 }
 
-.about-intro-text {
-	margin-top: 20px;
-}
-
 .about-title {
 	font-size: 3rem;
 	font-weight: bold;
 	color: #333;
-	margin-bottom: 20px;
 }
 
 .about-subtitle {

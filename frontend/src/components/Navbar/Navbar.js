@@ -12,10 +12,15 @@ function Navbar() {
     setIsActive(false);
   };
 
+  const handleClickEvent = () => {
+    // Open the image in a new tab
+    window.open("/images/e1.png", "_blank");
+  }
+
   return (
     <nav className={`navbar`}>
       <div className="container">
-        <img src="/images/e1.png" alt="Logo" className="logo" />
+        <img src="/images/e1.png" alt="Logo" className="logo" onClick={handleClickEvent} />
         <button className="navbar-toggle" onClick={toggleNavbar}>
           ☰ {/* Hamburger icon */}
         </button>

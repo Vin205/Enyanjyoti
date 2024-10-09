@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom"; // Import Link for internal navigation
 import "./Navbar.css";
 
 function Navbar() {
@@ -12,23 +13,31 @@ function Navbar() {
     setIsActive(false);
   };
 
+  const navigate = useNavigate();
+
   const handleClickEvent = () => {
-    // Open the image in a new tab
-    window.open("/images/e1.png", "_blank");
-  }
+    navigate('/'); // This will navigate to the home page
+    closeNavbar(); // Close the navbar after navigating
+  };
 
   return (
     <nav className={`navbar`}>
       <div className="container">
-        <img src="/images/e1.png" alt="Logo" className="logo" onClick={handleClickEvent} />
+        <img
+          src="/images/e1.png"
+          alt="Logo"
+          className="logo"
+          onClick={handleClickEvent}
+          style={{ cursor: "pointer" }} // Optional: to indicate that it's clickable
+        />
         <button className="navbar-toggle" onClick={toggleNavbar}>
           ☰ {/* Hamburger icon */}
         </button>
         <ul className="nav-links desktop-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/loan">Loan</a></li>
+          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
+          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
+          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
+          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
         </ul>
       </div>
       <div className={`nav-menu ${isActive ? 'active' : ''}`}>
@@ -36,10 +45,10 @@ function Navbar() {
           &times; {/* Close icon */}
         </button>
         <ul className="nav-links">
-          <li><a href="/" onClick={closeNavbar}>Home</a></li>
-          <li><a href="/about" onClick={closeNavbar}>About Us</a></li>
-          <li><a href="/contact" onClick={closeNavbar}>Contact Us</a></li>
-          <li><a href="/loan" onClick={closeNavbar}>Loan</a></li>
+          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
+          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
+          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
+          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
         </ul>
       </div>
     </nav>

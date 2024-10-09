@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 
 const Error = () => {
 	return (
-		<section
-			className="py-5 bg-white"
-			style={{ paddingTop: "100px" }}>
-			<div className="container">
+		<section className="bg-white">
+			<div className="container" style={{ display: "flex", justifyContent: "center", height: "100vh", alignItems: "center", width: "100%" }}>
 				<div className="text-center">
 					<div
 						className="bg-image"
@@ -18,11 +16,7 @@ const Error = () => {
 							backgroundImage:
 								"url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)",
 						}}>
-						<h1 className="display-4 fw-bold text-black">
-							404 - Page Not Found !!
-						</h1>
 					</div>
-
 					<div className="mt-3">
 						<h3 className="display-6 mb-1 fw-semibold">
 							Looks like you're lost

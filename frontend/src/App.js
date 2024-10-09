@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route, Navigate } from "react-router-dom"; 
 import { useLocation } from "react-router-dom"; // Resolved spacing issue
 
 // import { Routes, Route, useLocation } from "react-router-dom"; // Reso0b14a140d
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
+      {location.pathname !== "/page-not-found" && <Navbar />}
         <main>
           <Routes>
             <Route path="/" element={<Hom />} />
@@ -43,12 +43,12 @@ function App() {
             <Route path="/signup" element={<Signup />} /> {/* Use lowercase for consistency */}
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/contact" element={<Contact />} />
-            <Route
-              path="*"
-              element={<Error />}></Route>
+            <Route path="/page-not-found" element={<Error />} />
+            <Route path="*" element={<Navigate to="/page-not-found" replace />} />
           </Routes>
         </main>
-        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password" && <Footer />}      </div>
+        {(location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password" ) && location.pathname.toLowerCase() !== "/page-not-found" && <Footer />}
+      </div>
     </>
   );
 }

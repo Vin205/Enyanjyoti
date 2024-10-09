@@ -1,14 +1,13 @@
 .inner-container{
    border:2px;
-   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   display: flex;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   
+   display: flex;
    flex-direction: row-reverse;
    align-items: center;
    margin-block: 20px;;
 }
 .img-container img{
-   width:30vw;
-    
-    
+   width:30vw; 
 }
 .contact-container{
     display: flex;
@@ -71,4 +70,23 @@
     width: 100px;
     height: 2px;
     background-color: black;
+}
+
+@media screen and (max-width: 768px){
+    .inner-container{
+        flex-direction: column;
+    }
+    .form{
+        width:90vw;
+        height: fit-content;
+        padding-block: 20px;
+    }
+    .img-container{
+        display:none
+     }
+     .button-container{
+        height:fit-content;
+        margin-block: 20px;
+     }
+    
 }

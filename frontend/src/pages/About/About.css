@@ -167,6 +167,22 @@
 	.about-subtitle {
 		font-size: 1rem;
 	}
+	.about-hero {
+		display:flex;
+		flex-direction: column;
+	}
+
+	.about-intro-section {
+		flex-direction: column;
+	}
+
+	.about-hero {
+		padding:0 30px
+	}
+
+	.carousel-title {
+		font-size: 35px;
+	}
 }
 
 @media screen and (max-width: 480px) {

@@ -104,25 +104,20 @@ export default function Hom() {
                 <h2 className="card-title">{item.title}</h2>
               </div>
               <div className="card-content">
-                <img src={item.image} alt={item.title} className="card-image " style={{objectFit:"cover"}} />
+                <img src={item.image} alt={item.title} className="card-image" style={{objectFit:"cover"}} />
                 <p className="card-description">{item.description}</p>
-                {item.title === "Loans and Grants" && (
+                {item.title === "Loans and Grants" ? (
                   <Link to="/Loan">
-                    <button className="btn-default card-button">
-                      {item.action}
-                    </button>
+                    <button className="btn-default card-button">{item.action}</button>
                   </Link>
-                )}
-
-                {item.title !== "Loans and Grants" && (
-                  <button className="btn-default card-button">
-                    {item.action}
-                  </button>
+                ) : (
+                  <button className="btn-default card-button">{item.action}</button>
                 )}
               </div>
             </div>
           ))}
         </div>
+        
         <div>
           <Faqs />
         </div>

@@ -1,13 +1,20 @@
 import React from "react";
-import { BsPerson, BsEnvelope } from "react-icons/bs"; // Importing Bootstrap Icons for person and envelope icons
-
+import { BsPerson, BsEnvelope } from "react-icons/bs";
+ // Importing Bootstrap Icons for person and envelope icons
+import './Contact.css'
 function Contact() {
   return (
-    <div className="container-fluid my-5 py-3 border rounded-4" style={{ maxWidth: "600px" }}>
-      <h1 className="fw-bold fs-2">We'd love to help</h1>
-      <form action="#" className="container-sm">
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label fw-medium">
+    <div className="contact-container">
+     <div class="inner-container">
+     <div class="img-container "><img src="/images/contact.jpg" /></div>
+ <div className="form " style={{ maxWidth: "600px" }}>
+      <div class="h1-div">
+      <h1>We'd love to help</h1>
+      </div>
+      <span class="black-line"></span>
+      <form action="#" className="container-sm mt-5">
+        <div className="mb-4">
+          <label htmlFor="exampleFormControlInput1" >
             <BsPerson className="me-2" /> Name
           </label>
           <input
@@ -18,8 +25,8 @@ function Contact() {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlInput2" className="form-label fw-medium">
+        <div className="mb-4">
+          <label htmlFor="exampleFormControlInput2" >
             <BsEnvelope className="me-2" /> Email
           </label>
           <input
@@ -30,9 +37,9 @@ function Contact() {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label fw-medium">
-            Your message
+        <div className="mb-4">
+          <label htmlFor="exampleFormControlTextarea1" className="msg-label" >
+            Leave us a few words
           </label>
           <textarea
             className="form-control"
@@ -40,12 +47,15 @@ function Contact() {
             rows="3"
             required
           ></textarea>
-          <button type="submit" className="btn btn-primary mt-4 w-full">
-            Submit
-          </button>
+         <div class="button-container"> <button type="submit" className="btn">
+            Send
+          </button></div>
         </div>
       </form>
     </div>
+     </div>
+    </div>
+   
   );
 }
 

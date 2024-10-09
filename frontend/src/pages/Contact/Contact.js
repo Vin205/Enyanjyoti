@@ -1,30 +1,14 @@
 import React from "react";
+import { BsPerson, BsEnvelope } from "react-icons/bs"; // Importing Bootstrap Icons for person and envelope icons
 
 function Contact() {
   return (
-    <div
-      className="container-fluid my-5 py-3 border rounded-4"
-      style={{
-        height: "auto",
-        width: "auto",
-        display: "block",
-        maxWidth: "600px",
-      }}
-    >
+    <div className="container-fluid my-5 py-3 border rounded-4" style={{ maxWidth: "600px" }}>
       <h1 className="fw-bold fs-2">We'd love to help</h1>
-      <form action="#"
-        className="container-sm"
-        style={{
-          height: "auto",
-          display: "block",
-        }}
-      >
+      <form action="#" className="container-sm">
         <div className="mb-3">
-          <label
-            for="exampleFormControlInput1"
-            className="form-label fw-medium"
-          >
-            Name
+          <label htmlFor="exampleFormControlInput1" className="form-label fw-medium">
+            <BsPerson className="me-2" /> Name
           </label>
           <input
             type="text"
@@ -35,11 +19,8 @@ function Contact() {
           />
         </div>
         <div className="mb-3">
-          <label
-            for="exampleFormControlInput2"
-            className="form-label fw-medium"
-          >
-            Email
+          <label htmlFor="exampleFormControlInput2" className="form-label fw-medium">
+            <BsEnvelope className="me-2" /> Email
           </label>
           <input
             type="email"
@@ -50,10 +31,7 @@ function Contact() {
           />
         </div>
         <div className="mb-3">
-          <label
-            for="exampleFormControlTextarea1"
-            className="form-label fw-medium"
-          >
+          <label htmlFor="exampleFormControlTextarea1" className="form-label fw-medium">
             Your message
           </label>
           <textarea

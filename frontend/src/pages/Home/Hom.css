@@ -22,6 +22,23 @@ body, html {
   z-index: 1000;
 }
 
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-content img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-content img {
+  transform: scale(1.1);
+}
+
 .hom-container {
   width: 100%;
   background: linear-gradient(to right, #DBECFB, #DBF5EF); /* Updated background gradient */

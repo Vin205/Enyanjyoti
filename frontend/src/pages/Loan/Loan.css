@@ -92,34 +92,38 @@
 }
 
 .loan-calculator {
-    margin-top: 40px;
+    margin-top: 2rem;
     background-color: #ffffff;
-    border-radius: 8px;
-    padding: 25px;
+    border-radius: var(--border-radius);
+    padding: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .calculator-form {
-    display: flex;
-    flex-direction: column; /* Stack inputs vertically */
+    display: grid;
+    gap: 1rem;
 }
 
 .calculator-form label {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
     font-size: 1rem;
+    color: var(--text-color);
 }
 
-.calculator-form input {
-    padding: 10px;
+.calculator-form input,
+.calculator-form select {
+    padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 .calculator-result {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    color: #2B4B77;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
 }
 
 /* Media Queries for Responsiveness */

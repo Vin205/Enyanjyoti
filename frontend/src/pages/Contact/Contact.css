@@ -1,0 +1,74 @@
+.inner-container{
+   border:2px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+   margin-block: 20px;;
+}
+.img-container img{
+   width:30vw;
+    
+    
+}
+.contact-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+.form{
+    
+
+    width:30vw;
+    padding-block: 10px;
+    padding-inline: 20px;
+    background-color: #FFE7D1;
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    background-color: #1665C0;
+    width:10vw;
+    text-align: center;
+
+}
+.btn:hover{
+    color:#FFE7D1;
+}
+.form h1{
+    font-size: 32px;
+    font-weight:bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.button-container{
+ display: flex;
+ justify-content: center;
+ margin-block: 10px;
+ height: 10vh;
+
+ align-items: end;
+}
+.form label{
+    font-weight:bold;
+    margin-bottom: 2px;
+}
+.msg-label{
+    margin-left: 2px;;
+}
+.h1-div{
+   
+    height:10vh;
+    display: flex;
+    align-items: end;
+}
+.black-line {
+    display: inline-block;
+    width: 100px;
+    height: 2px;
+    background-color: black;
+}

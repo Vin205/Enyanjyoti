@@ -72,18 +72,19 @@ body, html {
 
 .intro-text {
   flex: 1;
-  padding: 16px;
+  padding: 50px;
 }
 
 .title {
-  font-size: 56px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 56px !important;
   color: #18181B; /* Darker text color for better contrast */
   font-weight: 900; /* Bolder text */
   line-height: 1.2; /* Improved line-height for better readability */
 }
 
 .subtitle {
-  font-size: 24px;
+  font-size: 20px !important;
   color: #4A4A4A; /* Slightly darker subtitle */
   font-weight: 500;
   line-height: 1.4;
@@ -91,20 +92,22 @@ body, html {
 
 .button-group {
   display: flex;
+  align-items: center;
   margin-top: 16px;
+
 }
 
 .btn-default {
-  background-color: #18181B; /* Dark background for "Sign Up" button */
+   background-color: #18181B; 
   color: #ffffff;
-  padding: 16px 32px;
+  padding: 12px 46px !important; 
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  margin-right: 12px;
-  font-size: 18px;
+  margin-right: 20px;
+  font-size: 18px !important;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease; 
 }
 
 .btn-default:hover {
@@ -114,11 +117,11 @@ body, html {
 .btn-outline {
   background-color: #ffffff; /* Light gray background for "Login" button */
   color: #18181B;
-  padding: 16px 32px;
+  padding: 11px 46px;
   border: 2px solid #18181B;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 18px ;
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
 }

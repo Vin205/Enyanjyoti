@@ -15,6 +15,7 @@ import Sef from "./components/Sef/Sef.js";
 import Act from "./components/Act/Act.js";
 import Login from "./components/Login/Login.js";
 import Signup from "./components/Signup/Signup.js";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Footer from "./components/Footer/Footer.js";
 import About from "./pages/About/About.js";
 import Loan from "./pages/Loan/Loan.js";
@@ -40,13 +41,14 @@ function App() {
             <Route path="/act" element={<Act />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} /> {/* Use lowercase for consistency */}
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/contact" element={<Contact />} />
             <Route
               path="*"
               element={<Error />}></Route>
           </Routes>
         </main>
-        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && <Footer />}      </div>
+        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password" && <Footer />}      </div>
     </>
   );
 }

@@ -75,16 +75,6 @@
 	text-align: center;
 }
 
-.title {
-	font-size: 18px;
-	color: #000;
-}
-
-.subtitle {
-	font-size: 14px;
-	color: #777;
-	margin-top: 8px;
-}
 
 /* Dark Mode Enhancements */
 .dark-mode .swiper-slide {

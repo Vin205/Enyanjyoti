@@ -56,6 +56,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 40rem;
   padding: 16px 0;
 }
 
@@ -76,17 +77,23 @@ body, html {
 }
 
 .title {
-  font-size: 56px;
-  color: #18181B; /* Darker text color for better contrast */
-  font-weight: 900; /* Bolder text */
-  line-height: 1.2; /* Improved line-height for better readability */
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  color: #18181B;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  font-size: 24px;
-  color: #4A4A4A; /* Slightly darker subtitle */
-  font-weight: 500;
-  line-height: 1.4;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+  color: #4A4A4A;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 600px;
 }
 
 .button-group {

@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #ffffff;
+  background-color: #191B1C;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 0;
   position: relative;
@@ -22,7 +22,7 @@
 }
 
 .themechangebtn img{
-  height:25px;
+  height: 25px;
   width: 25px;
   background-color: none;
 }
@@ -59,7 +59,8 @@
 
 
 .logo {
-  height: 40px;
+  height: 60px;
+  padding-top: 5.5px;
 }
 
 .nav-links {
@@ -76,7 +77,7 @@
 
 .nav-links a {
   text-decoration: none;
-  color: #4a5568;
+  color: white;
   font-size: 16px;
   font-weight: 500;
   transition: color 0.3s ease, background-color 0.3s ease;

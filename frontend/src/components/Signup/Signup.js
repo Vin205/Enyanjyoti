@@ -115,7 +115,13 @@ function Signup() {
                     className="form-control"
                     placeholder="Enter your password"
                     value={password}
+                    // strong password
                     onChange={(e) => setPassword(e.target.value)}
+
+                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                    required
+
                   />
                   {errors.password && (
                     <div className="text-danger">{errors.password}</div>
@@ -150,7 +156,13 @@ function Signup() {
                     className="form-control"
                     placeholder="Confirm your password"
                     value={confirmPassword}
+                    // strong password
                     onChange={(e) => setConfirmPassword(e.target.value)}
+
+                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                    required
+
                   />
                   {errors.confirmPassword && (
                     <div className="text-danger">{errors.confirmPassword}</div>

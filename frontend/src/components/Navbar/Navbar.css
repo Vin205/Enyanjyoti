@@ -74,7 +74,7 @@
   margin: 0 20px;
 }
 
-.nav-links a {
+.li-style {
   text-decoration: none;
   color: #4a5568;
   font-size: 16px;
@@ -87,7 +87,7 @@
   align-items: center;
 }
 
-.nav-links a:hover {
+.li-style:hover {
   color: #ffffff;
   background-color: #4299e1;
 }
@@ -154,17 +154,22 @@
 
   .nav-links {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     display: none;
     width: 100%;
     padding: 16px 0;
     background-color: #ffffff;
     position: absolute;
-    top: 60px;
+    top: 84px;
     left: 0;
     z-index: 10;
   }
 
+  .bg2{
+    background-color: #4299e1;
+     color: white;
+  }
+  
   .nav-menu.active .nav-links {
     display: flex;
   }

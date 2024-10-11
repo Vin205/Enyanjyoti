@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import Link for internal navigation
 import "./Navbar.css";
 
@@ -20,6 +20,20 @@ function Navbar() {
     closeNavbar(); // Close the navbar after navigating
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isActive && !event.target.closest('.nav-menu')) {
+        closeNavbar();
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isActive]);
+
   return (
     <nav className={`navbar`}>
       <div className="container">
@@ -34,21 +48,21 @@ function Navbar() {
           ☰ {/* Hamburger icon */}
         </button>
         <ul className="nav-links desktop-links">
-          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
-          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
-          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
-          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
+          <li><Link to="/" className="li-style" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
+          <li><Link to="/about" className="li-style" onClick={closeNavbar}>About Us</Link></li>
+          <li><Link to="/contact" className="li-style" onClick={closeNavbar}>Contact Us</Link></li>
+          <li><Link to="/loan" className="li-style" onClick={closeNavbar}>Loan</Link></li>
         </ul>
       </div>
-      <div className={`nav-menu ${isActive ? 'active' : ''}`}>
+      <div className={`nav-menu ${isActive ? 'active' : ''}` }>
         <button className="close-button" onClick={closeNavbar}>
           &times; {/* Close icon */}
         </button>
         <ul className="nav-links">
-          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
-          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
-          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
-          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
+          <li><Link to="/" className={`li-style ${(window.location.pathname === '/') ? 'bg2' : ''}`} onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
+          <li><Link to="/about" className={`li-style ${(window.location.pathname === '/about') ? 'bg2' : ''}`} onClick={closeNavbar}>About Us</Link></li>
+          <li><Link to="/contact" className={`li-style ${(window.location.pathname === '/contact') ? 'bg2' : ''}`} onClick={closeNavbar}>Contact Us</Link></li>
+          <li><Link to="/loan" className={`li-style ${(window.location.pathname === '/loan') ? 'bg2' : ''}`} onClick={closeNavbar}>Loan</Link></li>
         </ul>
       </div>
     </nav>

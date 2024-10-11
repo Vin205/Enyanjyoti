@@ -184,17 +184,32 @@
   .navbar-toggle {
     display: none;
   }
-
+  
   .nav-links.desktop-links {
     display: flex;
     margin-left: auto;
   }
-
+  
   .nav-links {
     display: flex;
   }
 
  .container{
-  justify-content: space-evenly;
+   justify-content: space-evenly;
  }
+}
+
+@media (max-width: 575px) {
+  .logo{
+    margin-left: 10%;
+  }
+  .navbar-toggle{
+    margin: 0px !important;
+    margin-right: 10% !important;
+  }
+}
+@media (max-width: 426px) {
+  .navbar-toggle{
+    padding: 4px 15px;
+  }
 }

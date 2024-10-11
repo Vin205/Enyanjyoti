@@ -157,15 +157,18 @@ footer::before {
 }
 
 .footer-buttons {
+  width: 70%;
   display: flex;
-  gap: 20px; /* Increased gap for visual clarity */
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  /* gap: 20px; */
+  /* flex-wrap: wrap; */
 }
 
 .btn {
   background-color: #3D6DA3; /* Lighter shade to contrast with background */
   color: #ffffff;
-  padding: 14px 32px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 8px; /* Softer corner radius */
@@ -176,7 +179,7 @@ footer::before {
   position: relative;
   overflow: hidden;
   width:auto;
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .btn::before {
@@ -250,6 +253,19 @@ hr {
 }
 
 /* Media Queries for Footer */
+@media (max-width: 1024px) {
+  .footer-buttons {
+    width: 90%;
+  }
+}
+@media (max-width: 880px) {
+  .footer-buttons{
+    width: 100%;
+  }
+  .btn{
+    min-width: 140px;
+  }
+}
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column; /* Stack footer content vertically */
@@ -259,11 +275,14 @@ hr {
   .footer-socials {
     text-align: left; /* Align socials to the left */
     margin-top: 20px; /* Add margin for spacing */
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .footer-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px; /* Reduce gap for smaller screens */
+  .btn{
+    min-width: 160px;
   }
 
   .footer-title {
@@ -278,4 +297,31 @@ hr {
     font-size: 12px; /* Reduce copyright size */
   }
 }
-
+@media (max-width: 660px) {
+  .btn{
+    min-width: 140px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-buttons{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+  }
+}
+@media (max-width: 465px) {
+  .footer-socials {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-description{
+    text-align: justify;
+  }
+}
+@media (max-width: 321px) {
+  footer{
+  padding: 40px 50px;
+  }
+}

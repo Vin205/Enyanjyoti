@@ -14,12 +14,15 @@ body, html {
   right: 30px;
   height: 40px;
   width: 40px;
-  background-color: #DBF5EF;
+  background-color: #b0c7e1;
   border-radius: 50%;
   border: none;
   justify-content: center;
   cursor: pointer;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -204,14 +207,37 @@ body, html {
     flex-direction: column;
     margin-top: 8px; 
   }
-
+  
   .btn-default, .btn-outline {
     width: 100%; 
     margin-right: 0; 
     margin-bottom: 8px; /* Add bottom margin for spacing */
   }
-
+  
   .card-grid {
     grid-template-columns: 1fr; /* Stack cards vertically */
+  }
+}
+@media (max-width: 426px) {
+  .intro-text{
+    padding: 0px;
+  }
+  .intro-section{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .animation-container{
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 376px) {
+  .title{
+    font-size: 45px !important;
+  }
+}
+@media (max-width: 320px) {
+  .title{
+    font-size: 36px !important;
   }
 }

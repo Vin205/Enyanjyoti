@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase"; // Import Firebase auth
+import { registerValidation } from "../../validations/validation";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ function Signup() {
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
@@ -36,15 +38,21 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error state
 
-    // Basic validation
-    if (!email || !password || !confirmPassword) {
-      setError("Please fill in all fields.");
-      return;
-    }
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+    try {
+      await registerValidation.validate(
+        { email, password, confirmPassword },
+        { abortEarly: false }
+      );
+      setErrors({});
+    } catch (error) {
+      const newErrors = {};
+      error.inner.forEach((err) => {
+        newErrors[err.path] = err.message;
+        // newErrors[err.path] = err.errors[0];
+      });
+
+      setErrors(newErrors);
       return;
     }
 
@@ -77,7 +85,7 @@ function Signup() {
               {successMessage && (
                 <div className="alert alert-success">{successMessage}</div>
               )}
-              <form onSubmit={handleSignup}>
+              <form onSubmit={handleSignup} noValidate>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email:
@@ -89,8 +97,10 @@ function Signup() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
+                  {errors.email && (
+                    <div className="text-danger">{errors.email}</div>
+                  )}
                 </div>
                 <div
                   style={{ position: "relative", width: "100%" }}
@@ -106,9 +116,10 @@ function Signup() {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                   />
-
+                  {errors.password && (
+                    <div className="text-danger">{errors.password}</div>
+                  )}
                   <span
                     style={{
                       color: "black",
@@ -124,7 +135,6 @@ function Signup() {
                   >
                     {showPassword ? "visibility_off" : "visibility"}
                   </span>
-
                 </div>
 
                 <div
@@ -141,9 +151,10 @@ function Signup() {
                     placeholder="Confirm your password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
                   />
-
+                  {errors.confirmPassword && (
+                    <div className="text-danger">{errors.confirmPassword}</div>
+                  )}
                   <span
                     style={{
                       color: "black",
@@ -159,7 +170,6 @@ function Signup() {
                   >
                     {showConfirmPassword ? "visibility_off" : "visibility"}
                   </span>
-
                 </div>
                 <button
                   type="submit"

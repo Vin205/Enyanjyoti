@@ -27,7 +27,7 @@ body, html {
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -36,7 +36,7 @@ body, html {
 }
 
 .card:hover .card-content img {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .hom-container {
@@ -48,6 +48,7 @@ body, html {
   width: 100%;
   margin: 0 auto;
   padding: 32px 16px;
+
 }
 
 .intro-section {
@@ -71,18 +72,19 @@ body, html {
 
 .intro-text {
   flex: 1;
-  padding: 16px;
+  padding: 50px;
 }
 
 .title {
-  font-size: 56px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 56px !important;
   color: #18181B; /* Darker text color for better contrast */
   font-weight: 900; /* Bolder text */
   line-height: 1.2; /* Improved line-height for better readability */
 }
 
 .subtitle {
-  font-size: 24px;
+  font-size: 20px !important;
   color: #4A4A4A; /* Slightly darker subtitle */
   font-weight: 500;
   line-height: 1.4;
@@ -90,20 +92,21 @@ body, html {
 
 .button-group {
   display: flex;
+  align-items: center;
   margin-top: 16px;
 }
 
 .btn-default {
-  background-color: #18181B; /* Dark background for "Sign Up" button */
+   background-color: #18181B; 
   color: #ffffff;
-  padding: 16px 32px;
+  padding: 12px 46px !important; 
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  margin-right: 12px;
-  font-size: 18px;
+  margin-right: 20px;
+  font-size: 18px !important;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease; 
 }
 
 /* .btn-default:hover {
@@ -113,11 +116,11 @@ body, html {
 .btn-outline {
   background-color: #ffffff; /* Light gray background for "Login" button */
   color: #18181B;
-  padding: 16px 32px;
+  padding: 11px 46px;
   border: 2px solid #18181B;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 18px ;
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -135,6 +138,7 @@ body, html {
 }
 
 .card {
+  padding: 5px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -150,7 +154,12 @@ body, html {
 }
 
 .card-content {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px;
+  color: #49525f;
 }
 
 .card-image {
@@ -161,20 +170,21 @@ body, html {
 }
 
 .card-description {
-  color: #718096;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  flex-grow: 1;
+  margin-bottom: 25px;
+  margin-top: 15px;
 }
 
 .card-button {
   width: 100%;
   padding: 12px 0;
+  margin-top: auto; /* to Ensures button stays at the bottom */
 }
 
 @media (max-width: 768px) {
   .intro-section {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    align-items: flex-start; /* Align items to the start */
+    flex-direction: column; 
+    align-items: flex-start; 
   }
 
   .lottie-animation {
@@ -191,13 +201,13 @@ body, html {
   }
 
   .button-group {
-    flex-direction: column; /* Stack buttons vertically */
-    margin-top: 8px; /* Adjust margin */
+    flex-direction: column;
+    margin-top: 8px; 
   }
 
   .btn-default, .btn-outline {
-    width: 100%; /* Make buttons full width */
-    margin-right: 0; /* Remove right margin */
+    width: 100%; 
+    margin-right: 0; 
     margin-bottom: 8px; /* Add bottom margin for spacing */
   }
 

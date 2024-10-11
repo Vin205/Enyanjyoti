@@ -49,7 +49,7 @@ We aim to bridge the gap between education and employment while providing essent
 
 <div align="center">
   <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=25&cachebust=4" />
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=42&cachebust=3" />
   </a>
 </div>
 

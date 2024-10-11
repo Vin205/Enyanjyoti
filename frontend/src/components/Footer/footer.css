@@ -175,6 +175,8 @@ footer::before {
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   position: relative;
   overflow: hidden;
+  width:auto;
+  min-width: 200px;
 }
 
 .btn::before {

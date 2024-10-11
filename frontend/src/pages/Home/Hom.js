@@ -21,11 +21,26 @@ export default function Hom() {
     };
   }, []);
 
+
   const handleMessageButton = () => {
     setMessageOpen(!messageOpen);
   };
 
-  let cardDetails = [
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 120);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+  const cardDetails = [
     {
       title: "Education",
       description:
@@ -52,12 +67,22 @@ export default function Hom() {
   return (
     <div className="hom-container">
       <main className="main-content">
+
         <button className="message">
           <div onClick={handleMessageButton}>
             <img src={message} width={40} height={40} alt="message icon"/>
           </div>
           {messageOpen && <Chatbot />} 
         </button>
+
+        {showScrollTop && (
+          <button className="scroll-up-btn" onClick={() => window.scrollTo(0, 0)}>
+            <span className="material-symbols-outlined" style={{ color: "#333" }}>
+              arrow_upward
+            </span>
+          </button>
+        )}
+
         <div className="intro-section">
           <div className="animation-container">
             <dotlottie-player
@@ -69,7 +94,7 @@ export default function Hom() {
               autoplay
             ></dotlottie-player>
           </div>
-          <div className="intro-text">
+          <div className="intro-text" >
             <h1 className="title">
               Dive into the World of Knowledge, Skills and Wisdom
             </h1>
@@ -91,23 +116,23 @@ export default function Hom() {
               </div>
               <div className="card-content">
 
+
                 <img src={item.image} alt={item.title} className="card-image" style={{ objectFit: "cover" }} />
 
                 <img src={item.image} alt={item.title} className="card-image" style={{objectFit:"cover"}} />
 
+
+                <img src={item.image} alt={item.title} className="card-image" style={{ objectFit: "cover" }} />
+
                 <p className="card-description">{item.description}</p>
-                {item.title === "Loans and Grants" ? (
-                  <Link to="/Loan">
-                    <button className="btn-default card-button">{item.action}</button>
-                  </Link>
-                ) : (
+                <Link to={item.title === "Loans and Grants" ? "/Loan" : "#"}>
                   <button className="btn-default card-button">{item.action}</button>
-                )}
+                </Link>
               </div>
             </div>
           ))}
         </div>
-        
+
         <div>
           <Faqs />
         </div>

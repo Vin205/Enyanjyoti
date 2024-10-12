@@ -1,170 +1,197 @@
-/* LoanPage.css */
+/* Loan.css */
+
+:root {
+  --primary-color: #2b4b77;
+  --secondary-color: #4a90e2;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
 
 .loan-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px; /* Reduced padding for smaller devices */
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loan-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .loan-title {
-    font-size: 2rem; /* Adjusted for smaller screens */
-    margin-bottom: 30px; /* Reduced space below the title */
-    color: #2B4B77;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-.horizontal-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px; /* Reduced space below the horizontal cards */
-    flex-wrap: wrap; /* Allow wrapping to next line if necessary */
+.loan-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
 }
 
-.loan-section {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    flex: 1 1 30%; /* Adjust card size and allow wrapping */
-    min-width: 260px; /* Minimum width for smaller screens */
+.loan-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.loan-section:hover {
-    transform: translateY(-5px);
+.loan-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
-.loan-section h2 {
-    font-size: 1.5rem; /* Adjusted for smaller screens */
-    color: #2B4B77;
-    margin-bottom: 10px;
+.loan-info-card,
+.loan-type-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
 }
 
-.loan-section p {
-    font-size: 0.9rem; /* Adjusted for smaller screens */
-    margin-bottom: 10px;
-    line-height: 1.5; /* Better readability */
+.loan-types-section h2,
+.loan-tips-section h2,
+.loan-calculator-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
-.loan-types-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+.loan-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-.loan-type {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 15px;
-    flex: 1;
-    margin: 0 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.loan-type-card h3 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
 }
 
-.loan-button {
-    background-color: #2B4B77;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px; /* Adjusted for smaller screens */
-    font-size: 0.9rem; /* Adjusted for smaller screens */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 10px;
+.loan-tips-list {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  list-style-type: none;
 }
 
-.loan-button:hover {
-    background-color: #1f3d5b;
-    transform: scale(1.05);
+.loan-tips-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
 }
 
-.tips {
-    margin-top: 20px;
+.loan-tips-list li::before {
+  content: "•";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
 }
 
-.loan-calculator {
-    margin-top: 2rem;
-    background-color: #ffffff;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.loan-calculator-section {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.calculator-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .calculator-form {
-    display: grid;
-    gap: 1rem;
+  flex: 1;
+  min-width: 250px;
 }
 
-.calculator-form label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    color: var(--text-color);
+.form-group {
+  margin-bottom: 1rem;
 }
 
-.calculator-form input,
-.calculator-form select {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    margin-top: 0.5rem;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.calculate-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: var(--secondary-color);
 }
 
 .calculator-result {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    color: var(--primary-color);
+  flex: 1;
+  min-width: 250px;
 }
 
-/* Media Queries for Responsiveness */
+.calculator-result h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.chart-container {
+  margin-top: 1rem;
+}
+
+.loan-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
 @media (max-width: 768px) {
-    .loan-title {
-        font-size: 1.8rem; /* Smaller title for tablets and phones */
-    }
+  .loan-title {
+    font-size: 2rem;
+  }
 
-    .horizontal-cards {
-        flex-direction: column; /* Stack cards vertically */
-    }
+  .loan-subtitle {
+    font-size: 1rem;
+  }
 
-    .loan-section {
-        flex: 1 1 100%; /* Full width on small screens */
-        margin-bottom: 20px; /* Space between stacked cards */
-    }
+  .loan-info-grid,
+  .loan-types-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .loan-button {
-        padding: 10px; /* Smaller button padding */
-        font-size: 0.85rem; /* Smaller button font size */
-    }
-
-    .calculator-form input {
-        font-size: 0.9rem; /* Smaller input font size */
-    }
-}
-
-@media (max-width: 480px) {
-    .loan-title {
-        font-size: 1.6rem; /* Smaller title for phones */
-    }
-
-    .loan-section h2 {
-        font-size: 1.4rem; /* Smaller heading for cards */
-    }
-
-    .loan-section p {
-        font-size: 0.85rem; /* Smaller paragraph font size */
-    }
-
-    .calculator-result {
-        font-size: 1.2rem; /* Smaller result font size */
-    }
+  .calculator-content {
+    flex-direction: column;
+  }
 }

@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase"; // Import Firebase auth
 import { registerValidation } from "../../validations/validation";
 import toast from "react-hot-toast";
+import Footer from "../Footer/Footer.jsx";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -212,6 +213,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

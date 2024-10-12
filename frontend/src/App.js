@@ -22,6 +22,7 @@ import Loan from "./pages/Loan/Loan.js";
 import Dashboard from "./pages/Dashboard/Dashboard.js";
 import Contact from "./pages/Contact/Contact.js";
 import Error from "./pages/Error/index.js";
+import ContributorsPage from "./pages/Contributor/ContributorsPage.jsx";
 function App() {
   const location = useLocation();
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/page-not-found" element={<Error />} />
+            <Route path="/contributors" element={<ContributorsPage />} />
             <Route path="*" element={<Navigate to="/page-not-found" replace />} />
           </Routes>
         </main>

@@ -1,60 +1,51 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Import Link for internal navigation
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
-  const [isActive, setIsActive] = useState(false);
-
-  const toggleNavbar = () => {
-    setIsActive(!isActive);
-  };
-
-  const closeNavbar = () => {
-    setIsActive(false);
-  };
-
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleClickEvent = () => {
-    navigate('/'); // This will navigate to the home page
-    closeNavbar(); // Close the navbar after navigating
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const handleLogoClick = () => {
+    navigate("/");
+    closeMenu();
   };
 
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About Us" },
+    { to: "/contact", label: "Contact Us" },
+    { to: "/loan", label: "Loan" },
+    { to: "/contributors", label: "Contributors" },
+  ];
+
   return (
-    <nav className={`navbar`}>
-      <div className="container">
+    <nav className="navbar">
+      <div className="navbar-container">
         <img
           src="/images/e1.png"
           alt="Logo"
-          className="logo"
-          onClick={handleClickEvent}
-          style={{ cursor: "pointer" }} // Optional: to indicate that it's clickable
+          className="navbar-logo"
+          onClick={handleLogoClick}
         />
-        <button className="navbar-toggle" onClick={toggleNavbar}>
-          ☰ {/* Hamburger icon */}
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? "×" : "☰"}
         </button>
-        <ul className="nav-links desktop-links">
-          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
-          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
-          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
-          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
-          <li><Link to="/contributors" onClick={closeNavbar}>Contributors</Link></li>
-          </ul>
-      </div>
-      <div className={`nav-menu ${isActive ? 'active' : ''}`}>
-        <button className="close-button" onClick={closeNavbar}>
-          &times; {/* Close icon */}
-        </button>
-        <ul className="nav-links">
-          <li><Link to="/" onClick={closeNavbar}>Home</Link></li> {/* Use Link instead of a tag */}
-          <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
-          <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
-          <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
-          <li><Link to="/contributors" onClick={closeNavbar}>Contributors</Link></li>
-          </ul>
+        <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
+          {navItems.map((item) => (
+            <li key={item.to} className="nav-item">
+              <Link to={item.to} className="nav-link" onClick={closeMenu}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

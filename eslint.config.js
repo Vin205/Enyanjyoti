@@ -1,13 +1,17 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+// eslint.config.js (at the root level)
+
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
   { ignores: ['dist'] },
+
+  // Frontend (React) specific configuration
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['frontend/**/*.{js,jsx}'], // apply ESLint only to the frontend folder
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -35,4 +39,22 @@ export default [
       ],
     },
   },
-]
+
+  // Backend-specific configuration
+  {
+    files: ['backend/**/*.{js,ts}'], // ESLint only applies to the backend folder
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-console': 'off', // In backend, it's common to use console
+      'no-undef': 'off', // You can configure backend-specific rules
+      'process-env': 'off', // Allow `process.env`
+    },
+  },
+];

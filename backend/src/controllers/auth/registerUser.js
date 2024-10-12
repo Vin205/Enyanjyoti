@@ -1,6 +1,6 @@
-import User from "../../models/User.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import User from '../../models/User.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 // Register a new user
 export const registerUser = async (req, res) => {
@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
     // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: 'User already exists' });
     }
 
     // Hash the password
@@ -26,7 +26,7 @@ export const registerUser = async (req, res) => {
     // Save the user and handle any potential errors
     await newUser.save().catch((err) => {
       return res.status(500).json({
-        message: "Error saving user",
+        message: 'Error saving user',
         error: err.message || err,
       });
     });
@@ -35,11 +35,11 @@ export const registerUser = async (req, res) => {
     const token = jwt.sign(
       { id: newUser._id, role: newUser.role },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: '1h' }
     );
 
     return res.status(201).json({
-      message: "User registered successfully!",
+      message: 'User registered successfully!',
       token,
       user: {
         id: newUser._id,
@@ -50,7 +50,7 @@ export const registerUser = async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: "Error registering user",
+      message: 'Error registering user',
       error: error.message || error,
     });
   }

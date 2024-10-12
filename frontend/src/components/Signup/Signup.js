@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../Firebase/firebase'; // Import Firebase auth
+import { toast } from "react-hot-toast";
 
 function Signup() {
   const [email, setEmail] = useState('');
@@ -35,6 +36,7 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    const id = toast.loading("Loading..");
     setError(''); // Reset error state
 
     // Basic validation
@@ -54,12 +56,14 @@ function Signup() {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
+      toast.success("Signup Successfully");
       setTimeout(() => {
         navigate('/login');
       }, 2000); // Redirect after 2 seconds
     } catch (firebaseError) {
       setError(firebaseError?.message || 'Error signing up.');
     }
+    toast.dismiss(id);
   };
 
   return (

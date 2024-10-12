@@ -1,9 +1,10 @@
-// src/Signup.js
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../Firebase/firebase"; // Import Firebase auth
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../Firebase/firebase'; // Import Firebase auth
+import { toast } from "react-hot-toast";
 import { registerValidation } from "../../validations/validation";
+
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -38,6 +39,9 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    const id = toast.loading("Loading..");
+    setError(''); // Reset error state
+
 
     try {
       await registerValidation.validate(
@@ -59,16 +63,19 @@ function Signup() {
     // Firebase signup
     try {
       await createUserWithEmailAndPassword(email, password);
-      setSuccessMessage("Signup successful! Redirecting to login...");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      setSuccessMessage('Signup successful! Redirecting to login...');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+      toast.success("Signup Successfully");
+
       setTimeout(() => {
         navigate("/login");
       }, 2000); // Redirect after 2 seconds
     } catch (firebaseError) {
       setError(firebaseError?.message || "Error signing up.");
     }
+    toast.dismiss(id);
   };
 
   return (

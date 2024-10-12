@@ -94,7 +94,6 @@ body, html {
   display: flex;
   align-items: center;
   margin-top: 16px;
-
 }
 
 .btn-default {
@@ -214,5 +213,20 @@ body, html {
 
   .card-grid {
     grid-template-columns: 1fr; /* Stack cards vertically */
+  }
+}
+@media (max-width: 443px) {
+  .intro-text{
+    padding: 20px;
+  }
+}
+@media (max-width: 382px) {
+  .title{
+    font-size: 45px !important;
+  }
+}
+@media (max-width: 321px) {
+  .title{
+    font-size: 40px !important;
   }
 }

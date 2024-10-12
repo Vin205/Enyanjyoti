@@ -1,19 +1,17 @@
 
 /* footer.css */
 footer {
-  background-color: #2B4B77; /* Updated background for better contrast */
-  color: #ffffff;
+  background: linear-gradient(135deg, #6C63FF, #4ECCA3, #FF6F61, #FFB400);
+  background-size: 400% 400%;
+  animation: gradientBG 6s ease-in-out infinite;
   padding: 60px 80px;
-  border-top: 5px solid #1565C0;
+  color: #f5f5f5;
   text-align: left;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg, #2B4B77, #3D6DA3, #1565C0, #4A73B5);
-  background-size: 400% 400%;
-  animation: gradientBG 5s ease-in-out infinite;
+  border-top: 5px solid #FF6F61;
 }
 
-/* Add a subtle background pattern */
 footer::before {
   content: '';
   position: absolute;
@@ -21,12 +19,10 @@ footer::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(30deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3),
-                    linear-gradient(150deg, #3D6DA3 12%, transparent 12.5%, transparent 87%, #3D6DA3 87.5%, #3D6DA3);
+  background-image: linear-gradient(30deg, #FFB400 12%, transparent 12.5%, transparent 87%, #FFB400 87.5%, #FFB400),
+                    linear-gradient(150deg, #FFB400 12%, transparent 12.5%, transparent 87%, #FFB400 87.5%, #FFB400);
   background-size: 80px 140px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  background-position: 0 0, 40px 70px;
   opacity: 0.1;
   z-index: 0;
 }
@@ -34,9 +30,7 @@ footer::before {
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 40px;
-  position: relative;
   z-index: 1;
 }
 
@@ -49,12 +43,12 @@ footer::before {
 }
 
 .footer-socials h4 {
-  font-size: 28px; /* Increased from 24px */
-  margin-bottom: 20px; /* Slightly increased from 15px */
-  font-weight: 600; /* Added for emphasis */
-  color: #ffffff; /* Ensuring high contrast */
-  text-transform: uppercase; /* Optional: adds more emphasis */
-  letter-spacing: 1px; /* Optional: improves readability for uppercase text */
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #FF6F61;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -65,10 +59,9 @@ footer::before {
 }
 
 .social-icons a {
-  color: #e0e7ff;
+  color: #E4FDE1;
   font-size: 24px;
   transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
   position: relative;
 }
 
@@ -76,13 +69,13 @@ footer::before {
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 3px;
   bottom: -5px;
   left: 0;
-  background-color: #FFD700;
+  background-color: #FFB400;
   visibility: hidden;
   transform: scaleX(0);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .social-icons a:hover::after {
@@ -91,19 +84,18 @@ footer::before {
 }
 
 .social-icons a:hover {
-  color: #ffffff;
-  transform: scale(1.2) rotate(5deg);
+  color: #FFB400;
+  transform: scale(1.1) rotate(7deg);
 }
 
 .copyright {
   text-align: center;
   margin-top: 40px;
   font-size: 14px;
-  color: #b0c7e1;
+  color: #dcdcdc;
   opacity: 0.8;
   transition: opacity 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .copyright::before {
@@ -114,7 +106,7 @@ footer::before {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: 0.5s;
+  transition: 0.6s;
 }
 
 .copyright:hover::before {
@@ -125,54 +117,38 @@ footer::before {
   opacity: 1;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.footer-main, .footer-socials {
-  animation: fadeIn 0.8s ease-out;
-}
-
-.footer-main {
-  animation-delay: 0.2s;
-}
-
-.footer-socials {
-  animation-delay: 0.4s;
-}
-
 .footer-title {
-  font-size: 32px; /* Increased font size for better visibility */
+  font-size: 36px;
   font-weight: 700;
-  margin-bottom: 5px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  color: #FFB400;
 }
 
 .footer-description {
   max-width: 600px;
   line-height: 1.8;
+  color: #f5f5f5;
   margin-bottom: 20px;
-  color: #e0e7ff; /* Lighter color for better readability */
 }
 
 .footer-buttons {
   display: flex;
-  gap: 20px; /* Increased gap for visual clarity */
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .btn {
-  background-color: #3D6DA3; /* Lighter shade to contrast with background */
+  background-color: #FF6F61;
   color: #ffffff;
-  padding: 14px 32px;
+  padding: 16px 36px;
   border: none;
   cursor: pointer;
-  border-radius: 8px; /* Softer corner radius */
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern look */
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -193,19 +169,17 @@ footer::before {
 }
 
 .btn:hover {
-  background-color: #4A73B5; /* Darker shade on hover */
-  transform: translateY(-3px); /* Lift effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  color: #FFD700; /* Gold color on hover */
+  background-color: #4ECCA3;
+  color: #FFD700;
+  transform: translateY(-3px);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn-light {
-  background-color: #5678B3; /* Lighter button style */
+  background-color: #6C63FF;
   color: #ffffff;
 }
 
@@ -213,26 +187,7 @@ hr {
   margin: 30px 0;
   border: none;
   height: 1px;
-  background: linear-gradient(to right, transparent, #b0c7e1, transparent);
-}
-
-.social-links {
-  display: flex;
-  justify-content: flex-start;
-  gap: 25px; /* Increased spacing */
-  margin-top: 30px;
-}
-
-.social-links a {
-  color: #e0e7ff; /* Light color for links */
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+  background: linear-gradient(to right, transparent, #f5f5f5, transparent);
 }
 
 @keyframes gradientBG {
@@ -250,30 +205,29 @@ hr {
 /* Media Queries for Footer */
 @media (max-width: 768px) {
   .footer-content {
-    flex-direction: column; /* Stack footer content vertically */
-    align-items: flex-start; /* Align items to the start */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-socials {
-    text-align: left; /* Align socials to the left */
-    margin-top: 20px; /* Add margin for spacing */
+    text-align: left;
+    margin-top: 20px;
   }
 
   .footer-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px; /* Reduce gap for smaller screens */
+    flex-direction: column;
+    gap: 10px;
   }
 
   .footer-title {
-    font-size: 24px; /* Reduce title size */
+    font-size: 28px;
   }
 
   .footer-description {
-    font-size: 14px; /* Reduce description size */
+    font-size: 14px;
   }
 
   .copyright {
-    font-size: 12px; /* Reduce copyright size */
+    font-size: 12px;
   }
 }
-

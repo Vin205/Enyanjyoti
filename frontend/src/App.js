@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route, Navigate } from "react-router-dom"; 
 import { useLocation } from "react-router-dom"; // Resolved spacing issue
 
 // import { Routes, Route, useLocation } from "react-router-dom"; // Reso0b14a140d
@@ -15,17 +15,19 @@ import Sef from "./components/Sef/Sef.js";
 import Act from "./components/Act/Act.js";
 import Login from "./components/Login/Login.js";
 import Signup from "./components/Signup/Signup.js";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Footer from "./components/Footer/Footer.js";
 import About from "./pages/About/About.js";
 import Loan from "./pages/Loan/Loan.js";
 import Dashboard from "./pages/Dashboard/Dashboard.js";
 import Contact from "./pages/Contact/Contact.js";
+import Error from "./pages/Error/index.js";
 function App() {
   const location = useLocation();
   return (
     <>
       <div>
-        <Navbar />
+      {location.pathname !== "/page-not-found" && <Navbar />}
         <main>
           <Routes>
             <Route path="/" element={<Hom />} />
@@ -39,10 +41,14 @@ function App() {
             <Route path="/act" element={<Act />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} /> {/* Use lowercase for consistency */}
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/page-not-found" element={<Error />} />
+            <Route path="*" element={<Navigate to="/page-not-found" replace />} />
           </Routes>
         </main>
-        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && <Footer />}      </div>
+        {(location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password" ) && location.pathname.toLowerCase() !== "/page-not-found" && <Footer />}
+      </div>
     </>
   );
 }

@@ -1,4 +1,3 @@
-// src/LoanPage.js
 import React, { useState } from 'react';
 import './Loan.css'; // Import your custom CSS file
 
@@ -6,13 +5,28 @@ const Loan = () => {
     const [loanAmount, setLoanAmount] = useState('');
     const [interestRate, setInterestRate] = useState('');
     const [loanTerm, setLoanTerm] = useState('');
-    const [totalPayment, setTotalPayment] = useState(null);
+    const [paymentFrequency, setPaymentFrequency] = useState('monthly');
+    const [calculationResult, setCalculationResult] = useState(null);
 
-    const calculateTotalPayment = () => {
+    const calculateLoan = () => {
         const principal = parseFloat(loanAmount);
-        const calculatedInterest = (principal * (parseFloat(interestRate) / 100)) * parseFloat(loanTerm);
-        const total = principal + calculatedInterest;
-        setTotalPayment(total.toFixed(2));
+        const rate = parseFloat(interestRate) / 100 / 12;
+        const termInMonths = parseFloat(loanTerm) * 12;
+
+        if (isNaN(principal) || isNaN(rate) || isNaN(termInMonths)) {
+            alert('Please enter valid numbers for all fields.');
+            return;
+        }
+
+        const monthlyPayment = (principal * rate * Math.pow(1 + rate, termInMonths)) / (Math.pow(1 + rate, termInMonths) - 1);
+        const totalPayment = monthlyPayment * termInMonths;
+        const totalInterest = totalPayment - principal;
+
+        setCalculationResult({
+            monthlyPayment: monthlyPayment.toFixed(2),
+            totalPayment: totalPayment.toFixed(2),
+            totalInterest: totalInterest.toFixed(2)
+        });
     };
 
     return (
@@ -68,39 +82,60 @@ const Loan = () => {
 
             <section className="loan-calculator">
                 <h2>Loan Calculator</h2>
-                <div className="calculator-form">
-                    <label>
+                <form className="calculator-form" onSubmit={(e) => e.preventDefault()}>
+                    <label htmlFor="loanAmount">
                         Loan Amount:
                         <input
+                            id="loanAmount"
                             type="number"
                             value={loanAmount}
                             onChange={(e) => setLoanAmount(e.target.value)}
                             placeholder="Enter amount"
+                            required
                         />
                     </label>
-                    <label>
-                        Interest Rate (%):
+                    <label htmlFor="interestRate">
+                        Annual Interest Rate (%):
                         <input
+                            id="interestRate"
                             type="number"
                             value={interestRate}
                             onChange={(e) => setInterestRate(e.target.value)}
                             placeholder="Enter rate"
+                            required
                         />
                     </label>
-                    <label>
+                    <label htmlFor="loanTerm">
                         Loan Term (years):
                         <input
+                            id="loanTerm"
                             type="number"
                             value={loanTerm}
                             onChange={(e) => setLoanTerm(e.target.value)}
                             placeholder="Enter term"
+                            required
                         />
                     </label>
-                    <button onClick={calculateTotalPayment} className="loan-button">Calculate</button>
-                </div>
-                {totalPayment && (
+                    <label htmlFor="paymentFrequency">
+                        Payment Frequency:
+                        <select
+                            id="paymentFrequency"
+                            value={paymentFrequency}
+                            onChange={(e) => setPaymentFrequency(e.target.value)}
+                        >
+                            <option value="monthly">Monthly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="weekly">Weekly</option>
+                        </select>
+                    </label>
+                    <button onClick={calculateLoan} className="loan-button">Calculate</button>
+                </form>
+                {calculationResult && (
                     <div className="calculator-result">
-                        <h3>Total Amount to be Paid: ${totalPayment}</h3>
+                        <h3>Loan Summary:</h3>
+                        <p>Monthly Payment: ${calculationResult.monthlyPayment}</p>
+                        <p>Total Payment: ${calculationResult.totalPayment}</p>
+                        <p>Total Interest: ${calculationResult.totalInterest}</p>
                     </div>
                 )}
             </section>

@@ -68,6 +68,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
@@ -79,7 +80,10 @@ function Login() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
-        navigate("/dashboard", { replace: true });
+       setShowConfirmation(true);
+       setTimeout (() =>{
+        navigate("/dashboard", {replace: true});
+       }, 2000)
       }
     });
     return () => unsubscribe();
@@ -91,19 +95,28 @@ function Login() {
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
-              <LoginHeader />
-              <LoginForm
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                showPassword={showPassword}
-                setShowPassword={setShowPassword}
-                handleLogin={handleLogin}
-                loading={loading}
-                error={error}
-              />
-              <LoginFooter navigate={navigate} />
+              {showConfirmation ? (
+                <div className="alert alert-success text-center">
+                  <h3>Login Successful!</h3>
+                  <p>Redirecting to your dashboard...</p>
+                </div>
+              ) : (
+                <>
+                  <LoginHeader />
+                  <LoginForm
+                    email={email}
+                    setEmail={setEmail}
+                    password={password}
+                    setPassword={setPassword}
+                    showPassword={showPassword}
+                    setShowPassword={setShowPassword}
+                    handleLogin={handleLogin}
+                    loading={loading}
+                    error={error}
+                  />
+                  <LoginFooter navigate={navigate} />
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase"; // Import Firebase auth
 import { registerValidation } from "../../validations/validation";
+import toast from "react-hot-toast";
+import Footer from "../Footer/Footer.jsx";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -38,6 +40,7 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    const id = toast.loading("Loading..");
 
     try {
       await registerValidation.validate(
@@ -53,6 +56,8 @@ function Signup() {
       });
 
       setErrors(newErrors);
+      toast.dismiss(id);
+      toast.error("Signup Failed");
       return;
     }
 
@@ -63,12 +68,15 @@ function Signup() {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+      toast.success("Signup Successfully");
       setTimeout(() => {
         navigate("/login");
       }, 2000); // Redirect after 2 seconds
     } catch (firebaseError) {
+      toast.error("Signup Failed");
       setError(firebaseError?.message || "Error signing up.");
     }
+    toast.dismiss(id);
   };
 
   return (
@@ -205,6 +213,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

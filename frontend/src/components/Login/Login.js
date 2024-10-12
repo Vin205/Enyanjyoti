@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase";
+import toast from "react-hot-toast";
+import Footer from "../Footer/Footer.jsx";
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -72,8 +74,11 @@ function Login() {
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
   const handleLogin = async (e) => {
+    const id = toast.loading("Loading..");
     e.preventDefault();
     await signInWithEmailAndPassword(email, password);
+    toast.success("Login Successfully!");
+    toast.dismiss(id);
   };
 
   useEffect(() => {
@@ -108,6 +113,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

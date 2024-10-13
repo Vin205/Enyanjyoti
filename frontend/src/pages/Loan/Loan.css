@@ -20,13 +20,13 @@ body {
 }
 
 :root {
-    --primary-color: #2B4B77;
-    --secondary-color: #1f3d5b;
-    --accent-color: #4a90e2;
-    --text-color: #333;
-    --background-color: #f8f9fa;
-    --card-background: #ffffff;
-    --border-radius: 10px;
+  --primary-color: #2B4B77;
+  --secondary-color: #1f3d5b;
+  --accent-color: #4a90e2;
+  --text-color: #333;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --border-radius: 10px;
 }
 
 .loan-container {
@@ -78,114 +78,113 @@ body {
   font-size: 1.8rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
-=======
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .loan-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--primary-color);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: slideIn 0.5s ease-in-out;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: slideIn 0.5s ease-in-out;
 }
 
 .horizontal-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .loan-section {
-    background: var(--card-background);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    flex: 1 1 30%;
-    min-width: 260px;
-    position: relative;
-    overflow: hidden;
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 1 1 30%;
+  min-width: 260px;
+  position: relative;
+  overflow: hidden;
 }
 
 .loan-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .loan-section h2 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    position: relative;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .loan-section h2::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    background: var(--accent-color);
-    position: absolute;
-    bottom: -5px;
-    left: 0;
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
 }
 
 .loan-section p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    color: var(--text-color);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 .loan-button {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    text-decoration: none;
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .loan-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-color);
-    transition: left 0.3s;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  transition: left 0.3s;
+  z-index: -1;
 }
 
 .loan-button:hover::before {
-    left: 0;
+  left: 0;
 }
 
 .loan-button:hover {
-    color: #fff;
-    transform: scale(1.05);
+  color: #fff;
+  transform: scale(1.05);
 
 }
 
@@ -234,28 +233,29 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+}
 
 .loan-type {
-    background: var(--card-background);
-    border-radius: 8px;
-    padding: 15px;
-    flex: 1;
-    margin: 0 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 15px;
+  flex: 1;
+  margin: 0 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .tips {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .loan-calculator {
-    margin-top: 2rem;
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
+  margin-top: 2rem;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
 
 }
 
@@ -340,104 +340,105 @@ body {
     flex-direction: column;
   }
 
-.calculator-form input,
-.calculator-form select {
+  .calculator-form input,
+  .calculator-form select {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: var(--border-radius);
     font-size: 1rem;
     margin-top: 0.5rem;
     transition: border-color 0.2s;
-}
+  }
 
-.calculator-form input:focus,
-.calculator-form select:focus {
+  .calculator-form input:focus,
+  .calculator-form select:focus {
     border-color: var(--accent-color);
     outline: none;
-}
+  }
 
-.calculator-result {
+  .calculator-result {
     margin-top: 1.5rem;
     font-size: 1.2rem;
     color: var(--primary-color);
     animation: slideUp 0.5s ease-in-out;
+  }
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .loan-title {
-        font-size: 1.8rem;
-    }
+  .loan-title {
+    font-size: 1.8rem;
+  }
 
-    .horizontal-cards {
-        flex-direction: column;
-    }
+  .horizontal-cards {
+    flex-direction: column;
+  }
 
-    .loan-section {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-    }
+  .loan-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
 
-    .loan-button {
-        padding: 10px;
-        font-size: 0.85rem;
-    }
+  .loan-button {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
 
-    .calculator-form input {
-        font-size: 0.9rem;
-    }
+  .calculator-form input {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .loan-title {
-        font-size: 1.6rem;
-    }
+  .loan-title {
+    font-size: 1.6rem;
+  }
 
-    .loan-section h2 {
-        font-size: 1.4rem;
-    }
+  .loan-section h2 {
+    font-size: 1.4rem;
+  }
 
-    .loan-section p {
-        font-size: 0.85rem;
-    }
+  .loan-section p {
+    font-size: 0.85rem;
+  }
 
-    .calculator-result {
-        font-size: 1.2rem;
-    }
+  .calculator-result {
+    font-size: 1.2rem;
+  }
 
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

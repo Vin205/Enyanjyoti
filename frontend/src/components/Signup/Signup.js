@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase"; // Import Firebase auth
 import { registerValidation } from "../../validations/validation";
+import toast from "react-hot-toast";
 import Footer from "../Footer/Footer.js";
 
+
 function Signup() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -39,6 +42,11 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    if (!regex.test(email)) {
+      toast.error("Invalid email");
+      return;
+    }
 
     try {
       await registerValidation.validate(

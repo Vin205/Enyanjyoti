@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase";
+import toast from "react-hot-toast";
 import Footer from "../Footer/Footer";
+
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -66,6 +68,7 @@ const LoginFooter = ({ navigate }) => (
 );
 
 function Login() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -74,6 +77,10 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!regex.test(email)) {
+      toast.error("Invalid Email");
+      return;
+    }
     await signInWithEmailAndPassword(email, password);
   };
 

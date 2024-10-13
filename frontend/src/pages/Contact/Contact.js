@@ -15,19 +15,19 @@ function Contact() {
       <form action="#" className="container-sm mt-5">
         <div className="mb-4">
           <label htmlFor="exampleFormControlInput1" >
-            <BsPerson className="me-2" /> Name
+          <span class="material-symbols-outlined" style={{ position:'relative', top:'5px', paddingLeft:'5px'}}>person</span> Name
           </label>
           <input
             type="text"
             className="form-control"
             id="exampleFormControlInput1"
-            placeholder="e.g. John Doe"
+            placeholder="Enter your Name"
             required
           />
         </div>
         <div className="mb-4">
           <label htmlFor="exampleFormControlInput2" >
-            <BsEnvelope className="me-2" /> Email
+          <span class="material-symbols-outlined" style={{ position:'relative', top:'5px', right:'5px', paddingLeft:'10px'}}>mail</span>Email
           </label>
           <input
             type="email"

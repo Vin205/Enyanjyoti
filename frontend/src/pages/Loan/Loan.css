@@ -1,4 +1,23 @@
-/* LoanPage.css */
+/* Loan.css */
+
+:root {
+  --primary-color: #2b4b77;
+  --secondary-color: #4a90e2;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
 
 :root {
     --primary-color: #2B4B77;
@@ -11,6 +30,55 @@
 }
 
 .loan-container {
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loan-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.loan-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.loan-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loan-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.loan-info-card,
+.loan-type-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.loan-types-section h2,
+.loan-tips-section h2,
+.loan-calculator-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+=======
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
@@ -118,13 +186,54 @@
 .loan-button:hover {
     color: #fff;
     transform: scale(1.05);
+
 }
 
-.loan-types-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+.loan-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
+
+
+.loan-type-card h3 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.loan-tips-list {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  list-style-type: none;
+}
+
+.loan-tips-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.loan-tips-list li::before {
+  content: "•";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+}
+
+.loan-calculator-section {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.calculator-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 
 .loan-type {
     background: var(--card-background);
@@ -147,19 +256,89 @@
     padding: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease-in-out;
+
 }
 
 .calculator-form {
-    display: grid;
-    gap: 1rem;
+  flex: 1;
+  min-width: 250px;
 }
 
-.calculator-form label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    color: var(--text-color);
+.form-group {
+  margin-bottom: 1rem;
 }
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.calculate-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.calculator-result {
+  flex: 1;
+  min-width: 250px;
+}
+
+.calculator-result h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.chart-container {
+  margin-top: 1rem;
+}
+
+.loan-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .loan-title {
+    font-size: 2rem;
+  }
+
+  .loan-subtitle {
+    font-size: 1rem;
+  }
+
+  .loan-info-grid,
+  .loan-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-content {
+    flex-direction: column;
+  }
 
 .calculator-form input,
 .calculator-form select {
@@ -225,6 +404,7 @@
     .calculator-result {
         font-size: 1.2rem;
     }
+
 }
 
 /* Animations */

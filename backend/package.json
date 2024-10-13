@@ -20,7 +20,12 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.0",
+
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
+
     "nodemailer": "^6.9.15"
+
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",

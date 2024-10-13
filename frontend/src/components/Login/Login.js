@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
+import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -43,8 +44,12 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
         {showPassword ? "visibility_off" : "visibility"}
       </span>
     </div>
-    <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-      {loading ? "Logging in..." : "Login"}
+    <button 
+      type="submit" 
+      className="btn btn-primary w-100" 
+      style={{ fontSize: '0.8rem', padding: '0.5rem' }} // Smaller button size
+      disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
     </button>
   </form>
 );
@@ -103,6 +108,10 @@ function Login() {
                 loading={loading}
                 error={error}
               />
+              {/* Add the GoogleButton component here */}
+              <div className="text-center mt-4">
+                <GoogleButton />
+              </div>
               <LoginFooter navigate={navigate} />
             </div>
           </div>

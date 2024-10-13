@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase"; // Import Firebase auth
 import { registerValidation } from "../../validations/validation";
+import Footer from "../Footer/Footer.js";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -205,6 +206,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

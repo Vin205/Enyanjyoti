@@ -38,6 +38,7 @@ function Navbar() {
           <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
           <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
           <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
+          <li><Link to="/contributors" onClick={closeNavbar}>Contributors</Link></li>
           </ul>
       </div>
       <div className={`nav-menu ${isActive ? 'active' : ''}`}>
@@ -49,6 +50,7 @@ function Navbar() {
           <li><Link to="/about" onClick={closeNavbar}>About Us</Link></li>
           <li><Link to="/contact" onClick={closeNavbar}>Contact Us</Link></li>
           <li><Link to="/loan" onClick={closeNavbar}>Loan</Link></li>
+          <li><Link to="/contributors" onClick={closeNavbar}>Contributors</Link></li>
           </ul>
       </div>
     </nav>

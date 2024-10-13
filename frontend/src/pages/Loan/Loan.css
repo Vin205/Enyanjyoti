@@ -1,65 +1,242 @@
-/* LoanPage.css */
+/* Loan.css */
+
+:root {
+  --primary-color: #2b4b77;
+  --secondary-color: #4a90e2;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+    --primary-color: #2B4B77;
+    --secondary-color: #1f3d5b;
+    --accent-color: #4a90e2;
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-radius: 10px;
+}
 
 .loan-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px; /* Reduced padding for smaller devices */
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loan-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .loan-title {
-    font-size: 2rem; /* Adjusted for smaller screens */
-    margin-bottom: 30px; /* Reduced space below the title */
-    color: #2B4B77;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.loan-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.loan-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loan-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.loan-info-card,
+.loan-type-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.loan-types-section h2,
+.loan-tips-section h2,
+.loan-calculator-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+=======
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.loan-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .horizontal-cards {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px; /* Reduced space below the horizontal cards */
-    flex-wrap: wrap; /* Allow wrapping to next line if necessary */
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .loan-section {
-    background-color: #ffffff;
+    background: var(--card-background);
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    flex: 1 1 30%; /* Adjust card size and allow wrapping */
-    min-width: 260px; /* Minimum width for smaller screens */
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1 1 30%;
+    min-width: 260px;
+    position: relative;
+    overflow: hidden;
 }
 
 .loan-section:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .loan-section h2 {
-    font-size: 1.5rem; /* Adjusted for smaller screens */
-    color: #2B4B77;
+    font-size: 1.5rem;
+    color: var(--primary-color);
     margin-bottom: 10px;
+    position: relative;
+}
+
+.loan-section h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
 }
 
 .loan-section p {
-    font-size: 0.9rem; /* Adjusted for smaller screens */
+    font-size: 0.9rem;
     margin-bottom: 10px;
-    line-height: 1.5; /* Better readability */
+    line-height: 1.5;
+    color: var(--text-color);
 }
 
-.loan-types-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+.loan-button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
+
+.loan-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    transition: left 0.3s;
+    z-index: -1;
+}
+
+.loan-button:hover::before {
+    left: 0;
+}
+
+.loan-button:hover {
+    color: #fff;
+    transform: scale(1.05);
+
+}
+
+.loan-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+
+.loan-type-card h3 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.loan-tips-list {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  list-style-type: none;
+}
+
+.loan-tips-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.loan-tips-list li::before {
+  content: "•";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+}
+
+.loan-calculator-section {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.calculator-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 
 .loan-type {
-    background-color: #ffffff;
+    background: var(--card-background);
     border-radius: 8px;
     padding: 15px;
     flex: 1;
@@ -68,48 +245,100 @@
     text-align: center;
 }
 
-.loan-button {
-    background-color: #2B4B77;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px; /* Adjusted for smaller screens */
-    font-size: 0.9rem; /* Adjusted for smaller screens */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-.loan-button:hover {
-    background-color: #1f3d5b;
-    transform: scale(1.05);
-}
-
 .tips {
     margin-top: 20px;
 }
 
 .loan-calculator {
     margin-top: 2rem;
-    background-color: #ffffff;
+    background: var(--card-background);
     border-radius: var(--border-radius);
     padding: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+
 }
 
 .calculator-form {
-    display: grid;
-    gap: 1rem;
+  flex: 1;
+  min-width: 250px;
 }
 
-.calculator-form label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    color: var(--text-color);
+.form-group {
+  margin-bottom: 1rem;
 }
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.calculate-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.calculator-result {
+  flex: 1;
+  min-width: 250px;
+}
+
+.calculator-result h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.chart-container {
+  margin-top: 1rem;
+}
+
+.loan-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .loan-title {
+    font-size: 2rem;
+  }
+
+  .loan-subtitle {
+    font-size: 1rem;
+  }
+
+  .loan-info-grid,
+  .loan-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-content {
+    flex-direction: column;
+  }
 
 .calculator-form input,
 .calculator-form select {
@@ -118,53 +347,97 @@
     border-radius: var(--border-radius);
     font-size: 1rem;
     margin-top: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+.calculator-form input:focus,
+.calculator-form select:focus {
+    border-color: var(--accent-color);
+    outline: none;
 }
 
 .calculator-result {
     margin-top: 1.5rem;
     font-size: 1.2rem;
     color: var(--primary-color);
+    animation: slideUp 0.5s ease-in-out;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .loan-title {
-        font-size: 1.8rem; /* Smaller title for tablets and phones */
+        font-size: 1.8rem;
     }
 
     .horizontal-cards {
-        flex-direction: column; /* Stack cards vertically */
+        flex-direction: column;
     }
 
     .loan-section {
-        flex: 1 1 100%; /* Full width on small screens */
-        margin-bottom: 20px; /* Space between stacked cards */
+        flex: 1 1 100%;
+        margin-bottom: 20px;
     }
 
     .loan-button {
-        padding: 10px; /* Smaller button padding */
-        font-size: 0.85rem; /* Smaller button font size */
+        padding: 10px;
+        font-size: 0.85rem;
     }
 
     .calculator-form input {
-        font-size: 0.9rem; /* Smaller input font size */
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .loan-title {
-        font-size: 1.6rem; /* Smaller title for phones */
+        font-size: 1.6rem;
     }
 
     .loan-section h2 {
-        font-size: 1.4rem; /* Smaller heading for cards */
+        font-size: 1.4rem;
     }
 
     .loan-section p {
-        font-size: 0.85rem; /* Smaller paragraph font size */
+        font-size: 0.85rem;
     }
 
     .calculator-result {
-        font-size: 1.2rem; /* Smaller result font size */
+        font-size: 1.2rem;
+    }
+
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

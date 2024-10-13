@@ -1,7 +1,7 @@
 // useLogout.js
 import { useCallback } from 'react';
-import { auth } from './firebase'; // Ensure this path is correct
 import { useNavigate } from 'react-router-dom';
+import { auth } from './firebase'; // Ensure this path is correct
 
 const useLogout = () => {
     const navigate = useNavigate();
@@ -13,6 +13,7 @@ const useLogout = () => {
             navigate('/', { replace: true }); // Navigate to home after logging out
         } catch (error) {
             console.error("Error logging out:", error);
+            // Optional: Add user feedback here (e.g., a toast notification)
         }
     }, [navigate]);
 

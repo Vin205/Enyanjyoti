@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
+
+import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
+
+import toast from "react-hot-toast";
+import Footer from "../Footer/Footer";
+
+
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -43,8 +50,12 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
         {showPassword ? "visibility_off" : "visibility"}
       </span>
     </div>
-    <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-      {loading ? "Logging in..." : "Login"}
+    <button 
+      type="submit" 
+      className="btn btn-primary w-100" 
+      style={{ fontSize: '0.8rem', padding: '0.5rem' }} // Smaller button size
+      disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
     </button>
   </form>
 );
@@ -65,6 +76,7 @@ const LoginFooter = ({ navigate }) => (
 );
 
 function Login() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -74,6 +86,10 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!regex.test(email)) {
+      toast.error("Invalid Email");
+      return;
+    }
     await signInWithEmailAndPassword(email, password);
   };
 
@@ -95,6 +111,7 @@ function Login() {
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
+
               {showConfirmation ? (
                 <div className="alert alert-success text-center">
                   <h3>Login Successful!</h3>
@@ -117,10 +134,30 @@ function Login() {
                   <LoginFooter navigate={navigate} />
                 </>
               )}
+
+              <LoginHeader />
+              <LoginForm
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
+                handleLogin={handleLogin}
+                loading={loading}
+                error={error}
+              />
+              {/* Add the GoogleButton component here */}
+              <div className="text-center mt-4">
+                <GoogleButton />
+              </div>
+              <LoginFooter navigate={navigate} />
+
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

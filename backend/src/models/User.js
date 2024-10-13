@@ -1,5 +1,5 @@
 // models/User.js
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
   userName: {
@@ -18,11 +18,11 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    default: "user",
+    default: 'user',
   },
 });
 
 // Create the User model
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 export default User;

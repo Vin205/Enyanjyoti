@@ -2,11 +2,8 @@
 
 exports.contactUsEmail = (
 	email,
-	firstname,
-	lastname,
 	message,
-	phoneNo,
-	countrycode
+    name
 ) => {
 	return `<!DOCTYPE html>
     <html>

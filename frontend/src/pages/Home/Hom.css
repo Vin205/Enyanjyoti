@@ -99,7 +99,7 @@ body, html {
 .btn-default {
    background-color: #18181B; 
   color: #ffffff;
-  padding: 12px 46px !important; 
+  padding: 10px 36px !important; 
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -116,7 +116,7 @@ body, html {
 .btn-outline {
   background-color: #ffffff; /* Light gray background for "Login" button */
   color: #18181B;
-  padding: 11px 46px;
+  padding: 10px 36px !important; 
   border: 2px solid #18181B;
   cursor: pointer;
   border-radius: 5px;

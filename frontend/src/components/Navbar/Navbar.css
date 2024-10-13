@@ -2,6 +2,7 @@
   background: linear-gradient(135deg, #3498db, #8e44ad);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   padding: 0;
+  height: 125px;
   position: relative;
   border-bottom: 2px solid transparent;
   background-clip: padding-box;
@@ -126,8 +127,7 @@
 }
 
 .logo {
-  height: 60px;
-  padding-top: 5.5px;
+  height: 80px;
   transition: all 0.3s ease;
 }
 

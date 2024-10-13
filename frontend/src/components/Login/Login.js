@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase";
+import Footer from "../Footer/Footer";
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -108,6 +109,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

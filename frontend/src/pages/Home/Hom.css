@@ -46,9 +46,11 @@ body, html {
 
 .main-content {
   width: 100%;
+  position: relative;
+  top: 37px;
+  min-height: 30vh;
   margin: 0 auto;
   padding: 32px 16px;
-
 }
 
 .intro-section {

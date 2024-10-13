@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase";
 import toast from "react-hot-toast";
+import Footer from "../Footer/Footer";
+
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -114,6 +116,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

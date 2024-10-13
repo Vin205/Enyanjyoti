@@ -15,6 +15,9 @@ app.use(express.json());
 
 // Use the user routes
 app.use('/api/auth', authRoutes);
+const contactUsRoute = require("./src/routes/contact.js");
+app.use("/api/reach", contactUsRoute);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -16,6 +16,16 @@
   
 
 }
+
+form input{
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form textarea{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
 .form{
     
 
@@ -33,10 +43,13 @@
     background-color: #1665C0;
     width:10vw;
     text-align: center;
+    color: #fff;
 
 }
 .btn:hover{
-    color:#FFE7D1;
+    background-color: #1665C0;
+    opacity: 0.8;
+    color: #fff;
 }
 .form h1{
     font-size: 32px;

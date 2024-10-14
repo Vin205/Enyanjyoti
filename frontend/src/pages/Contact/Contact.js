@@ -2,7 +2,34 @@ import React from "react";
 import { BsPerson, BsEnvelope } from "react-icons/bs";
  // Importing Bootstrap Icons for person and envelope icons
 import './Contact.css'
+import toast from "react-hot-toast";
 function Contact() {
+  const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+		if (!name || !email || !message) {
+			toast.error("All fields are required!");
+			return;
+		}
+		if (!email.includes("@gmail.com") || !email.includes("@mail.com")) {
+			toast.error("Invalid Email");
+			return;
+		}
+		if (message.length < 10) {
+			toast.error("Please enter few more words");
+			return;
+		}
+		toast.success(
+			"Thank you for reaching out! Your message has been successfully submitted. Our team will get back to you shortly."
+		);
+		setEmail("");
+		setMessage("");
+		setName("");
+  };
+  
   return (
     <div className="contact-container">
      <div class="inner-container">
@@ -12,7 +39,7 @@ function Contact() {
       <h1>We'd love to help</h1>
       </div>
       <span class="black-line"></span>
-      <form action="#" className="container-sm mt-5">
+      <form onSubmit={submitHandler} action="#" className="container-sm mt-5">
         <div className="mb-4">
           <label htmlFor="exampleFormControlInput1" >
             <BsPerson className="me-2" /> Name
@@ -23,6 +50,7 @@ function Contact() {
             id="exampleFormControlInput1"
             placeholder="e.g. John Doe"
             required
+            onChange={(e)=> setEmail(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -35,6 +63,7 @@ function Contact() {
             id="exampleFormControlInput2"
             placeholder="email@example.com"
             required
+            onChange={(e)=> setEmail(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -46,6 +75,7 @@ function Contact() {
             id="exampleFormControlTextarea1"
             rows="3"
             required
+            onChange={(e)=> setMessage(e.target.value)}
           ></textarea>
          <div class="button-container"> <button type="submit" className="btn">
             Send

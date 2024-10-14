@@ -7,8 +7,8 @@ const useAuth = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-            if (!currentUser) {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (!user) {
                 navigate('/', { replace: true }); // Redirect to home if no user is found
             }
         });

@@ -49,7 +49,7 @@ function App() {
             <Route path="*" element={<Navigate to="/page-not-found" replace />} />
           </Routes>
         </main>
-        {(location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password" ) && location.pathname.toLowerCase() !== "/page-not-found" && <Footer />}
+        {location.pathname !== "/login" && location.pathname.toLowerCase() !== "/signup" && location.pathname.toLowerCase() !== "/forgot-password"  && location.pathname.toLowerCase() !== "/page-not-found" && <Footer />}
       </div>
     </>
   );

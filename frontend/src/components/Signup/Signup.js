@@ -74,7 +74,7 @@ function Signup() {
 
   return (
     <div
-      className="container mt-5 justify-content-center"
+      className="footer-cont mt-5 justify-content-center"
       style={{ height: "auto" }}
     >
       <div className="row justify-content-center" style={{ width: "100%" }}>

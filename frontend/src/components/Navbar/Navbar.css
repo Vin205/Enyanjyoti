@@ -250,6 +250,11 @@
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
+.footer-cont{
+  display: block;
+  width: 100%;
+}
+
 /* Responsive Styles */
 @media (max-width: 1000px) {
   .container {

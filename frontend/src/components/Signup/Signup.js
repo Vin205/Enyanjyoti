@@ -1,12 +1,18 @@
-// src/Signup.js
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../Firebase/firebase"; // Import Firebase auth
+import { useNavigate } from "react-router-dom";
 import { registerValidation } from "../../validations/validation";
+
+import { auth, signInWithGoogle } from "../Firebase/firebase"; // Import Firebase auth and Google sign-in
+import GoogleButton from '../GoogleButton/GoogleButton';
+
+import toast from "react-hot-toast";
 import Footer from "../Footer/Footer.js";
 
+
+
 function Signup() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -40,6 +46,11 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    if (!regex.test(email)) {
+      toast.error("Invalid email");
+      return;
+    }
+
     try {
       await registerValidation.validate(
         { email, password, confirmPassword },
@@ -50,7 +61,6 @@ function Signup() {
       const newErrors = {};
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
-        // newErrors[err.path] = err.errors[0];
       });
 
       setErrors(newErrors);
@@ -72,11 +82,22 @@ function Signup() {
     }
   };
 
+  const handleGoogleSignup = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/dashboard"); // Redirect after successful Google sign-in
+    } catch (error) {
+      setError("Error signing in with Google.");
+    }
+  };
+
   return (
+
     <div
       className="footer-cont mt-5 justify-content-center"
       style={{ height: "auto" }}
     >
+
       <div className="row justify-content-center" style={{ width: "100%" }}>
         <div className="col-md-6">
           <div className="card shadow">
@@ -88,9 +109,7 @@ function Signup() {
               )}
               <form onSubmit={handleSignup} noValidate>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email:
-                  </label>
+                  <label htmlFor="email" className="form-label">Email:</label>
                   <input
                     type="email"
                     id="email"
@@ -99,34 +118,22 @@ function Signup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {errors.email && (
-                    <div className="text-danger">{errors.email}</div>
-                  )}
+                  {errors.email && <div className="text-danger">{errors.email}</div>}
                 </div>
-                <div
-                  style={{ position: "relative", width: "100%" }}
-                  className="mb-3"
-                >
-                  <label htmlFor="confirmPassword" className="form-label">
-                    Password:
-                  </label>
+                <div style={{ position: "relative", width: "100%" }} className="mb-3">
+                  <label htmlFor="password" className="form-label">Password:</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     id="password"
                     className="form-control"
                     placeholder="Enter your password"
                     value={password}
-                    // strong password
                     onChange={(e) => setPassword(e.target.value)}
-
                     pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
                     title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
                     required
-
                   />
-                  {errors.password && (
-                    <div className="text-danger">{errors.password}</div>
-                  )}
+                  {errors.password && <div className="text-danger">{errors.password}</div>}
                   <span
                     style={{
                       color: "black",
@@ -144,30 +151,20 @@ function Signup() {
                   </span>
                 </div>
 
-                <div
-                  className="mb-3"
-                  style={{ position: "relative", width: "100%" }}
-                >
-                  <label htmlFor="confirmPassword" className="form-label">
-                    Confirm Password:
-                  </label>
+                <div className="mb-3" style={{ position: "relative", width: "100%" }}>
+                  <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     id="confirmPassword"
                     className="form-control"
                     placeholder="Confirm your password"
                     value={confirmPassword}
-                    // strong password
                     onChange={(e) => setConfirmPassword(e.target.value)}
-
                     pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
                     title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
                     required
-
                   />
-                  {errors.confirmPassword && (
-                    <div className="text-danger">{errors.confirmPassword}</div>
-                  )}
+                  {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
                   <span
                     style={{
                       color: "black",
@@ -184,14 +181,13 @@ function Signup() {
                     {showConfirmPassword ? "visibility_off" : "visibility"}
                   </span>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary w-100"
-                  disabled={loading}
-                >
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                   {loading ? "Signing up..." : "Sign Up"}
                 </button>
               </form>
+              <div className="text-center mt-3">
+                <GoogleButton onClick={handleGoogleSignup} />
+              </div>
               <p className="mt-3 text-center">
                 Already have an account?{" "}
                 <span

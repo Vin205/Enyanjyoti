@@ -15,6 +15,8 @@
    <img height=40 src="https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap">
 </div>
 
+![image](https://github.com/user-attachments/assets/06de9b88-8d5f-4b00-a025-e83a7ffd50c8)
+
 E-nyanjyoti serves as a **one-stop solution** for:
 - 📚 **Conceptual Learning**
 - 💼 **Career and Employment Opportunities**
@@ -41,6 +43,17 @@ We aim to bridge the gap between education and employment while providing essent
         <td>Hacktober Fest is an annual celebration of open-source software development. It's a month-long event encouraging developers to contribute to open-source projects.</td> 
     </tr>
 </table>
+
+## 📸 Screenshots
+
+**💻Desktop and📱Mobile View**
+
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/2694ca08-947a-473d-a61e-bd837208c867" alt="First Image" width="50%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+  <img src="https://github.com/user-attachments/assets/12b00cac-b694-484d-b304-fdd44e3428c0" alt="Second Image" width="15%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+</div>
+
+---
 
 ## Our Top Contributors
 

@@ -15,7 +15,7 @@
    <img height=40 src="https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap">
 </div>
 
-![image](https://github.com/user-attachments/assets/06de9b88-8d5f-4b00-a025-e83a7ffd50c8)
+
 
 E-nyanjyoti serves as a **one-stop solution** for:
 - 📚 **Conceptual Learning**

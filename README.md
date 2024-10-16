@@ -21,6 +21,8 @@
    <img height=40 src="https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap">
 </div>
 
+
+
 E-nyanjyoti serves as a **one-stop solution** for:
 - 📚 **Conceptual Learning**
 - 💼 **Career and Employment Opportunities**
@@ -55,7 +57,7 @@ We aim to bridge the gap between education and employment while providing essent
 
 <div align="center">
   <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=54&cachebust=3" />
+    <img src="https://contrib.rocks/image?repo=Vin205/Enyanjyoti&max=57&cachebust=3" />
   </a>
 </div>
 
@@ -83,6 +85,17 @@ Thank you for your contributions!
 6. [Issues](https://github.com/Vin205/Enyanjyoti/issues)
 7. [Pull Requests](https://github.com/Vin205/Enyanjyoti/pulls)
 8. [Additional Resources wiki](https://github.com/Vin205/Enyanjyoti/wiki)
+
+---
+
+## 📸 Screenshots
+
+**💻Desktop and📱Mobile View**
+
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/2694ca08-947a-473d-a61e-bd837208c867" alt="First Image" width="50%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+  <img src="https://github.com/user-attachments/assets/12b00cac-b694-484d-b304-fdd44e3428c0" alt="Second Image" width="15%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+</div>
 
 ---
 

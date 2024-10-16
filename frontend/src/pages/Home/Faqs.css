@@ -1,7 +1,6 @@
-/* Faqs.css */
-
 .faqs-container {
-  max-width: 800px;
+  margin-bottom: 70px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -29,10 +28,17 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease 0.5s, transform 0.5s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
+.faq-item:hover {
+  background-color: #e6f7ff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
 
+/* Styling for the question */
 .faq-question {
   display: flex;
   justify-content: space-between;
@@ -84,27 +90,26 @@
     font-size: 15px;
   }
 }
-.dark-mode .faqs-container{
+
+/* Dark mode styles */
+.dark-mode .faqs-container {
   background-color: black;
   border: 2px solid #fff;
 }
 
-.dark-mode .faq-item{
+.dark-mode .faq-item {
   background-color: #333;
   color: #fff;
 }
 
-.dark-mode .faqs-title{
+.dark-mode .faqs-title {
   color: #fff;
 }
 
-.dark-mode .faq-question h3{
+.dark-mode .faq-question h3 {
   color: #fff;
 }
-.faq-item:hover {
-  background-color: #e6f7ff;
-  transform: scale(1.02);
-}
+
 .faq-link {
   color: #007bff;
   text-decoration: underline;

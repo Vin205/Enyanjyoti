@@ -4,7 +4,7 @@ import { BsPerson, BsEnvelope } from "react-icons/bs";
 import './Contact.css'
 function Contact() {
   return (
-    <div className="contact-container">
+    <div className="contact-container" style={{marginTop: "100px", marginBottom: "80px", padding:"10px"}}>
      <div class="inner-container">
      <div class="img-container "><img src="/images/contact.jpg" /></div>
  <div className="form " style={{ maxWidth: "600px" }}>

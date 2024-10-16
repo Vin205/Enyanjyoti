@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
 
+
 const root = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>

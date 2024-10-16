@@ -30,7 +30,7 @@ const Loan = () => {
     };
 
     return (
-        <div className="loan-container">
+        <div className="loan-container" style={{marginTop: "50px", marginBottom: "50px", paddingTop: "30px", paddingBottom: "30px"} }>
             <h1 className="loan-title">Understanding Loans and Grants</h1>
             
             <div className="horizontal-cards">

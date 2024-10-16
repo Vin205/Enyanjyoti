@@ -6,7 +6,7 @@ body, html {
   width: 100%;
   -webkit-font-smoothing: antialiased; /* Smooth font rendering */
   -moz-osx-font-smoothing: grayscale;
-}
+  }
 
 .scroll-up-btn {
   position: fixed;
@@ -46,13 +46,20 @@ body, html {
 
 .main-content {
   width: 100%;
+  position: relative;
+  top: 37px;
+  min-height: 30vh;
   margin: 0 auto;
   padding: 32px 16px;
+
+  padding: 32px 16px;
+  min-height: 100vh;
 
 }
 
 .intro-section {
   display: flex;
+  flex-wrap:wrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -62,6 +69,7 @@ body, html {
 .animation-container {
   flex: 1;
   display: flex;
+  margin:40px 0;
   justify-content: center;
 }
 
@@ -90,16 +98,36 @@ body, html {
   line-height: 1.4;
 }
 
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+  }
+  .animation-container {
+    width: 100%;
+    height: 300px; /* Adjust the height of the animation container */
+  }
+  .lottie-animation {
+    width: 100%; /* Make the animation take full width */
+    height: 300px; /* Adjust the height of the animation */
+  }
+  .intro-text {
+    padding: 16px;
+  }
+}
 .button-group {
   display: flex;
-  align-items: center;
   margin-top: 16px;
 }
 
 .btn-default {
-   background-color: #18181B; 
+  background-color: #18181B; /* Dark background for "Sign Up" button */
+  background-color: #18181B; 
   color: #ffffff;
-  padding: 12px 46px !important; 
+
+  padding: 16px 32px;
+
+  padding: 10px 36px !important; 
+
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -110,13 +138,13 @@ body, html {
 }
 
 .btn-default:hover {
-  background-color: #333333; /* Slightly lighter on hover */
+  background-color: #333333; /* Slightly lighter on hover */ 
 }
 
 .btn-outline {
   background-color: #ffffff; /* Light gray background for "Login" button */
   color: #18181B;
-  padding: 11px 46px;
+  padding: 10px 36px !important; 
   border: 2px solid #18181B;
   cursor: pointer;
   border-radius: 5px;
@@ -124,10 +152,17 @@ body, html {
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
 }
-
 .btn-outline:hover {
   background-color: #18181B;
   color: #ffffff;
+} 
+.column-grid {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card-grid {
@@ -135,6 +170,11 @@ body, html {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 100px;
+}
+.column {
+  text-align: center;
+  width: 30%; /* Set a fixed width for the column */
+  margin: 20px; /* Add some margin to separate the columns */
 }
 
 .card {
@@ -145,14 +185,6 @@ body, html {
   margin-bottom: 40px;
 }
 
-.card-header {
-  padding: 16px;
-}
-
-.card-title {
-  font-size: 24px;
-}
-
 .card-content {
   display: flex;
   flex-direction: column;
@@ -160,6 +192,47 @@ body, html {
   height: 100%;
   padding: 10px;
   color: #49525f;
+}
+.column-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+}
+.column-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  margin:30px 0;
+}
+
+.card-header {
+  padding: 16px;
+}
+.column-text {
+  font-size: 18px;
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+}
+.column-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.column-description {
+  margin-bottom: 20px;
 }
 
 .card-image {
@@ -169,64 +242,109 @@ body, html {
   margin-bottom: 8px;
 }
 
+.column-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5678b3;
+  color: #fff;
+  cursor: pointer;
+}
+
 .card-description {
-  flex-grow: 1;
-  margin-bottom: 25px;
-  margin-top: 15px;
+  color: #718096;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.column-button:hover {
+  background-color: #2B4B77;
 }
 
 .card-button {
   width: 100%;
   padding: 12px 0;
-  margin-top: auto; /* to Ensures button stays at the bottom */
+}
+.column-key-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .intro-section {
-    flex-direction: column; 
-    align-items: flex-start; 
-  }
-
-  .lottie-animation {
-    width: 100%; /* Make the animation responsive */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .title {
-    font-size: 36px; /* Reduce title size */
-  }
-
-  .subtitle {
-    font-size: 18px; /* Reduce subtitle size */
-  }
-
-  .button-group {
-    flex-direction: column;
-    margin-top: 8px; 
-  }
-
-  .btn-default, .btn-outline {
-    width: 100%; 
-    margin-right: 0; 
-    margin-bottom: 8px; /* Add bottom margin for spacing */
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr; /* Stack cards vertically */
-  }
+.column-key-points li {
+  font-size:15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
-@media (max-width: 443px) {
-  .intro-text{
-    padding: 20px;
-  }
+
+.key-point-icon {
+  color:#4a73b5;
+  font-size: 25px;
+  margin: 0 15px;
 }
-@media (max-width: 382px) {
-  .title{
-    font-size: 45px !important;
-  }
+
+.column-description {
+  margin-bottom: 20px;
 }
+.column-button-login{
+  padding: 10px 30px;
+  border: 1px solid #4a73b5;
+  border-radius: 10px;
+  background-color: #DBF5EF;
+  color: #4a73b5;
+  cursor: pointer;
+}
+.column-button-login:hover {
+  background-color: #5678b3;
+  color: #fff;
+}
+@media (min-width: 1200px) {
+  .column-grid {
+    flex-direction: row;
+  }
+  .column {
+    width: 100%;
+    margin: 20px;
+  }
+  .column-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .column-image {
+  flex-basis: 50%; /* Take 50% of the screen width */
+  height: 200px;
+  margin: 0;
+}
+.column-text {
+  flex-basis: 50%; /* Take 50% of the screen width */
+  padding: 20px;
+}
+}
+
 @media (max-width: 321px) {
   .title{
     font-size: 40px !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #efeef1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(178, 121, 216, 0.959);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222, 130, 235, 0.911);
+  border-radius: 12px;
 }

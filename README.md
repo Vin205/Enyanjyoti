@@ -44,17 +44,6 @@ We aim to bridge the gap between education and employment while providing essent
     </tr>
 </table>
 
-## 📸 Screenshots
-
-**💻Desktop and📱Mobile View**
-
-<div style="text-align: center;">
-  <img src="https://github.com/user-attachments/assets/2694ca08-947a-473d-a61e-bd837208c867" alt="First Image" width="50%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
-  <img src="https://github.com/user-attachments/assets/12b00cac-b694-484d-b304-fdd44e3428c0" alt="Second Image" width="15%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
-</div>
-
----
-
 ## Our Top Contributors
 
 - We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
@@ -90,6 +79,17 @@ Thank you for your contributions!
 6. [Issues](https://github.com/Vin205/Enyanjyoti/issues)
 7. [Pull Requests](https://github.com/Vin205/Enyanjyoti/pulls)
 8. [Additional Resources wiki](https://github.com/Vin205/Enyanjyoti/wiki)
+
+---
+
+## 📸 Screenshots
+
+**💻Desktop and📱Mobile View**
+
+<div style="text-align: center;">
+  <img src="https://github.com/user-attachments/assets/2694ca08-947a-473d-a61e-bd837208c867" alt="First Image" width="50%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+  <img src="https://github.com/user-attachments/assets/12b00cac-b694-484d-b304-fdd44e3428c0" alt="Second Image" width="15%" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" />
+</div>
 
 ---
 

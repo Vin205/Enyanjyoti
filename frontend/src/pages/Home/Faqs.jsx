@@ -19,6 +19,7 @@ export default function Faqs() {
           page.
         </span>
       ),
+      QN: "One"
     },
     {
       question: "How can I sign up for a course?",
@@ -32,11 +33,13 @@ export default function Faqs() {
           available courses.
         </span>
       ),
+      QN: "Two"
     },
     {
       question: "What are the benefits of enrolling?",
       answer:
         "By enrolling, you gain access to exclusive learning materials, career guidance, and personalized support.",
+      QN: "Three"
     },
     {
       question: "How do I apply for loans and grants?",
@@ -49,34 +52,43 @@ export default function Faqs() {
           section of our platform for a detailed guide on how to apply easily.
         </span>
       ),
+      QN:"Four"
     },
   ];
 
-  const toggleAnswer = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <div className="faqs-container">
-      <h1 className="faqs-title">Frequently Asked Questions</h1>
-      <div className="faqs-list">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="faq-item"
-            onMouseEnter={() => setActiveIndex(index)}
-            onMouseLeave={() => setActiveIndex(null)}
-          >
-            <div className="faq-question" onClick={() => toggleAnswer(index)}>
-              <h3>{faq.question}</h3>
-              <span>{activeIndex === index ? "-" : "+"}</span>
-            </div>
-            {activeIndex === index && (
-              <p className="faq-answer">{faq.answer}</p>
-            )}
-          </div>
-        ))}
+      <h3 style={{ textAlign: "center",padding:"20px 0" }}>Frequently Asked Questions</h3>
+      <div className="accordion accordion-flush" id="accordionFlushExample">
+        {
+          faqs.map((faq) => {
+            return (
+              <div className="accordion-item" key={faq.QN}>
+                <h2 className="accordion-header">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#flush-collapse${faq.QN}`}
+                    aria-expanded="false"
+                    aria-controls={`flush-collapse${faq.QN}`}
+                  >
+                    {faq.question}
+                  </button>
+                </h2>
+                <div
+                  id={`flush-collapse${faq.QN}`}
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">{faq.answer}</div>
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );
+  
 }

@@ -23,6 +23,9 @@ function Contact() {
             id="exampleFormControlInput1"
             placeholder="Enter your Name"
             required
+             pattern="[a-zA-Z ]+"
+             oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed)"
+             oninput="this.setCustomValidity('')"
           />
         </div>
         <div className="mb-4">

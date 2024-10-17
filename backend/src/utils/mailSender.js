@@ -32,7 +32,7 @@ const limiter = new Bottleneck({
 const sendSingleEmail = async (email, title, body) => {
 	try {
 		let info = await transporter.sendMail({
-			from: `Study Notion - by Harsh Bhardwaj`,
+			from: `Study Notion - by smog-root`,
 			to: email, // Single recipient
 			subject: title,
 			html: body,

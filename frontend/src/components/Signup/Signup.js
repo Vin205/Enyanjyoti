@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { registerValidation } from "../../validations/validation";
-import { auth, signInWithGoogle } from "../Firebase/firebase"; // Import Firebase auth and Google sign-in
+import { auth, signInWithGoogle } from "../Firebase/firebase";
 import GoogleButton from '../GoogleButton/GoogleButton';
 import toast from "react-hot-toast";
 import Footer from "../Footer/Footer.js";
@@ -18,7 +18,17 @@ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
-  const [emailError, setEmailError] = useState(""); // State for email validation feedback
+  const [emailError, setEmailError] = useState("");
+  
+  // New password criteria state
+  const [passwordCriteria, setPasswordCriteria] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+  
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
@@ -41,6 +51,21 @@ function Signup() {
     return () => unsubscribe();
   }, [navigate]);
 
+  // Real-time password validation function
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    // Update password criteria as the user types
+    setPasswordCriteria({
+      length: value.length >= 8,
+      uppercase: /[A-Z]/.test(value),
+      lowercase: /[a-z]/.test(value),
+      number: /[0-9]/.test(value),
+      specialChar: /[!@#$%^&*(),.?":{}|<>]/.test(value),
+    });
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -56,7 +81,7 @@ function Signup() {
       setEmailError("Please use a trusted email provider (Gmail, Yahoo, Outlook, iCloud, Hotmail).");
       return;
     } else {
-      setEmailError(""); // Clear error if valid
+      setEmailError("");
     }
 
     try {
@@ -75,7 +100,6 @@ function Signup() {
       return;
     }
 
-    // Firebase signup
     try {
       await createUserWithEmailAndPassword(email, password);
       setSuccessMessage("Signup successful! Redirecting to login...");
@@ -84,18 +108,9 @@ function Signup() {
       setConfirmPassword("");
       setTimeout(() => {
         navigate("/login");
-      }, 2000); // Redirect after 2 seconds
+      }, 2000);
     } catch (firebaseError) {
       setError(firebaseError?.message || "Error signing up.");
-    }
-  };
-
-  const handleGoogleSignup = async () => {
-    try {
-      await signInWithGoogle();
-      navigate("/dashboard"); // Redirect after successful Google sign-in
-    } catch (error) {
-      setError("Error signing in with Google.");
     }
   };
 
@@ -110,7 +125,7 @@ function Signup() {
               {successMessage && (
                 <div className="alert alert-success">{successMessage}</div>
               )}
-              {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
+              {emailError && <div className="alert alert-danger">{emailError}</div>}
               <form onSubmit={handleSignup} noValidate>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email:</label>
@@ -122,11 +137,12 @@ function Signup() {
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
-                      setEmailError(""); // Clear email error on change
+                      setEmailError("");
                     }}
                   />
                   {errors.email && <div className="text-danger">{errors.email}</div>}
                 </div>
+                
                 <div style={{ position: "relative", width: "100%" }} className="mb-3">
                   <label htmlFor="password" className="form-label">Password:</label>
                   <input
@@ -135,9 +151,7 @@ function Signup() {
                     className="form-control"
                     placeholder="Enter your password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                    onChange={handlePasswordChange}  // Real-time validation
                     required
                   />
                   {errors.password && <div className="text-danger">{errors.password}</div>}
@@ -158,6 +172,25 @@ function Signup() {
                   </span>
                 </div>
 
+                {/* Password validation feedback */}
+                <ul className="text-muted">
+                  <li style={{ color: passwordCriteria.length ? "green" : "red" }}>
+                    At least 8 characters long
+                  </li>
+                  <li style={{ color: passwordCriteria.uppercase ? "green" : "red" }}>
+                    At least 1 uppercase letter (A-Z)
+                  </li>
+                  <li style={{ color: passwordCriteria.lowercase ? "green" : "red" }}>
+                    At least 1 lowercase letter (a-z)
+                  </li>
+                  <li style={{ color: passwordCriteria.number ? "green" : "red" }}>
+                    At least 1 number (0-9)
+                  </li>
+                  <li style={{ color: passwordCriteria.specialChar ? "green" : "red" }}>
+                    At least 1 special character (e.g., !@#$%^&*())
+                  </li>
+                </ul>
+
                 <div className="mb-3" style={{ position: "relative", width: "100%" }}>
                   <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
                   <input
@@ -167,8 +200,6 @@ function Signup() {
                     placeholder="Confirm your password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
                     required
                   />
                   {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}

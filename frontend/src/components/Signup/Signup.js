@@ -19,6 +19,8 @@ function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [emailError, setEmailError] = useState("");
+  
+  // New password criteria state
   const [passwordCriteria, setPasswordCriteria] = useState({
     length: false,
     uppercase: false,
@@ -26,6 +28,7 @@ function Signup() {
     number: false,
     specialChar: false,
   });
+  
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
@@ -48,11 +51,12 @@ function Signup() {
     return () => unsubscribe();
   }, [navigate]);
 
+  // Real-time password validation function
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
 
-    // Update the password criteria based on current input
+    // Update password criteria as the user types
     setPasswordCriteria({
       length: value.length >= 8,
       uppercase: /[A-Z]/.test(value),
@@ -138,6 +142,7 @@ function Signup() {
                   />
                   {errors.email && <div className="text-danger">{errors.email}</div>}
                 </div>
+                
                 <div style={{ position: "relative", width: "100%" }} className="mb-3">
                   <label htmlFor="password" className="form-label">Password:</label>
                   <input
@@ -146,7 +151,7 @@ function Signup() {
                     className="form-control"
                     placeholder="Enter your password"
                     value={password}
-                    onChange={handlePasswordChange}  // Change handler
+                    onChange={handlePasswordChange}  // Real-time validation
                     required
                   />
                   {errors.password && <div className="text-danger">{errors.password}</div>}
@@ -167,7 +172,7 @@ function Signup() {
                   </span>
                 </div>
 
-                {/* Password criteria feedback */}
+                {/* Password validation feedback */}
                 <ul className="text-muted">
                   <li style={{ color: passwordCriteria.length ? "green" : "red" }}>
                     At least 8 characters long

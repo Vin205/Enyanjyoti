@@ -58,7 +58,7 @@ export default function Faqs() {
 
   return (
     <div className="faqs-container">
-      <h1 className="faqs-title">Frequently Asked Questions</h1>
+      <h1 className="faqs-title">FAQs</h1>
       <div className="faqs-list">
         {faqs.map((faq, index) => (
           <div

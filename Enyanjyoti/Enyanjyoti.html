@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate-Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="images/Logo.jpg">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .card1,
+        .card2 {
+            background-color: #121212;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            color: #fff;
+        }
+
+        .card1 img {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-height: 400px;
+        }
+
+        p{
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: navajowhite;
+            text-decoration: underline;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 5px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .toggle-btn {
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-btn.active {
+            background-color: #fff;
+            color: black;
+        }
+
+        .amount-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .amount-btn {
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .amount-btn:hover,
+        .amount-btn.selected {
+            background-color: #444;
+        }
+
+        .checkbox-container {
+            margin: 10px 0;
+        }
+
+        .checkbox-container label {
+            color: #ccc;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #fff;
+            background-color: #222;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .donate-btn,
+        .home-btn {
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .donate-btn:hover,
+        .home-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .terms {
+            font-size: 0.8rem;
+            margin-top: 15px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .terms a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- First Card with Photos -->
+        <div class="card1">
+            <img src="https://www.compassion.com/Images/education-for-girls-heroaug20_165118_480x208.jpg" alt="Photo 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbiu1I8o5mxVfrY0BgFkFhBKlezvPnfOrKzg&s" alt="Photo 2">
+            <img src="https://www.iimpact.org/wp-content/uploads/2022/03/slider-1.jpg" alt="Photo 3">
+        </div>
+
+        <!-- Second Card with Donation Form -->
+        <div class="card2">
+            <p>Together, We Can Heal the World</p>
+            <h2>Select Gift Frequency</h2>
+            <div class="toggle-container">
+                <div class="toggle-btn active" id="one-time-btn"><b>One-time</b></div>
+                <div class="toggle-btn" id="monthly-btn"><b>Monthly</b></div>
+            </div>
+
+            <h3>Select Amount</h3>
+            <div class="amount-buttons">
+                <button class="amount-btn">₹10</button>
+                <button class="amount-btn">₹50</button>
+                <button class="amount-btn">₹100</button>
+                <button class="amount-btn">₹200</button>
+                <button class="amount-btn">₹500</button>
+                <button class="amount-btn">₹1000</button>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="cover-fees">
+                <label for="cover-fees">Yes, I'll generously add ₹50 to cover transaction fees</label>
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+
+            <button id="donate-btn" class="donate-btn">Donate Now</button>
+            <a href="index.html"><button id="home-btn" class="home-btn">Home</button></a>
+
+            <p class="terms">By clicking Donate Now, you agree to our <a href="#">terms and conditions</a>.</p>
+        </div>
+    </div>
+
+    <script>
+       // Toggle between One-time and Monthly options
+const oneTimeBtn = document.getElementById('one-time-btn');
+const monthlyBtn = document.getElementById('monthly-btn');
+
+oneTimeBtn.addEventListener('click', function () {
+    oneTimeBtn.classList.add('active');
+    monthlyBtn.classList.remove('active');
+});
+
+monthlyBtn.addEventListener('click', function () {
+    monthlyBtn.classList.add('active');
+    oneTimeBtn.classList.remove('active');
+});
+
+// Handle Amount Button Selection
+const amountButtons = document.querySelectorAll('.amount-btn');
+
+amountButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        amountButtons.forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+// Handle Donate Now button click for one-time donation
+const donateBtn = document.getElementById('donate-btn');
+donateBtn.addEventListener('click', function () {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const selectedAmount = Array.from(amountButtons).find(btn => btn.classList.contains('selected'))?.textContent || 'Not selected';
+    const coverFees = document.getElementById('cover-fees').checked ? 'Yes' : 'No';
+
+    if (name && email && selectedAmount !== 'Not selected') {
+        alert(`Thank you for your donation!\n\nDetails:\nName: ${name}\nEmail: ${email}\nAmount: ${selectedAmount}\nCover Transaction Fees: ${coverFees}`);
+    } else {
+        alert('Please fill out all the details and select an amount before proceeding.');
+    }
+});
+
+    </script>
+</body>
+
+</html>

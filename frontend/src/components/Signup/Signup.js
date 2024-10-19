@@ -209,7 +209,7 @@ function Signup() {
           </div>
         </div>
       </div>
-      <Footer />
+     
     </div>
   );
 }

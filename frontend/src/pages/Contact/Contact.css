@@ -101,5 +101,8 @@ form textarea{
         height:fit-content;
         margin-block: 20px;
      }
+   .btn{
+        width:20vw;
+    }
     
 }

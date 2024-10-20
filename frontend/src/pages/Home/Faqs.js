@@ -11,15 +11,15 @@ export default function Faqs() {
     },
     {
       question: "How can I sign up for a course?",
-      answer: "To sign up, click on the 'Sign Up' button at the top of the page, create an account, and explore available courses.",
+      answer: "Simply create an account by clicking the 'Sign Up' button at the top and explore courses available to you.",
     },
     {
       question: "What are the benefits of enrolling?",
-      answer: "By enrolling, you gain access to exclusive learning materials, career guidance, and personalized support.",
+      answer: "Enrolling gives you access to expert guidance, exclusive resources, and a community of learners.",
     },
     {
       question: "How do I apply for loans and grants?",
-      answer: "Visit the 'Loans and Grants' section of our platform for a detailed guide on how to apply easily.",
+      answer: "Yes, you can apply for financial aid through our 'Loans and Grants' section, which has all the necessary details.",
     },
   ];
 
@@ -35,9 +35,13 @@ export default function Faqs() {
           <div key={index} className="faq-item">
             <div className="faq-question" onClick={() => toggleAnswer(index)}>
               <h3>{faq.question}</h3>
-              <span>{activeIndex === index ? "-" : "+"}</span>
+              <span className={`arrow ${activeIndex === index ? "open" : ""}`}>&#9654;</span>
             </div>
-            {activeIndex === index && <p className="faq-answer">{faq.answer}</p>}
+            <div
+              className={`faq-answer ${activeIndex === index ? "show" : ""}`}
+            >
+              <p>{faq.answer}</p>
+            </div>
           </div>
         ))}
       </div>

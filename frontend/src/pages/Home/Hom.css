@@ -144,7 +144,8 @@ body, html {
 }
 
 .btn-default:hover {
-  background-color: #333333; /* Slightly lighter on hover */ 
+  background-color: black; /* only changed the opacity */
+  opacity: 100%;
 }
 
 .btn-outline {
@@ -269,7 +270,15 @@ body, html {
 .card-button {
   width: 100%;
   padding: 12px 0;
+  opacity: 80%;
 }
+
+.card-button a {
+  color: white;
+  text-decoration: none;
+}
+
+
 .column-key-points {
   list-style: none;
   padding: 0;

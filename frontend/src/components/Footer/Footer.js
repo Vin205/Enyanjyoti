@@ -2,6 +2,7 @@ import React from "react";
 import "./footer.css";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -18,19 +19,19 @@ function Footer() {
           <h3>Quick Links</h3>
           <ul>
             <li>
-              <a href="#education">Education</a>
+              <Link to="/educ">Education</Link>
             </li>
             <li>
-              <a href="#career">Career</a>
+              <Link to="/career">Career</Link>
             </li>
             <li>
-              <a href="#grants">Grants & Loans</a>
+              <Link to="/loan">Grants & Loans</Link>
             </li>
             <li>
-              <a href="#contact">Contact Us</a>
+              <Link to="/contact">Contact Us</Link>
             </li>
           </ul>
-        </div>
+      </div>
         <div className="footer-section">
           <h3>Contact Us</h3>
           <form className="contact-form">

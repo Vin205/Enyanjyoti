@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:525dcf5ec31dc3991b59a1ec6cb7dcd45ee3b0b360898158f9c244baab0b9a21
-size 484
+import React from 'react';
+import useLogout from '../../components/Firebase/logout'; 
+import useAuth from '../../components/Firebase/useAuth';
+
+const ExampleComponent = () => {
+    useAuth();
+    const logout = useLogout();
+
+    const handleLogout = () => {
+        logout(); 
+    };
+
+    return (
+        <div>
+            <h1>Welcome to the Example Component</h1>
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+    );
+};
+
+export default ExampleComponent;

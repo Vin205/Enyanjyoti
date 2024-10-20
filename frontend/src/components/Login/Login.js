@@ -6,7 +6,7 @@ import { auth } from "../Firebase/firebase";
 import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
 
 import toast from "react-hot-toast";
-import Footer from "../Footer/Footer";
+
 
 
 
@@ -128,7 +128,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </div>
   );
 }

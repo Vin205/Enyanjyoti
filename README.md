@@ -11,6 +11,12 @@
     <a href="https://github.com/Vin205/Enyanjyoti/graphs/contributors"><img src="https://custom-icon-badges.demolab.com/github/contributors/Vin205/Enyanjyoti?label=Contributors&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&logo=people&style=for-the-badge"/></a>
   <p>
     <img src="http://forthebadge.com/images/badges/license-mit.svg"/>
+    <!-- <img src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif" alt=Aryanshukla/> -->
+  <p>
+  <p>
+  <a href="https://github.com/Symbiote07">
+  <img src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif" alt=Aryanshukla/>
+
   <p>
    <img height=40 src="https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap">
 </div>

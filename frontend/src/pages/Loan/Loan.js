@@ -10,27 +10,44 @@ const Loan = () => {
 
     const calculateLoan = () => {
         const principal = parseFloat(loanAmount);
-        const rate = parseFloat(interestRate) / 100 / 12;
-        const termInMonths = parseFloat(loanTerm) * 12;
+        const annualRate = parseFloat(interestRate) / 100;
+        const termInYears = parseFloat(loanTerm);
 
-        if (isNaN(principal) || isNaN(rate) || isNaN(termInMonths)) {
+        if (isNaN(principal) || isNaN(annualRate) || isNaN(termInYears)) {
             alert('Please enter valid numbers for all fields.');
             return;
         }
 
-        const monthlyPayment = (principal * rate * Math.pow(1 + rate, termInMonths)) / (Math.pow(1 + rate, termInMonths) - 1);
-        const totalPayment = monthlyPayment * termInMonths;
+        // Determine the number of payments per year and the interest rate per payment based on frequency
+        let paymentsPerYear;
+        if (paymentFrequency === 'monthly') {
+            paymentsPerYear = 12;
+        } else if (paymentFrequency === 'biweekly') {
+            paymentsPerYear = 26;
+        } else {
+            paymentsPerYear = 52;
+        }
+
+        const ratePerPeriod = annualRate / paymentsPerYear;
+        const totalPayments = termInYears * paymentsPerYear;
+
+        // Calculate the payment per period using the amortization formula
+        const paymentPerPeriod = (principal * ratePerPeriod * Math.pow(1 + ratePerPeriod, totalPayments)) /
+            (Math.pow(1 + ratePerPeriod, totalPayments) - 1);
+
+        const totalPayment = paymentPerPeriod * totalPayments;
         const totalInterest = totalPayment - principal;
 
         setCalculationResult({
-            monthlyPayment: monthlyPayment.toFixed(2),
+            paymentPerPeriod: paymentPerPeriod.toFixed(2),
             totalPayment: totalPayment.toFixed(2),
-            totalInterest: totalInterest.toFixed(2)
+            totalInterest: totalInterest.toFixed(2),
+            frequency: paymentFrequency.charAt(0).toUpperCase() + paymentFrequency.slice(1)
         });
     };
 
     return (
-        <div className="loan-container">
+        <div className="loan-container" style={{marginTop: "50px", marginBottom: "50px", paddingTop: "30px", paddingBottom: "30px"} }>
             <h1 className="loan-title">Understanding Loans and Grants</h1>
             
             <div className="horizontal-cards">
@@ -133,7 +150,7 @@ const Loan = () => {
                 {calculationResult && (
                     <div className="calculator-result">
                         <h3>Loan Summary:</h3>
-                        <p>Monthly Payment: ${calculationResult.monthlyPayment}</p>
+                        <p>{calculationResult.frequency} Payment: ${calculationResult.paymentPerPeriod}</p>
                         <p>Total Payment: ${calculationResult.totalPayment}</p>
                         <p>Total Interest: ${calculationResult.totalInterest}</p>
                     </div>

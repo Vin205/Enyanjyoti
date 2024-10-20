@@ -1,11 +1,15 @@
-// src/Signup.js
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../Firebase/firebase"; // Import Firebase auth
+import { useNavigate } from "react-router-dom";
 import { registerValidation } from "../../validations/validation";
+import { auth, signInWithGoogle } from "../Firebase/firebase"; // Import Firebase auth and Google sign-in
+import GoogleButton from '../GoogleButton/GoogleButton';
+import toast from "react-hot-toast";
+import Footer from "../Footer/Footer.js";
 
 function Signup() {
+  const trustedDomains = ["gmail.com", "yahoo.com", "outlook.com", "icloud.com", "hotmail.com"];
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -14,6 +18,7 @@ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [emailError, setEmailError] = useState(""); // State for email validation feedback
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
@@ -39,6 +44,21 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    // Check email format
+    if (!regex.test(email)) {
+      toast.error("Invalid email");
+      return;
+    }
+
+    // Check email domain
+    const emailDomain = email.split("@")[1];
+    if (!trustedDomains.includes(emailDomain)) {
+      setEmailError("Please use a trusted email provider (Gmail, Yahoo, Outlook, iCloud, Hotmail).");
+      return;
+    } else {
+      setEmailError(""); // Clear error if valid
+    }
+
     try {
       await registerValidation.validate(
         { email, password, confirmPassword },
@@ -49,7 +69,6 @@ function Signup() {
       const newErrors = {};
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
-        // newErrors[err.path] = err.errors[0];
       });
 
       setErrors(newErrors);
@@ -71,141 +90,146 @@ function Signup() {
     }
   };
 
+  const handleGoogleSignup = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/dashboard"); // Redirect after successful Google sign-in
+    } catch (error) {
+      setError("Error signing in with Google.");
+    }
+  };
+
   return (
-    <div
-      className="container mt-5 justify-content-center"
-      style={{ height: "auto" }}
-    >
-      <div className="row justify-content-center" style={{ width: "100%" }}>
-        <div className="col-md-6">
-          <div className="card shadow">
-            <div className="card-body">
-              <h2 className="text-center mb-4">Sign Up</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
-              {successMessage && (
-                <div className="alert alert-success">{successMessage}</div>
-              )}
-              <form onSubmit={handleSignup} noValidate>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email:
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="form-control"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  {errors.email && (
-                    <div className="text-danger">{errors.email}</div>
-                  )}
+    <>
+      <style>
+        {`
+          .signup-card {
+            background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+          }
+          .signup-card:hover {
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+            transform: translateY(-5px);
+          }
+          .card-body {
+            padding: 2rem;
+          }
+        `}
+      </style>
+      <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+        <div className="row justify-content-center" style={{ width: "100%" }}>
+          <div className="col-md-6">
+            <div className="card shadow signup-card">
+              <div className="card-body">
+                <h2 className="text-center mb-4">Sign Up</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                {successMessage && (
+                  <div className="alert alert-success">{successMessage}</div>
+                )}
+                {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
+                <form onSubmit={handleSignup} noValidate>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError(""); // Clear email error on change
+                      }}
+                    />
+                    {errors.email && <div className="text-danger">{errors.email}</div>}
+                  </div>
+                  <div style={{ position: "relative", width: "100%" }} className="mb-3">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      className="form-control"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.password && <div className="text-danger">{errors.password}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handlePasswordVisibility}
+                    >
+                      {showPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
+
+                  <div className="mb-3" style={{ position: "relative", width: "100%" }}>
+                    <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      className="form-control"
+                      placeholder="Confirm your password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handleConfirmPasswordVisibility}
+                    >
+                      {showConfirmPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
+                  <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                    {loading ? "Signing up..." : "Sign Up"}
+                  </button>
+                </form>
+                <div className="text-center mt-3">
+                  <GoogleButton onClick={handleGoogleSignup} />
                 </div>
-                <div
-                  style={{ position: "relative", width: "100%" }}
-                  className="mb-3"
-                >
-                  <label htmlFor="confirmPassword" className="form-label">
-                    Password:
-                  </label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    className="form-control"
-                    placeholder="Enter your password"
-                    value={password}
-                    // strong password
-                    onChange={(e) => setPassword(e.target.value)}
-
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-
-                  />
-                  {errors.password && (
-                    <div className="text-danger">{errors.password}</div>
-                  )}
+                <p className="mt-3 text-center">
+                  Already have an account?{" "}
                   <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handlePasswordVisibility}
+                    className="text-primary"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate("/login")}
                   >
-                    {showPassword ? "visibility_off" : "visibility"}
+                    Login
                   </span>
-                </div>
-
-                <div
-                  className="mb-3"
-                  style={{ position: "relative", width: "100%" }}
-                >
-                  <label htmlFor="confirmPassword" className="form-label">
-                    Confirm Password:
-                  </label>
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    id="confirmPassword"
-                    className="form-control"
-                    placeholder="Confirm your password"
-                    value={confirmPassword}
-                    // strong password
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-
-                  />
-                  {errors.confirmPassword && (
-                    <div className="text-danger">{errors.confirmPassword}</div>
-                  )}
-                  <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handleConfirmPasswordVisibility}
-                  >
-                    {showConfirmPassword ? "visibility_off" : "visibility"}
-                  </span>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary w-100"
-                  disabled={loading}
-                >
-                  {loading ? "Signing up..." : "Sign Up"}
-                </button>
-              </form>
-              <p className="mt-3 text-center">
-                Already have an account?{" "}
-                <span
-                  className="text-primary"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </span>
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 }
 

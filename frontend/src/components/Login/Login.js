@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
+
+import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
+
+import toast from "react-hot-toast";
+import Footer from "../Footer/Footer";
+
+
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -43,9 +50,17 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
         {showPassword ? "visibility_off" : "visibility"}
       </span>
     </div>
-    <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-      {loading ? "Logging in..." : "Login"}
+    <button 
+      type="submit" 
+      className="btn btn-primary w-100 mb-3" 
+      style={{ fontSize: '0.8rem', padding: '0.5rem' }}
+      disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
     </button>
+    <div className="text-center">
+      <p>Or</p>
+      <GoogleButton />
+    </div>
   </form>
 );
 
@@ -65,6 +80,7 @@ const LoginFooter = ({ navigate }) => (
 );
 
 function Login() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -73,6 +89,10 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!regex.test(email)) {
+      toast.error("Invalid Email");
+      return;
+    }
     await signInWithEmailAndPassword(email, password);
   };
 
@@ -86,7 +106,7 @@ function Login() {
   }, [navigate]);
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+    <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
       <div className="row justify-content-center" style={{ width: "100%" }}>
         <div className="col-md-6">
           <div className="card shadow">
@@ -108,6 +128,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

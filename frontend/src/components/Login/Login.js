@@ -52,11 +52,15 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
     </div>
     <button 
       type="submit" 
-      className="btn btn-primary w-100" 
-      style={{ fontSize: '0.8rem', padding: '0.5rem' }} // Smaller button size
+      className="btn btn-primary w-100 mb-3" 
+      style={{ fontSize: '0.8rem', padding: '0.5rem' }}
       disabled={loading}>
         {loading ? "Logging in..." : "Login"}
     </button>
+    <div className="text-center">
+      <p>Or</p>
+      <GoogleButton />
+    </div>
   </form>
 );
 
@@ -102,7 +106,7 @@ function Login() {
   }, [navigate]);
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+    <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
       <div className="row justify-content-center" style={{ width: "100%" }}>
         <div className="col-md-6">
           <div className="card shadow">
@@ -119,10 +123,6 @@ function Login() {
                 loading={loading}
                 error={error}
               />
-              {/* Add the GoogleButton component here */}
-              <div className="text-center mt-4">
-                <GoogleButton />
-              </div>
               <LoginFooter navigate={navigate} />
             </div>
           </div>

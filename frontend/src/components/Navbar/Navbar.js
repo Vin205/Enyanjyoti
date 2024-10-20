@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate, NavLink, Link } from "react-router-dom"; // Import NavLink for active links
 import "./Navbar.css";
@@ -62,7 +61,7 @@ function Navbar() {
           {navItems.map(renderNavLink)}
         </ul>
         <div className="mode-start-container">
-          <Link to="/logout" className="start-btn">Get started</Link>
+          <Link to="/Signup" className="start-btn">Get started</Link>
         </div>
         <span className="mode-btn" onClick={handleModeToggle}>
           {isDarkMode ? <HiOutlineSun size="25px" /> : <IoIosMoon size="25px" />}

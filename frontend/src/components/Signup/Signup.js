@@ -100,117 +100,136 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
-      <div className="row justify-content-center" style={{ width: "100%" }}>
-        <div className="col-md-6">
-          <div className="card shadow">
-            <div className="card-body">
-              <h2 className="text-center mb-4">Sign Up</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
-              {successMessage && (
-                <div className="alert alert-success">{successMessage}</div>
-              )}
-              {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
-              <form onSubmit={handleSignup} noValidate>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email:</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="form-control"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setEmailError(""); // Clear email error on change
-                    }}
-                  />
-                  {errors.email && <div className="text-danger">{errors.email}</div>}
-                </div>
-                <div style={{ position: "relative", width: "100%" }} className="mb-3">
-                  <label htmlFor="password" className="form-label">Password:</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    className="form-control"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-                  />
-                  {errors.password && <div className="text-danger">{errors.password}</div>}
-                  <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handlePasswordVisibility}
-                  >
-                    {showPassword ? "visibility_off" : "visibility"}
-                  </span>
-                </div>
+    <>
+      <style>
+        {`
+          .signup-card {
+            background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+          }
+          .signup-card:hover {
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+            transform: translateY(-5px);
+          }
+          .card-body {
+            padding: 2rem;
+          }
+        `}
+      </style>
+      <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+        <div className="row justify-content-center" style={{ width: "100%" }}>
+          <div className="col-md-6">
+            <div className="card shadow signup-card">
+              <div className="card-body">
+                <h2 className="text-center mb-4">Sign Up</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                {successMessage && (
+                  <div className="alert alert-success">{successMessage}</div>
+                )}
+                {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
+                <form onSubmit={handleSignup} noValidate>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError(""); // Clear email error on change
+                      }}
+                    />
+                    {errors.email && <div className="text-danger">{errors.email}</div>}
+                  </div>
+                  <div style={{ position: "relative", width: "100%" }} className="mb-3">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      className="form-control"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.password && <div className="text-danger">{errors.password}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handlePasswordVisibility}
+                    >
+                      {showPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
 
-                <div className="mb-3" style={{ position: "relative", width: "100%" }}>
-                  <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    id="confirmPassword"
-                    className="form-control"
-                    placeholder="Confirm your password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-                  />
-                  {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
-                  <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handleConfirmPasswordVisibility}
-                  >
-                    {showConfirmPassword ? "visibility_off" : "visibility"}
-                  </span>
+                  <div className="mb-3" style={{ position: "relative", width: "100%" }}>
+                    <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      className="form-control"
+                      placeholder="Confirm your password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handleConfirmPasswordVisibility}
+                    >
+                      {showConfirmPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
+                  <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                    {loading ? "Signing up..." : "Sign Up"}
+                  </button>
+                </form>
+                <div className="text-center mt-3">
+                  <GoogleButton onClick={handleGoogleSignup} />
                 </div>
-                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-                  {loading ? "Signing up..." : "Sign Up"}
-                </button>
-              </form>
-              <div className="text-center mt-3">
-                <GoogleButton onClick={handleGoogleSignup} />
+                <p className="mt-3 text-center">
+                  Already have an account?{" "}
+                  <span
+                    className="text-primary"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate("/login")}
+                  >
+                    Login
+                  </span>
+                </p>
               </div>
-              <p className="mt-3 text-center">
-                Already have an account?{" "}
-                <span
-                  className="text-primary"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </span>
-              </p>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 

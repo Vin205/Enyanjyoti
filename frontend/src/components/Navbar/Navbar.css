@@ -20,6 +20,23 @@
 .logo {
   height: 30px;
 }
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #333333;
+}
+
+body.dark-mode .nav-links {
+  color: #ffffff;
+}
+
+body.dark-mode .mode-btn svg {
+  color: #fbc02d; /* Example color for the sun icon */
+}
 
 .nav-list {
   display: flex;

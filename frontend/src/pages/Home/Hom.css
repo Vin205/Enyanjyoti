@@ -41,7 +41,7 @@ body, html {
 
 .hom-container {
   width: 100%;
-  background: linear-gradient(to right, #DBECFB, #DBF5EF); /* Updated background gradient */
+  background: linear-gradient(to right, #DBECFB, #DBF5EF); /*Updated background gradient*/
 }
 
 .main-content {

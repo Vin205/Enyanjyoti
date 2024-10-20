@@ -1,28 +1,3 @@
-// models/User.js
-import mongoose from 'mongoose';
-
-const UserSchema = new mongoose.Schema({
-  userName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  role: {
-    type: String,
-    default: 'user',
-  },
-});
-
-// Create the User model
-const User = mongoose.model('User', UserSchema);
-
-export default User;
+version https://git-lfs.github.com/spec/v1
+oid sha256:d286290c2525accf6eba9e7334cfa8b2a5c3efbc60c5707acac7bdc33554a39f
+size 452

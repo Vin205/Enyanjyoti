@@ -89,6 +89,12 @@ body, html {
   color: #18181B; /* Darker text color for better contrast */
   font-weight: 900; /* Bolder text */
   line-height: 1.2; /* Improved line-height for better readability */
+  transition: text-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.title:hover {
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8), /* Cyan glow */
+               0 0 25px rgba(0, 255, 255, 0.8); /* Stronger glow on hover */
 }
 
 .subtitle {

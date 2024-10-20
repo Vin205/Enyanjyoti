@@ -5,7 +5,6 @@ import { registerValidation } from "../../validations/validation";
 import { auth, signInWithGoogle } from "../Firebase/firebase"; // Import Firebase auth and Google sign-in
 import GoogleButton from '../GoogleButton/GoogleButton';
 import toast from "react-hot-toast";
-import Footer from "../Footer/Footer.js";
 
 function Signup() {
   const trustedDomains = ["gmail.com", "yahoo.com", "outlook.com", "icloud.com", "hotmail.com"];
@@ -227,7 +226,7 @@ function Signup() {
             </div>
           </div>
         </div>
-        <Footer />
+      
       </div>
     </>
   );

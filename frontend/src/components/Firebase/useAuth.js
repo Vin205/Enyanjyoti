@@ -1,21 +1,3 @@
-// useAuth.js
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from './firebase'; // Ensure this path is correct
-
-const useAuth = () => {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (!user) {
-                navigate('/', { replace: true }); // Redirect to home if no user is found
-            }
-        });
-
-        // Cleanup subscription on unmount
-        return () => unsubscribe();
-    }, [navigate]);
-};
-
-export default useAuth;
+version https://git-lfs.github.com/spec/v1
+oid sha256:93697673b84c2dacc1c90a7c170fac03094f1302386337163ad18b80de296b5c
+size 580

@@ -52,11 +52,15 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
     </div>
     <button 
       type="submit" 
-      className="btn btn-primary w-100" 
-      style={{ fontSize: '0.8rem', padding: '0.5rem' }} // Smaller button size
+      className="btn btn-primary w-100 mb-3" 
+      style={{ fontSize: '0.8rem', padding: '0.5rem' }}
       disabled={loading}>
         {loading ? "Logging in..." : "Login"}
     </button>
+    <div className="text-center">
+      <p>Or</p>
+      <GoogleButton />
+    </div>
   </form>
 );
 
@@ -119,10 +123,6 @@ function Login() {
                 loading={loading}
                 error={error}
               />
-              {/* Add the GoogleButton component here */}
-              <div className="text-center mt-4">
-                <GoogleButton />
-              </div>
               <LoginFooter navigate={navigate} />
             </div>
           </div>

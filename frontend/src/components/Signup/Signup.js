@@ -118,7 +118,7 @@ function Signup() {
           }
         `}
       </style>
-      <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+      <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
         <div className="row justify-content-center" style={{ width: "100%" }}>
           <div className="col-md-6">
             <div className="card shadow signup-card">

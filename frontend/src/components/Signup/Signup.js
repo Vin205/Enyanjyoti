@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { registerValidation } from "../../validations/validation";
-
 import { auth, signInWithGoogle } from "../Firebase/firebase"; // Import Firebase auth and Google sign-in
 import GoogleButton from '../GoogleButton/GoogleButton';
-
 import toast from "react-hot-toast";
 import Footer from "../Footer/Footer.js";
 
-
-
 function Signup() {
+  const trustedDomains = ["gmail.com", "yahoo.com", "outlook.com", "icloud.com", "hotmail.com"];
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +18,7 @@ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [emailError, setEmailError] = useState(""); // State for email validation feedback
   const navigate = useNavigate();
 
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
@@ -46,9 +44,19 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    // Check email format
     if (!regex.test(email)) {
       toast.error("Invalid email");
       return;
+    }
+
+    // Check email domain
+    const emailDomain = email.split("@")[1];
+    if (!trustedDomains.includes(emailDomain)) {
+      setEmailError("Please use a trusted email provider (Gmail, Yahoo, Outlook, iCloud, Hotmail).");
+      return;
+    } else {
+      setEmailError(""); // Clear error if valid
     }
 
     try {
@@ -102,6 +110,7 @@ function Signup() {
               {successMessage && (
                 <div className="alert alert-success">{successMessage}</div>
               )}
+              {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
               <form onSubmit={handleSignup} noValidate>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email:</label>
@@ -111,7 +120,10 @@ function Signup() {
                     className="form-control"
                     placeholder="Enter your email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError(""); // Clear email error on change
+                    }}
                   />
                   {errors.email && <div className="text-danger">{errors.email}</div>}
                 </div>

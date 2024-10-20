@@ -208,6 +208,7 @@ body {
   }
 }
 
+
 .calculator-form input,
 .calculator-form select {
   width: 100%;
@@ -286,6 +287,84 @@ body {
   }
 }
 
+.loan-calculator {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-top: 2.5rem;
+  max-width: 1140px;
+  margin-left:10px;
+  animation: fadeIn 0.5s ease-in-out;
+  transition: .2s linear;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+}
+
+.loan-calculator:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.loan-calculator h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.calculator-form label {
+  font-weight: bold;
+}
+
+.calculator-form input,
+.calculator-form select {
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);;
+  transition: border-color 0.3s;
+  margin-left: 20px;
+  box-shadow: none;
+}
+
+.calculator-form input:focus,
+.calculator-form select:focus {
+  border-color: var(--accent-color);
+}
+
+.loan-button {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  width: 50%;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s;
+  transition: .2s linear;
+}
+
+.loan-button:hover {
+  width: 50%;
+  background-color: var(--secondary-color);
+}
+
+.calculator-result {
+  margin-top: 1rem;
+  background: var(--card-background);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+
 .calculator-result h3 {
   font-size: 1.8rem;
   color: var(--primary-color);
@@ -314,3 +393,4 @@ body {
     flex: 1 1 100%;
   }
 }
+

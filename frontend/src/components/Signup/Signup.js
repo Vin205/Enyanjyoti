@@ -102,19 +102,58 @@ function Signup() {
   return (
     <>
       <style>
-        {`
-          .signup-card {
-            background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+        {`.signup-card {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
           }
           .signup-card:hover {
-            box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
             transform: translateY(-5px);
           }
-          .card-body {
-            padding: 2rem;
+          .signup-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+          }
+          .form-label {
+            color: #555;
+            font-weight: 500;
+          }
+          .form-control {
+            padding: 0.75rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: border-color 0.2s ease;
+          }
+          .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+          }
+          .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+          }
+          .btn-primary:hover {
+            background-color: #0056b3;
+          }
+          .google-btn {
+            background-color: #db4437;
+            border-color: #db4437;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+          }
+          .google-btn:hover {
+            background-color: #c23321;
           }
         `}
       </style>
@@ -227,8 +266,8 @@ function Signup() {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

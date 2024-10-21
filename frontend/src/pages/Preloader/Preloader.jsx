@@ -1,22 +1,3 @@
-import "./Preloader.css";
-
-const Preloader = () => {
-  return (
-    <div className="preloader">
-      <svg viewBox="0 0 1320 300">
-        <text
-          x="50%"
-          y="50%"
-          dy=".35em"
-          textAnchor="middle"
-          className="animate-stroke"
-          style={{ fontWeight: "bold" }}
-        >
-          E-NYANJYOTI
-        </text>
-      </svg>
-    </div>
-  );
-};
-
-export default Preloader;
+version https://git-lfs.github.com/spec/v1
+oid sha256:310959c16bc85e9f772d7b3e1ad31edd23e1398244592a186658fe41a7185948
+size 417

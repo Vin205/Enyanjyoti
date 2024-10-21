@@ -1,6 +1,5 @@
 .faqs-container {
-  margin-bottom: 70px;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -12,7 +11,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #333;
 }
 
@@ -28,17 +27,13 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .faq-item:hover {
   background-color: #e6f7ff;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
 }
 
-/* Styling for the question */
 .faq-question {
   display: flex;
   justify-content: space-between;
@@ -55,6 +50,11 @@
 .faq-question span {
   font-size: 20px;
   color: #666;
+  transition: transform 0.3s ease; /* Added for smooth arrow rotation */
+}
+
+.arrow.open {
+  transform: rotate(90deg); /* Rotates the arrow when open */
 }
 
 .faq-answer {
@@ -62,11 +62,25 @@
   font-size: 16px;
   color: #555;
   line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  position: relative; /* Ensures precise placement of the arrow */
+  padding-left: 20px; /* Adds space to align the arrow before the text */
+}
+
+.faq-answer.show {
+  max-height: 200px; /* Adjusted based on the content */
 }
 
 .faq-answer::before {
   content: "➤ ";
   color: #007bff;
+  margin-right: 8px; /* Adds space between arrow and text */
+  font-size: 18px;
+  position: absolute;
+  left: 0; /* Positions the arrow to the start of the text */
+  top: 0; /* Aligns with the top of the first line */
 }
 
 @media (max-width: 768px) {
@@ -93,7 +107,7 @@
 
 /* Dark mode styles */
 .dark-mode .faqs-container {
-  background-color: black;
+  background-color: #1a1a1a; /* Adjusted to a more neutral dark background */
   border: 2px solid #fff;
 }
 
@@ -110,11 +124,6 @@
   color: #fff;
 }
 
-.faq-link {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-.faq-link:hover {
-  text-decoration: none;
+.dark-mode .faq-answer {
+  color: #ddd; /* Lightened for better contrast in dark mode */
 }

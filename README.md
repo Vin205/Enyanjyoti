@@ -1,6 +1,9 @@
 <div align="center">
-  <h1 align="center" style="display: block; font-size: 3em; font-weight: bold; margin-block-end: 1em;"><strong>🎉 Welcome to the E-nyanjyoti Platform! 🌟</strong></h1>
-  <P align="center"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024!</b> 🚀</p>
+ <h1>🌟Enyanjyoti🌟</h1>
+
+<img align="center" src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Enyanjyoti"/>
+
+  <p align="center"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024!</b> 🚀</p>
   <p>
     <img src="https://img.shields.io/github/stars/Vin205/Enyanjyoti?style=social"/>
     <img src="https://img.shields.io/github/forks/Vin205/Enyanjyoti?style=social"/>

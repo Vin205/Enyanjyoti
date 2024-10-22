@@ -15,6 +15,8 @@
   height: 60px;
   width: 100%;
   padding: 0;
+/*   for responsiveness */
+  flex-wrap: nowrap;
 }
 
 .logo {

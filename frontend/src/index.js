@@ -1,22 +1,3 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { Toaster } from "react-hot-toast";
-
-
-const root = document.getElementById('root');
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-      <Toaster />
-    </BrowserRouter>
-  </React.StrictMode>,
-  root
-);
-reportWebVitals();
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b22625dbec47608e73d98fdccab125f1d08248f8198d04e8661c9abbe778bcd
+size 530

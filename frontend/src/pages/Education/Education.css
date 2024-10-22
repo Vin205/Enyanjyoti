@@ -1,0 +1,130 @@
+/* General styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(240, 248, 255, 0.9); /* Light blue background */
+    color: #333; /* Dark text for readability */
+  }
+  
+  /* Styling the header */
+  header {
+    background-color: rgba(40, 75, 160, 1); /* Darker blue for header */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  
+  header p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  /* Styling for each section */
+  section {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* Slightly tinted white for sections */
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Increased default box-shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  section {
+    border-left: 6px solid transparent;
+    border-image: linear-gradient(
+        to bottom,
+        rgba(40, 75, 160, 1),
+        rgba(255, 255, 255, 1)
+      )
+      1; /* Gradient border */
+  }
+  
+  /* Section titles */
+  section h2 {
+    font-size: 2em;
+    margin-bottom: 10px; /* Reduced margin to give space for the line */
+    color: rgba(40, 75, 160, 1); /* Matching section title color with header */
+    position: relative; /* Position relative for the line effect */
+  }
+  
+  /* Transition line effect */
+  section h2::after {
+    content: "";
+    position: absolute;
+    left: 0; /* Align with left edge */
+    bottom: -5px; /* Position the line below the heading */
+    width: 0%; /* Start with zero width */
+    height: 3px; /* Height of the line */
+    background: rgba(40, 75, 160, 1); /* Start with blue */
+    transition: width 0.5s ease, background 0.5s ease; /* Smooth transitions */
+  }
+  
+  /* Hover effect for headings */
+  section h2:hover::after {
+    width: 100%; /* Expand to full width on hover */
+    background: rgba(200, 220, 255, 1); /* Change to a lighter blue on hover */
+  }
+  
+  /* Paragraph styles */
+  section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Hover effect for sections */
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Increased box-shadow on hover */
+  }
+  
+  /* Styling the list items */
+  ul {
+    list-style-type: square;
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  
+  ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the footer */
+  /*footer {
+    background-color: rgba(40, 75, 160, 1); 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+  } */
+  
+  /* footer p {
+    margin: 0;
+    font-size: 1em;
+  } */
+  
+  /* Styles for section images */
+  .section-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Add slight rounding to corners */
+    margin: 15px 0; /* Add margin for spacing */
+  }
+  

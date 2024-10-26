@@ -1,7 +1,9 @@
 .faqs-container {
   margin-bottom: 70px;
   max-width: 900px;
+  height: 460px;
   margin: 0 auto;
+
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;

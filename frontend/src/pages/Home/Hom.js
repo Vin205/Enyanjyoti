@@ -86,7 +86,7 @@ export default function Hom() {
               Empower yourself with our comprehensive learning platform
             </p>
             <div className="button-group">
-              <Link to="/Signup" className="btn-default">
+              <Link to="/Signup" className="btn-default" id="sign-up-btn">
                 Sign Up
               </Link>
               <Link to="/login" className="btn-outline">

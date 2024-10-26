@@ -125,6 +125,25 @@ body, html {
   margin-top: 16px;
 }
 
+#sign-up-btn {
+  background-color: #18181B; /* Dark background for "Sign Up" button */
+  color: #ffffff;
+  padding: 10px 36px !important; 
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 18px !important;
+  text-decoration: none;
+  transition: background 0.3s ease; 
+}
+
+#sign-up-btn:hover {
+  background-color: white; 
+  color: black; 
+  border: 1px solid black;
+}
+
 .btn-default {
   background-color: #18181B; /* Dark background for "Sign Up" button */
   background-color: #18181B; 

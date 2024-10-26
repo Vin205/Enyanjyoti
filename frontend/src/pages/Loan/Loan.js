@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './Loan.css'; // Import your custom CSS file
+import { FaHandPointRight, FaCaravan } from "react-icons/fa";
+import { MdTipsAndUpdates } from "react-icons/md";
+import { AiFillCreditCard } from "react-icons/ai";
+import { FaHouse } from "react-icons/fa6";
+import { PiStudentFill } from "react-icons/pi";
 
 const Loan = () => {
     const [loanAmount, setLoanAmount] = useState('');
@@ -76,10 +81,10 @@ const Loan = () => {
                 <section className="loan-section types-of-loans">
                     <h2>Types of Loans</h2>
                     <ul>
-                        <li>Personal Loans</li>
-                        <li>Student Loans</li>
-                        <li>Mortgage Loans</li>
-                        <li>Auto Loans</li>
+                        <li><span><AiFillCreditCard /></span>Personal Loans</li>
+                        <li><span><PiStudentFill /></span>Student Loans</li>
+                        <li><span><FaHouse /></span>Mortgage Loans</li>
+                        <li><span><FaCaravan /></span>Auto Loans</li>
                     </ul>
                     <a href="https://en.wikipedia.org/wiki/Loan#Types" target='_blank' rel="noopener noreferrer">
                         <button className="loan-button">View Details</button>
@@ -88,17 +93,23 @@ const Loan = () => {
             </div>
 
             <section className="loan-section tips">
+                <div className='h2'>
+                <span><MdTipsAndUpdates /></span>
                 <h2>Tips for Applying for Loans and Grants</h2>
+                <span><MdTipsAndUpdates /></span>
+                </div>
+                
                 <ul>
-                    <li>Check your credit score before applying.</li>
-                    <li>Research various options to find the best terms.</li>
-                    <li>Gather necessary documentation in advance.</li>
-                    <li>Be clear about your purpose and how you plan to use the funds.</li>
+                    <li><span><FaHandPointRight /></span>Check your credit score before applying.</li>
+                    <li><span><FaHandPointRight /></span>Research various options to find the best terms.</li>
+                    <li><span><FaHandPointRight /></span>Gather necessary documentation in advance.</li>
+                    <li><span><FaHandPointRight /></span>Be clear about your purpose and how you plan to use the funds.</li>
                 </ul>
             </section>
 
             <section className="loan-calculator">
-                <h2>Loan Calculator</h2>
+               <div className='div-form'>
+               <h2>Loan Calculator</h2>
                 <form className="calculator-form" onSubmit={(e) => e.preventDefault()}>
                     <label htmlFor="loanAmount">
                         Loan Amount:
@@ -145,16 +156,25 @@ const Loan = () => {
                             <option value="weekly">Weekly</option>
                         </select>
                     </label>
+                    <div className='btn-container'>
                     <button onClick={calculateLoan} className="loan-button">Calculate</button>
+
+                    </div>
                 </form>
                 {calculationResult && (
                     <div className="calculator-result">
                         <h3>Loan Summary:</h3>
-                        <p>{calculationResult.frequency} Payment: ${calculationResult.paymentPerPeriod}</p>
-                        <p>Total Payment: ${calculationResult.totalPayment}</p>
-                        <p>Total Interest: ${calculationResult.totalInterest}</p>
+                       <div class="summary">
+                       <p><span>{calculationResult.frequency} Payment:</span> ${calculationResult.paymentPerPeriod}</p>
+                        <p><span>Total Payment:</span> ${calculationResult.totalPayment}</p>
+                        <p><span>Total Interest:</span> ${calculationResult.totalInterest}</p>
+                        </div>
                     </div>
                 )}
+               </div>
+               <div className='img-container'>
+                <img src='/images/calc.jpg' width={400} height={100}/>
+               </div>
             </section>
         </div>
     );

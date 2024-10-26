@@ -1,0 +1,146 @@
+/* Main container */
+.education-main-container {
+    padding: 40px;
+    background-color: #f0f4f8;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  /* Content Section with Carousel and Info */
+  .education-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Left Half (Carousel Section) */
+  .education-left {
+    width: 50%;
+  }
+  
+  .carousel-title {
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  /* Carousel */
+  .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Carousel Buttons */
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
+  
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Right Half (Text Content) */
+  .education-right {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .education-title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .education-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+  }
+  
+  /* Benefits List */
+  .education-benefits h3 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .education-benefits ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .education-benefits li {
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  /* Button Styling */
+  .btn-learn-now {
+    background-color: #28a745;
+    color: white;
+    padding: 14px 35px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-top: 40px;
+    margin-right: 200px;
+    text-align: center;
+  }
+  
+  .btn-learn-now:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    cursor: pointer;
+  }
+  
+  /* Video Section */
+  .education-video-section {
+    text-align: center;
+  }
+  
+  .education-video-section h3 {
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .education-video {
+    width: 80%;
+    max-width: 560px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-left: 250px;
+  }
+  

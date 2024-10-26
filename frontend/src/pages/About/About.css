@@ -43,7 +43,7 @@
 .swiper-slide {
 	background-position: center;
 	background-size: cover;
-	width: 300px;
+	width: 350px;
 	background-color: #fff;
 	overflow: hidden;
 	border-radius: 15px;
@@ -76,12 +76,12 @@
 }
 
 .title {
-	font-size: 18px;
+	font-size: 10px;
 	color: #000;
 }
 
 .subtitle {
-	font-size: 14px;
+	font-size: 10px;
 	color: #777;
 	margin-top: 8px;
 }

@@ -19,6 +19,8 @@ import Contact from "./pages/Contact/Contact.js";
 import Error from "./pages/Error/index.js";
 import ContributorsPage from "./pages/Contributor/ContributorsPage.jsx";
 import Preloader from "./pages/Preloader/Preloader.jsx";
+import LearnNow from "./pages/LearnNow/LearnNow.js";
+import ExploreNow from './pages/ExploreNow/ExploreNow';
 
 function App() {
   const location = useLocation();
@@ -45,6 +47,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Hom />} />
               <Route path="/loan" element={<Loan />} />
+              <Route path="/learnnow" element={<LearnNow />} />
+              <Route path="/explorenow" element={<ExploreNow />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
               <Route path="/educ" element={<Educ />} />

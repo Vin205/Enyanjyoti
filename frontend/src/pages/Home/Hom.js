@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Hom.css";
 import Faqs from "./Faqs";
 
+
+
 export default function Hom() {
   useEffect(() => {
     const script = document.createElement("script");
@@ -36,7 +38,9 @@ export default function Hom() {
         "Get complete understanding of concepts. Adapt life skills. Gain general knowledge and enjoy activity-based learning.",
       image: "./images/e3.png",
       action: "Learn Now",
-      link: "https://wikiedu.org/"
+      // link: "https://wikiedu.org/"
+      link: "https://www.blackbox.ai/?userId=6553bc9509282100271d104e"
+
     },
     {
       title: "Career",
@@ -105,8 +109,8 @@ export default function Hom() {
               <div className="card-content">
                 <img src={item.image} alt={item.title} className="card-image" style={{ objectFit: "cover" }} />
                 <p className="card-description">{item.description}</p>
-                <Link to={item.title === "Loans and Grants" ? "/Loan" : "#"}>
-                  <button className="btn-default card-button"><a href={`${item.link}`}> {item.action}</a> </button>
+                <Link to={item.title === "Career" ? "/ExploreNow":item.title === "Loans and Grants" ? "/Loan" : item.title === "Education" ? "/LearnNow" : "#"}>
+                  <button className="btn-default card-button">{item.action}</button>        
                 </Link>
               </div>
             </div>

@@ -148,6 +148,20 @@ body {
   background: var(--tertiary-color);
 }
 
+.loan-calculator .calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* Center align items */
+}
+
+.loan-button {
+  width: 50%; /* Adjust width if necessary */
+  display: flex;
+  justify-content: center; /* Center text inside the button */
+}
+
+
 .loan-calculator {
   margin-top: 2rem;
   background: linear-gradient(135deg, #ffffff, #f3f6fa);

@@ -1,0 +1,11 @@
+{
+  "name": "enyanjyoti",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <h1 align=\"center\" style=\"display: block; font-size: 3em; font-weight: bold; margin-block-end: 1em;\"><strong>🎉 Welcome to the E-nyanjyoti Platform! 🌟</strong></h1>\r   <P align=\"center\"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024!</b> 🚀</p>\r   <p>\r     <img src=\"https://img.shields.io/github/stars/Vin205/Enyanjyoti?style=social\"/>\r     <img src=\"https://img.shields.io/github/forks/Vin205/Enyanjyoti?style=social\"/>\r     <img src=\"https://img.shields.io/github/watchers/Vin205/Enyanjyoti?style=social\"/>\r   <p>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/issues\"><img src=\"https://custom-icon-badges.demolab.com/github/issues/Vin205/Enyanjyoti?label=Issues&labelColor=302d41&color=FF6347&logoColor=FF6347&logo=issue&style=for-the-badge\" alt=\"GitHub Readme Profile Issues\"/></a>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/pull\"><img src=\"https://custom-icon-badges.demolab.com/github/issues-pr/Vin205/Enyanjyoti?&label=Pull%20requests&labelColor=302d41&color=98FF98&logoColor=98FF98&logo=git-pull-request&style=for-the-badge\" alt=\"GitHub Readme Profile PRs\"/></a>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/graphs/contributors\"><img src=\"https://custom-icon-badges.demolab.com/github/contributors/Vin205/Enyanjyoti?label=Contributors&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&logo=people&style=for-the-badge\"/></a>\r   <p>\r     <img src=\"http://forthebadge.com/images/badges/license-mit.svg\"/>\r   <p>\r    <img height=40 src=\"https://skillicons.dev/icons?i=html,css,js,react,firebase,nodejs,bootstrap\">\r </div>",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

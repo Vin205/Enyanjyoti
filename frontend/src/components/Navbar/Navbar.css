@@ -20,7 +20,9 @@
 }
 
 .logo {
-  height: 30px;
+  height: 90px;
+  margin-top: -10px;
+  
 }
 
 .nav-list {

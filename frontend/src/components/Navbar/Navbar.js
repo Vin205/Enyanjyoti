@@ -46,7 +46,7 @@ function Navbar() {
       <div className="container">
         <span>
           <img
-            src="/images/e1.png"
+            src="/images/logon.png"
             alt="Logo"
             className="logo"
             onClick={handleLogoClick}

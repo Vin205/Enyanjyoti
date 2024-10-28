@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
-
 import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
-
 import toast from "react-hot-toast";
 import Footer from "../Footer/Footer";
 
@@ -33,6 +31,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
     </div>
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password:</label>
+
       <input
         type={showPassword ? "text" : "password"}
         id="password"
@@ -41,22 +40,28 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+
       />
       <span
-        style={{ color: "black", position: "absolute", top: "49%", right: "25px", border: "none", cursor: "pointer" }}
+        style={{ color: "black", position: "absolute", top: "40.5%", right: "60px", border: "none", cursor: "pointer" }}
         className="material-symbols-outlined"
         onClick={() => setShowPassword(!showPassword)}
       >
         {showPassword ? "visibility_off" : "visibility"}
       </span>
+
     </div>
-    <button 
-      type="submit" 
-      className="btn btn-primary w-100" 
-      style={{ fontSize: '0.8rem', padding: '0.5rem' }} // Smaller button size
+    <button
+      type="submit"
+      className="btn btn-primary w-100 mb-3"
+      style={{ fontSize: '1.1rem', padding: '0.5rem', height: '50px' }}
       disabled={loading}>
-        {loading ? "Logging in..." : "Login"}
+      {loading ? "Logging in..." : "Login"}
     </button>
+    <div className="text-center">
+      <p>Or</p>
+      <GoogleButton />
+    </div>
   </form>
 );
 
@@ -102,10 +107,32 @@ function Login() {
   }, [navigate]);
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
+    <>
+      <style>
+        {`.signin-card {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+          }
+          .signin-card:hover {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+          }
+          .signin-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+          }
+        `}
+        </style>
+    <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
       <div className="row justify-content-center" style={{ width: "100%" }}>
         <div className="col-md-6">
-          <div className="card shadow">
+          <div className="card shadow signin-card">
             <div className="card-body">
               <LoginHeader />
               <LoginForm
@@ -119,10 +146,6 @@ function Login() {
                 loading={loading}
                 error={error}
               />
-              {/* Add the GoogleButton component here */}
-              <div className="text-center mt-4">
-                <GoogleButton />
-              </div>
               <LoginFooter navigate={navigate} />
             </div>
           </div>
@@ -130,6 +153,7 @@ function Login() {
       </div>
       <Footer />
     </div>
+    </>
   );
 }
 

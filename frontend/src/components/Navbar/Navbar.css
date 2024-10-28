@@ -15,10 +15,14 @@
   height: 60px;
   width: 100%;
   padding: 0;
+/*   for responsiveness */
+  flex-wrap: nowrap;
 }
 
 .logo {
-  height: 30px;
+  height: 90px;
+  margin-top: -10px;
+  
 }
 
 .nav-list {
@@ -192,11 +196,20 @@
   }
 }
 .nav-link {
+  border-radius: 10px;
+  padding: 6px 9px;
+  border: 2px solid #6a6060;
   display: inline-block;
   text-decoration: none;
   position: relative;
   vertical-align: bottom;
 }
+.nav-link:hover{
+  background-color: #039aff;
+  color: black;
+  border: 2px solid black;
+}
+
 
 .nav-link::after {
   content: '';

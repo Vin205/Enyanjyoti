@@ -100,117 +100,175 @@ function Signup() {
   };
 
   return (
-    <div className="container mt-5 justify-content-center" style={{ height: "auto" }}>
-      <div className="row justify-content-center" style={{ width: "100%" }}>
-        <div className="col-md-6">
-          <div className="card shadow">
-            <div className="card-body">
-              <h2 className="text-center mb-4">Sign Up</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
-              {successMessage && (
-                <div className="alert alert-success">{successMessage}</div>
-              )}
-              {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
-              <form onSubmit={handleSignup} noValidate>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email:</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="form-control"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setEmailError(""); // Clear email error on change
-                    }}
-                  />
-                  {errors.email && <div className="text-danger">{errors.email}</div>}
-                </div>
-                <div style={{ position: "relative", width: "100%" }} className="mb-3">
-                  <label htmlFor="password" className="form-label">Password:</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    className="form-control"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-                  />
-                  {errors.password && <div className="text-danger">{errors.password}</div>}
-                  <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handlePasswordVisibility}
-                  >
-                    {showPassword ? "visibility_off" : "visibility"}
-                  </span>
-                </div>
+    <>
+      <style>
+        {`.signup-card {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+          }
+          .signup-card:hover {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+          }
+          .signup-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+          }
+          .form-label {
+            color: #555;
+            font-weight: 500;
+          }
+          .form-control {
+            padding: 0.75rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: border-color 0.2s ease;
+          }
+          .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+          }
+          .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+          }
+          .btn-primary:hover {
+            background-color: #0056b3;
+          }
+          .google-btn {
+            background-color: #db4437;
+            border-color: #db4437;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+          }
+          .google-btn:hover {
+            background-color: #c23321;
+          }
+        `}
+      </style>
+      <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
+        <div className="row justify-content-center" style={{ width: "100%" }}>
+          <div className="col-md-6">
+            <div className="card shadow signup-card">
+              <div className="card-body">
+                <h2 className="text-center mb-4">Sign Up</h2>
+                {error && <div className="alert alert-danger">{error}</div>}
+                {successMessage && (
+                  <div className="alert alert-success">{successMessage}</div>
+                )}
+                {emailError && <div className="alert alert-danger">{emailError}</div>} {/* Email error message */}
+                <form onSubmit={handleSignup} noValidate>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError(""); // Clear email error on change
+                      }}
+                    />
+                    {errors.email && <div className="text-danger">{errors.email}</div>}
+                  </div>
+                  <div style={{ position: "relative", width: "100%" }} className="mb-3">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      className="form-control"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.password && <div className="text-danger">{errors.password}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handlePasswordVisibility}
+                    >
+                      {showPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
 
-                <div className="mb-3" style={{ position: "relative", width: "100%" }}>
-                  <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    id="confirmPassword"
-                    className="form-control"
-                    placeholder="Confirm your password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-                    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-                    required
-                  />
-                  {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
-                  <span
-                    style={{
-                      color: "black",
-                      position: "absolute",
-                      top: "55%",
-                      right: "10px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      cursor: "pointer",
-                    }}
-                    className="material-symbols-outlined"
-                    onClick={handleConfirmPasswordVisibility}
-                  >
-                    {showConfirmPassword ? "visibility_off" : "visibility"}
-                  </span>
+                  <div className="mb-3" style={{ position: "relative", width: "100%" }}>
+                    <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      className="form-control"
+                      placeholder="Confirm your password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
+                      title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+                      required
+                    />
+                    {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
+                    <span
+                      style={{
+                        color: "black",
+                        position: "absolute",
+                        top: "55%",
+                        right: "10px",
+                        backgroundColor: "#fff",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      className="material-symbols-outlined"
+                      onClick={handleConfirmPasswordVisibility}
+                    >
+                      {showConfirmPassword ? "visibility_off" : "visibility"}
+                    </span>
+                  </div>
+                  <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                    {loading ? "Signing up..." : "Sign Up"}
+                  </button>
+                </form>
+                <div className="text-center mt-3">
+                  <GoogleButton onClick={handleGoogleSignup} />
                 </div>
-                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-                  {loading ? "Signing up..." : "Sign Up"}
-                </button>
-              </form>
-              <div className="text-center mt-3">
-                <GoogleButton onClick={handleGoogleSignup} />
+                <p className="mt-3 text-center">
+                  Already have an account?{" "}
+                  <span
+                    className="text-primary"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate("/login")}
+                  >
+                    Login
+                  </span>
+                </p>
               </div>
-              <p className="mt-3 text-center">
-                Already have an account?{" "}
-                <span
-                  className="text-primary"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </span>
-              </p>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

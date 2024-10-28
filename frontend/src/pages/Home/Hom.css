@@ -89,6 +89,12 @@ body, html {
   color: #18181B; /* Darker text color for better contrast */
   font-weight: 900; /* Bolder text */
   line-height: 1.2; /* Improved line-height for better readability */
+  transition: text-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.title:hover {
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8), /* Cyan glow */
+               0 0 25px rgba(0, 255, 255, 0.8); /* Stronger glow on hover */
 }
 
 .subtitle {
@@ -138,7 +144,8 @@ body, html {
 }
 
 .btn-default:hover {
-  background-color: #333333; /* Slightly lighter on hover */ 
+  background-color: black; /* only changed the opacity */
+  opacity: 100%;
 }
 
 .btn-outline {
@@ -263,7 +270,15 @@ body, html {
 .card-button {
   width: 100%;
   padding: 12px 0;
+  opacity: 80%;
 }
+
+.card-button a {
+  color: white;
+  text-decoration: none;
+}
+
+
 .column-key-points {
   list-style: none;
   padding: 0;

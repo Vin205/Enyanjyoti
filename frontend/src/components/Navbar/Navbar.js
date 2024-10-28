@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate, NavLink, Link } from "react-router-dom"; // Import NavLink for active links
 import "./Navbar.css";
@@ -10,6 +9,7 @@ const navItems = [
   { path: "/about", label: "About Us" },
   { path: "/contact", label: "Contact Us" },
   { path: "/loan", label: "Loan" },
+  { path: "/", label: "Loan" },
   { path: "/contributors", label: "Contributors" },
 ];
 
@@ -46,7 +46,7 @@ function Navbar() {
       <div className="container">
         <span>
           <img
-            src="/images/e1.png"
+            src="/images/logon.png"
             alt="Logo"
             className="logo"
             onClick={handleLogoClick}
@@ -62,7 +62,7 @@ function Navbar() {
           {navItems.map(renderNavLink)}
         </ul>
         <div className="mode-start-container">
-          <Link to="/logout" className="start-btn">Get started</Link>
+          <Link to="/Signup" className="start-btn">Get started</Link>
         </div>
         <span className="mode-btn" onClick={handleModeToggle}>
           {isDarkMode ? <HiOutlineSun size="25px" /> : <IoIosMoon size="25px" />}

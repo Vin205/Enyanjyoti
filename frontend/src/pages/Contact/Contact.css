@@ -1,0 +1,119 @@
+.inner-container {
+    border: 2px solid #ccc; /* Added solid border style */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-block: 20px;
+}
+
+.img-container img {
+    width: 30vw;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input,
+form textarea {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Smooth transition for size change */
+}
+
+form input:hover,
+form textarea:hover {
+    transform: scale(1.05); /* Grow in size on hover */
+}
+
+form input {
+    padding: 10px; /* Added padding for better appearance */
+}
+
+.form {
+    width: 30vw;
+    padding-block: 10px;
+    padding-inline: 20px;
+    background-color: #FFE7D1;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #1665C0;
+    width: 10vw;
+    text-align: center;
+    color: #fff;
+    padding: 10px; /* Added padding for better appearance */
+    border: none; /* Remove default border */
+    transition: transform 0.3s ease; /* Smooth transition for size change */
+}
+
+.btn:hover {
+    background-color: #1665C0;
+    opacity: 0.8;
+    color: #fff;
+    transform: scale(1.1); /* Grow in size on hover */
+}
+
+.form h1 {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-block: 10px;
+    height: 10vh;
+    align-items: end;
+}
+
+.form label {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.msg-label {
+    margin-left: 2px;
+}
+
+.h1-div {
+    height: 10vh;
+    display: flex;
+    align-items: end;
+}
+
+.black-line {
+    display: inline-block;
+    width: 100px;
+    height: 2px;
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .inner-container {
+        flex-direction: column;
+    }
+    .form {
+        width: 90vw;
+        height: fit-content;
+        padding-block: 20px;
+    }
+    .img-container {
+        display: none;
+    }
+    .button-container {
+        height: fit-content;
+        margin-block: 20px;
+    }
+   .btn{
+        width:20vw;
+    }
+}

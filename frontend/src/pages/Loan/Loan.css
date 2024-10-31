@@ -1,0 +1,396 @@
+:root {
+  --primary-color: #2b4b77;
+  --secondary-color: #4a90e2;
+  --tertiary-color: #86c5da;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: var(--text-color);
+  background: linear-gradient(135deg, var(--background-color), var(--tertiary-color));
+  margin: 0;
+  padding: 0;
+}
+
+.loan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  animation: fadeInUp var(--transition-speed) ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loan-title {
+  font-size: 2.8rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  animation: slideIn var(--transition-speed) ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.horizontal-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.loan-section {
+  background: linear-gradient(135deg, var(--card-background), #e3f2fd);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 15px;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
+  flex: 1 1 30%;
+  min-width: 260px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.loan-section:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, var(--tertiary-color), var(--secondary-color));
+}
+
+.loan-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loan-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--secondary-color);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transition: width var(--transition-speed);
+}
+
+.loan-section:hover h2::after {
+  width: 100px;
+}
+
+.loan-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.loan-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-color);
+  transition: left var(--transition-speed);
+  z-index: -1;
+}
+
+.loan-button:hover::before {
+  left: 0;
+}
+
+.loan-button:hover {
+  color: #fff;
+  transform: scale(1.1);
+  background: var(--tertiary-color);
+}
+
+.loan-calculator {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #ffffff, #f3f6fa);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideUp var(--transition-speed) ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loan-calculator::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.3), transparent);
+  z-index: -1;
+}
+
+.loan-calculator::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.3), transparent);
+  z-index: -1;
+}
+
+.calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn var(--transition-speed) ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.calculator-form input,
+.calculator-form select {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #dee2e6;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  background: #fff;
+}
+
+.calculator-form input:hover,
+.calculator-form select:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px rgba(43, 75, 119, 0.2);
+}
+
+.calculator-form input:focus,
+.calculator-form select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+  outline: none;
+}
+
+.calculator-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+.calculator-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.calculator-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.calculator-result {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: popIn var(--transition-speed) ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loan-calculator {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-top: 2.5rem;
+  max-width: 1140px;
+  margin-left:10px;
+  animation: fadeIn 0.5s ease-in-out;
+  transition: .2s linear;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+}
+
+.loan-calculator:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.loan-calculator h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.calculator-form label {
+  font-weight: bold;
+}
+
+.calculator-form input,
+.calculator-form select {
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);;
+  transition: border-color 0.3s;
+  margin-left: 20px;
+  box-shadow: none;
+}
+
+.calculator-form input:focus,
+.calculator-form select:focus {
+  border-color: var(--accent-color);
+}
+
+.loan-button {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  width: 50%;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s;
+  transition: .2s linear;
+}
+
+.loan-button:hover {
+  width: 50%;
+  background-color: var(--secondary-color);
+}
+
+.calculator-result {
+  margin-top: 1rem;
+  background: var(--card-background);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+
+.calculator-result h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.calculator-result p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .horizontal-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loan-title {
+    font-size: 2.2rem;
+  }
+
+  .loan-section {
+    margin: 10px 0;
+    flex: 1 1 100%;
+  }
+}
+

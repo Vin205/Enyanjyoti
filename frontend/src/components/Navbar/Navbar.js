@@ -9,10 +9,10 @@ const navItems = [
   { path: "/about", label: "About Us" },
   { path: "/contact", label: "Contact Us" },
   { path: "/loan", label: "Loan" },
-  { path: "/", label: "Loan" },
+  { path: "/feedback.html", label: "Feedback" },
   { path: "/contributors", label: "Contributors" },
 ];
-
+ 
 function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isActive, setIsActive] = useState(false);

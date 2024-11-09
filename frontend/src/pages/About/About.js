@@ -6,6 +6,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './About.css';
+import Stats from './Stats'; 
 
 const About = () => {
 	const galleryData = [
@@ -110,6 +111,8 @@ const About = () => {
 					))}
 				</Swiper>
 			</div>
+			
+			<Stats />
 		</div>
 	);
 };

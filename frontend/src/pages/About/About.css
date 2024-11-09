@@ -198,3 +198,59 @@
 		width: 100%;
 	}
 }
+
+/* Add this to your About.css or update your existing CSS */
+.stats {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Align items vertically */
+    padding: 20px;
+ 
+   
+}
+
+.stats-heading {
+    font-size: 2.5rem; /* Default size */
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading text */
+	font-weight: 700;
+}
+
+.stats-section {
+    display: flex; /* Keep items in a single row */
+    justify-content: space-between; /* Space items evenly */
+    padding: 20px;
+
+
+}
+
+.stat-item {
+    text-align: center; /* Center content within each item */
+    flex: 1 1 45%; /* Allow items to take 45% of the row space */
+    margin: 10px; /* Add margin for spacing */
+}
+
+.stat-number {
+    font-size: 2rem; /* Default size for numbers */
+    font-weight: bold;
+}
+
+.stat-title {
+    margin-top: 10px;
+    font-size: 1rem; /* Default size for titles */
+    color: #555;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 1rem; /* Reduced size for numbers on smaller screens */
+    }
+
+    .stat-title {
+        font-size: 0.75rem; /* Reduced size for titles on smaller screens */
+    }
+
+    .stats-heading {
+        font-size: 1.5rem; /* Reduced size for heading on smaller screens */
+    }
+}

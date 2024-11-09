@@ -102,7 +102,8 @@ function Signup() {
   return (
     <>
       <style>
-        {`.signup-card {
+        {`
+          .signup-card {
             background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -128,11 +129,11 @@ function Signup() {
             padding: 0.75rem;
             border-radius: 10px;
             border: 1px solid #ddd;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
           }
           .form-control:focus {
             border-color: #007bff;
-            box-shadow: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
           }
           .btn-primary {
             background-color: #007bff;
@@ -140,20 +141,22 @@ function Signup() {
             padding: 0.75rem;
             font-size: 1rem;
             border-radius: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
           }
           .btn-primary:hover {
             background-color: #0056b3;
+            transform: translateY(-2px);
           }
           .google-btn {
             background-color: #db4437;
             border-color: #db4437;
             padding: 0.75rem;
             border-radius: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
           }
           .google-btn:hover {
             background-color: #c23321;
+            transform: translateY(-2px);
           }
         `}
       </style>
@@ -245,29 +248,30 @@ function Signup() {
                       {showConfirmPassword ? "visibility_off" : "visibility"}
                     </span>
                   </div>
-                  <button type="submit" className="btn btn-primary w-100" disabled={loading}>
-                    {loading ? "Signing up..." : "Sign Up"}
-                  </button>
+
+                  <div className="mb-3">
+                    <button type="submit" className="btn btn-primary w-100">
+                      Sign Up
+                    </button>
+                  </div>
+                  <div className="mb-3 text-center">
+                    <span>or</span>
+                  </div>
+                  <div className="mb-3">
+                    <GoogleButton handleGoogleSignIn={handleGoogleSignup} />
+                  </div>
+                  <div className="text-center">
+                    <span>
+                      Already have an account? <a href="/login">Login</a>
+                    </span>
+                  </div>
                 </form>
-                <div className="text-center mt-3">
-                  <GoogleButton onClick={handleGoogleSignup} />
-                </div>
-                <p className="mt-3 text-center">
-                  Already have an account?{" "}
-                  <span
-                    className="text-primary"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => navigate("/login")}
-                  >
-                    Login
-                  </span>
-                </p>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

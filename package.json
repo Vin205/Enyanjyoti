@@ -1,15 +1,56 @@
 {
+  "homepage": "https://Vin205.github.io/Enyanjyoti",
   "name": "enyanjyoti",
   "version": "1.0.0",
-  "description": "<div align=\"center\">\r   <h1 align=\"center\" style=\"display: block; font-size: 3em; font-weight: bold; margin-block-end: 1em;\"><strong>🎉 Welcome to the E-nyanjyoti Platform! 🌟</strong></h1>\r   <P align=\"center\"> This repository is part of <b>GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024!</b> 🚀</p>\r   <p>\r     <img src=\"https://img.shields.io/github/stars/Vin205/Enyanjyoti?style=social\"/>\r     <img src=\"https://img.shields.io/github/forks/Vin205/Enyanjyoti?style=social\"/>\r     <img src=\"https://img.shields.io/github/watchers/Vin205/Enyanjyoti?style=social\"/>\r   <p>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/issues\"><img src=\"https://custom-icon-badges.demolab.com/github/issues/Vin205/Enyanjyoti?label=Issues&labelColor=302d41&color=FF6347&logoColor=FF6347&logo=issue&style=for-the-badge\" alt=\"GitHub Readme Profile Issues\"/></a>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/pull\"><img src=\"https://custom-icon-badges.demolab.com/github/issues-pr/Vin205/Enyanjyoti?&label=Pull%20requests&labelColor=302d41&color=98FF98&logoColor=98FF98&logo=git-pull-request&style=for-the-badge\" alt=\"GitHub Readme Profile PRs\"/></a>\r     <a href=\"https://github.com/Vin205/Enyanjyoti/graphs/contributors\"><img src=\"https://custom-icon-badges.demolab.com/github/contributors/Vin205/Enyanjyoti?label=Contributors&labelColor=302d41&color=c9cbff&logoColor=d9e0ee&logo=people&style=for-the-badge\"/></a>\r   <p>\r     <img src=\"http://forthebadge.com/images/badges/license-mit.svg\"/>\r     <!-- <img src=\"https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif\" alt=Aryanshukla/> -->\r   <p>\r   <p>\r   <a href=\"https://github.com/Symbiote07\">\r   <img src=\"https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif\" alt=Aryanshukla/>",
-  "main": "eslint.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Welcome to the E-nyanjyoti Platform! Part of GirlScript Summer of Code 2024 Extended Edition & hacktoberfest 2024.",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
+    "browserify-zlib": "^0.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase": "^10.8.0",
+    "gh-pages": "^6.1.1",
+    "mdb-react-ui-kit": "^7.1.0",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
+    "react-dom": "^18.2.0",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.21.1",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "web-vitals": "^2.1.4",
+    "swiper": "^11.1.14"
   },
-  "keywords": [],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": ["react-app", "react-app/jest"]
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "swiper": "^11.1.14"
-  }
+  "main": "eslint.config.js",
+  "keywords": []
 }

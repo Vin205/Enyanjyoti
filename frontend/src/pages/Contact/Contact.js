@@ -15,7 +15,7 @@ function Contact() {
   return (
     <div className="contact-container" style={{marginTop: "100px", marginBottom: "80px", padding:"10px"}}>
      <div class="inner-container">
-     <div class="img-container "><img src="/images/contact.jpg" alt="Contact" /></div>
+     <div class="img-container "><img src="/images/contactUs.png" alt="Contact" /></div>
  <div className="form " style={{ maxWidth: "600px" }}>
       <div class="h1-div">
       <h1>We'd love to help</h1>

@@ -107,10 +107,16 @@ const Loan = () => {
                             type="number"
                             value={loanAmount}
                             onChange={(e) => setLoanAmount(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (["e", "E", "+", "-"].includes(e.key)) {
+                                    e.preventDefault();
+                                }
+                            }}
                             placeholder="Enter amount"
                             required
                         />
                     </label>
+
                     <label htmlFor="interestRate">
                         Annual Interest Rate (%):
                         <input
@@ -118,10 +124,16 @@ const Loan = () => {
                             type="number"
                             value={interestRate}
                             onChange={(e) => setInterestRate(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (["e", "E", "+", "-"].includes(e.key)) {
+                                    e.preventDefault();
+                                }
+                            }}
                             placeholder="Enter rate"
                             required
                         />
                     </label>
+
                     <label htmlFor="loanTerm">
                         Loan Term (years):
                         <input
@@ -129,10 +141,16 @@ const Loan = () => {
                             type="number"
                             value={loanTerm}
                             onChange={(e) => setLoanTerm(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (["e", "E", "+", "-"].includes(e.key)) {
+                                    e.preventDefault();
+                                }
+                            }}
                             placeholder="Enter term"
                             required
                         />
                     </label>
+                    
                     <label htmlFor="paymentFrequency">
                         Payment Frequency:
                         <select

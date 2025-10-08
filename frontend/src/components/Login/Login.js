@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
-import GoogleButton from '../GoogleButton/GoogleButton'; // Import the GoogleButton
+import GoogleButton from '../GoogleButton/GoogleButton';
 import toast from "react-hot-toast";
 import Footer from "../Footer/Footer";
-
-
 
 // LoginHeader Component
 const LoginHeader = () => (
@@ -14,7 +12,19 @@ const LoginHeader = () => (
 );
 
 // LoginForm Component
-const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setShowPassword, handleLogin, loading, error }) => (
+const LoginForm = ({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  showPassword,
+  setShowPassword,
+  handleLogin,
+  loading,
+  error,
+  rememberMe,
+  setRememberMe
+}) => (
   <form onSubmit={handleLogin}>
     {error && <div className="alert alert-danger">{error.message}</div>}
     <div className="mb-3">
@@ -31,7 +41,6 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
     </div>
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password:</label>
-
       <input
         type={showPassword ? "text" : "password"}
         id="password"
@@ -40,17 +49,37 @@ const LoginForm = ({ email, setEmail, password, setPassword, showPassword, setSh
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-
       />
       <span
-        style={{ color: "black", position: "absolute", top: "40.5%", right: "60px", border: "none", cursor: "pointer" }}
+        style={{
+          color: "black",
+          position: "absolute",
+          top: "37.5%",
+          right: "60px",
+          border: "none",
+          cursor: "pointer"
+        }}
         className="material-symbols-outlined"
         onClick={() => setShowPassword(!showPassword)}
       >
         {showPassword ? "visibility_off" : "visibility"}
       </span>
-
     </div>
+
+    {/* Remember Me Checkbox */}
+    <div className="form-check mb-3">
+      <input
+        type="checkbox"
+        className="form-check-input"
+        id="rememberMe"
+        checked={rememberMe}
+        onChange={() => setRememberMe(!rememberMe)}
+      />
+      <label className="form-check-label ml-3" htmlFor="rememberMe">
+        Remember Me
+      </label>
+    </div>
+
     <button
       type="submit"
       className="btn btn-primary w-100 mb-3"
@@ -70,7 +99,11 @@ const LoginFooter = ({ navigate }) => (
   <>
     <p className="mt-3 text-center">
       Don't have an account?{" "}
-      <span className="text-primary" style={{ cursor: "pointer" }} onClick={() => navigate("/signup")}>
+      <span
+        className="text-primary"
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate("/signup")}
+      >
         Sign Up
       </span>
     </p>
@@ -85,8 +118,19 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  // Auto-fill email from localStorage
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setEmail(savedEmail);
+      setRememberMe(true);
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -94,6 +138,14 @@ function Login() {
       toast.error("Invalid Email");
       return;
     }
+
+    // Save or remove email based on "Remember Me"
+    if (rememberMe) {
+      localStorage.setItem("rememberedEmail", email);
+    } else {
+      localStorage.removeItem("rememberedEmail");
+    }
+
     await signInWithEmailAndPassword(email, password);
   };
 
@@ -128,31 +180,36 @@ function Login() {
             margin-bottom: 1.5rem;
           }
         `}
-        </style>
-    <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
-      <div className="row justify-content-center" style={{ width: "100%" }}>
-        <div className="col-md-6">
-          <div className="card shadow signin-card">
-            <div className="card-body">
-              <LoginHeader />
-              <LoginForm
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                showPassword={showPassword}
-                setShowPassword={setShowPassword}
-                handleLogin={handleLogin}
-                loading={loading}
-                error={error}
-              />
-              <LoginFooter navigate={navigate} />
+      </style>
+      <div
+        className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500"
+        style={{ height: "auto" }}
+      >
+        <div className="row justify-content-center" style={{ width: "100%" }}>
+          <div className="col-md-6">
+            <div className="card shadow signin-card">
+              <div className="card-body">
+                <LoginHeader />
+                <LoginForm
+                  email={email}
+                  setEmail={setEmail}
+                  password={password}
+                  setPassword={setPassword}
+                  showPassword={showPassword}
+                  setShowPassword={setShowPassword}
+                  handleLogin={handleLogin}
+                  loading={loading}
+                  error={error}
+                  rememberMe={rememberMe}
+                  setRememberMe={setRememberMe}
+                />
+                <LoginFooter navigate={navigate} />
+              </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </>
   );
 }

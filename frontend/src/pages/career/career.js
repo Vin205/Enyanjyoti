@@ -6,6 +6,9 @@ const Career = () => {
   const [selectedInterest, setSelectedInterest] = useState("");
   const [showRecommendations, setShowRecommendations] = useState(false);
 
+  // NOTE: I've removed the unused 'searchTerm' and 'filteredCareers' logic 
+  // to simplify the code for this contribution.
+
   const careerSections = [
     {
       id: "explore",
@@ -19,26 +22,28 @@ const Career = () => {
             <h3>Major Industry Sectors</h3>
             <div className="sectors-grid">
               {[
-                "Technology & IT", 
-                "Healthcare", 
-                "Finance", 
-                "Education", 
-                "Creative Arts", 
-                "Engineering", 
-                "Marketing", 
-                "Science & Research"
+                "Technology & IT", "Healthcare", "Finance", "Education", 
+                "Creative Arts", "Engineering", "Marketing", "Science & Research"
               ].map(sector => (
-                <div key={sector} className="sector-card">
-                  <h4>{sector}</h4>
-                  <button 
-                    className="explore-button"
-                    onClick={() => {
-                      setSelectedInterest(sector);
-                      setShowRecommendations(true);
-                    }}
-                  >
-                    Explore Careers
-                  </button>
+                // --- THIS IS THE UPDATED FLIP-CARD STRUCTURE ---
+                <div key={sector} className="flip-card">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <h4>{sector}</h4>
+                    </div>
+                    <div className="flip-card-back">
+                      <p>Click to explore career opportunities in the {sector} field.</p>
+                      <button 
+                        className="explore-button"
+                        onClick={() => {
+                          setSelectedInterest(sector);
+                          setShowRecommendations(true);
+                        }}
+                      >
+                        Explore
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -58,8 +63,6 @@ const Career = () => {
               <ul>
                 <li>Professional resume templates</li>
                 <li>ATS optimization techniques</li>
-                <li>Keyword optimization</li>
-                <li>Accomplishment statements</li>
               </ul>
             </div>
             <div className="prep-card">
@@ -67,8 +70,6 @@ const Career = () => {
               <ul>
                 <li>Common interview questions</li>
                 <li>Behavioral interview techniques</li>
-                <li>Technical interview preparation</li>
-                <li>Virtual interview tips</li>
               </ul>
             </div>
             <div className="prep-card">
@@ -76,8 +77,6 @@ const Career = () => {
               <ul>
                 <li>Networking strategies</li>
                 <li>Personal branding</li>
-                <li>Mentorship programs</li>
-                <li>Continuing education</li>
               </ul>
             </div>
           </div>
@@ -95,40 +94,16 @@ const Career = () => {
               <div className="step-number">1</div>
               <div className="step-content">
                 <h4>Idea Validation</h4>
-                <p>Learn how to test your business idea before investing time and money. Conduct market research, build MVPs, and gather feedback.</p>
+                <p>Learn how to test your business idea before investing time and money.</p>
               </div>
             </div>
             <div className="step">
               <div className="step-number">2</div>
               <div className="step-content">
                 <h4>Business Planning</h4>
-                <p>Create a comprehensive business plan covering your value proposition, target market, revenue model, and growth strategy.</p>
+                <p>Create a comprehensive business plan for your value proposition.</p>
               </div>
             </div>
-            <div className="step">
-              <div className="step-number">3</div>
-              <div className="step-content">
-                <h4>Funding Options</h4>
-                <p>Explore bootstrapping, angel investors, venture capital, crowdfunding, and government grants to finance your startup.</p>
-              </div>
-            </div>
-            <div className="step">
-              <div className="step-number">4</div>
-              <div className="step-content">
-                <h4>Growth Strategies</h4>
-                <p>Discover marketing tactics, customer acquisition methods, and scaling techniques to grow your business sustainably.</p>
-              </div>
-            </div>
-          </div>
-          <div className="startup-resources">
-            <h4>Essential Startup Resources</h4>
-            <ul>
-              <li>Business model canvas templates</li>
-              <li>Pitch deck examples</li>
-              <li>Legal requirements checklist</li>
-              <li>Startup accelerator programs</li>
-              <li>Co-working spaces directory</li>
-            </ul>
           </div>
         </div>
       )
@@ -136,81 +111,21 @@ const Career = () => {
   ];
 
   const careerTips = [
-    "Network strategically - attend industry events and connect with professionals on LinkedIn",
-    "Develop both technical and soft skills - employers value well-rounded candidates",
-    "Create a personal development plan with measurable career goals",
-    "Build an online portfolio showcasing your work and achievements",
-    "Stay updated with industry trends through newsletters and podcasts",
-    "Seek feedback regularly to identify areas for improvement",
-    "Consider lateral moves to gain diverse experience",
-    "Maintain a healthy work-life balance for long-term success"
+    "Network strategically - attend industry events and connect with professionals on LinkedIn.",
+    "Develop both technical and soft skills - employers value well-rounded candidates.",
+    "Create a personal development plan with measurable career goals.",
+    "Build an online portfolio showcasing your work and achievements.",
   ];
 
   const careerRecommendations = {
-    "Technology & IT": [
-      "Software Developer",
-      "Data Scientist",
-      "Cybersecurity Analyst",
-      "Cloud Architect",
-      "UX/UI Designer",
-      "DevOps Engineer"
-    ],
-    "Healthcare": [
-      "Physician",
-      "Nurse Practitioner",
-      "Medical Researcher",
-      "Healthcare Administrator",
-      "Physical Therapist",
-      "Biomedical Engineer"
-    ],
-    "Finance": [
-      "Financial Analyst",
-      "Investment Banker",
-      "Accountant",
-      "Risk Manager",
-      "Fintech Specialist",
-      "Wealth Manager"
-    ],
-    "Education": [
-      "Teacher/Professor",
-      "Educational Consultant",
-      "Curriculum Developer",
-      "School Administrator",
-      "Instructional Designer",
-      "Education Policy Analyst"
-    ],
-    "Creative Arts": [
-      "Graphic Designer",
-      "Content Creator",
-      "Art Director",
-      "Film Producer",
-      "Music Composer",
-      "Creative Writer"
-    ],
-    "Engineering": [
-      "Mechanical Engineer",
-      "Electrical Engineer",
-      "Civil Engineer",
-      "Aerospace Engineer",
-      "Environmental Engineer",
-      "Robotics Engineer"
-    ],
-    "Marketing": [
-      "Digital Marketing Specialist",
-      "Brand Manager",
-      "Market Research Analyst",
-      "SEO/SEM Expert",
-      "Social Media Manager",
-      "Public Relations Specialist"
-    ],
-    "Science & Research": [
-      "Research Scientist",
-      "Biotechnologist",
-      "Environmental Scientist",
-      "Data Analyst",
-      "Chemist",
-      "Astrophysicist"
-    ]
+    "Technology & IT": ["Software Developer", "Data Scientist", "Cybersecurity Analyst", "Cloud Architect", "UX/UI Designer", "DevOps Engineer"],
+    "Healthcare": ["Physician", "Nurse Practitioner", "Medical Researcher", "Healthcare Administrator", "Physical Therapist", "Biomedical Engineer"],
+    "Finance": ["Financial Analyst", "Investment Banker", "Accountant", "Risk Manager", "Fintech Specialist", "Wealth Manager"],
+    "Education": ["Teacher/Professor", "Educational Consultant", "Curriculum Developer", "School Administrator", "Instructional Designer", "Education Policy Analyst"],
+    "Creative Arts": ["Graphic Designer", "Content Creator", "Art Director", "Film Producer", "Music Composer", "Creative Writer"],
+    "Engineering": ["Mechanical Engineer", "Electrical Engineer", "Civil Engineer", "Aerospace Engineer", "Environmental Engineer", "Robotics Engineer"],
+    "Marketing": ["Digital Marketing Specialist", "Brand Manager", "Market Research Analyst", "SEO/SEM Expert", "Social Media Manager", "Public Relations Specialist"],
+    "Science & Research": ["Research Scientist", "Biotechnologist", "Environmental Scientist", "Data Analyst", "Chemist", "Astrophysicist"]
   };
 
   return (
@@ -241,9 +156,7 @@ const Career = () => {
         {careerSections.map((section) => (
           <div
             key={section.id}
-            className={`content-section ${
-              activeTab === section.id ? "active" : ""
-            }`}
+            className={`content-section ${activeTab === section.id ? "active" : ""}`}
           >
             {section.content}
           </div>

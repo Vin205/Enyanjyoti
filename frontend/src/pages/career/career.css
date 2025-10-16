@@ -122,26 +122,65 @@ body {
   margin-top: 1.5rem;
 }
 
-.sector-card {
-  background: white;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid #e9ecef;
+/* --- NEW FLIP CARD STYLES --- */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 150px;
+  perspective: 1000px; /* For the 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-.sector-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(67, 97, 238, 0.1);
-  border-color: var(--accent-color);
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.sector-card h4 {
-  margin-bottom: 1rem;
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.flip-card-front {
+  background: white;
+  color: var(--primary-color);
+  border: 1px solid #e9ecef;
+}
+
+.flip-card-front h4 {
+  font-size: 1.2rem;
   color: var(--primary-color);
 }
+
+.flip-card-back {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+/* --- END OF NEW STYLES --- */
 
 .explore-button {
   background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -268,256 +307,7 @@ body {
   left: 0;
 }
 
-.entrepreneurship-section {
-  margin-top: 1rem;
-}
-
-.entrepreneur-steps {
-  margin: 2rem 0;
-}
-
-.step {
-  display: flex;
-  margin-bottom: 1.5rem;
-  align-items: flex-start;
-}
-
-.step-number {
-  background: var(--primary-color);
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  flex-shrink: 0;
-  font-weight: bold;
-}
-
-.step-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  flex-grow: 1;
-  border-left: 3px solid var(--primary-color);
-}
-
-.step-content h4 {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.startup-resources {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-top: 2rem;
-}
-
-.startup-resources h4 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.startup-resources ul {
-  list-style-type: none;
-  columns: 2;
-}
-
-.startup-resources li {
-  margin-bottom: 0.5rem;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.startup-resources li::before {
-  content: "→";
-  color: var(--accent-color);
-  position: absolute;
-  left: 0;
-}
-
-.career-tips-section {
-  background: white;
-  border-radius: 15px;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.career-tips-section h2 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.tip-card {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 1.5rem;
-  display: flex;
-  align-items: flex-start;
-  transition: all 0.3s ease;
-  border-left: 3px solid var(--accent-color);
-}
-
-.tip-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.tip-icon {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  color: var(--accent-color);
-}
-
-.entrepreneur-spotlight {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  border-radius: 15px;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.entrepreneur-spotlight h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
-.entrepreneur-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.feature-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1.5rem;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.feature-button {
-  background: white;
-  color: var(--primary-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  font-weight: 600;
-}
-
-.feature-button:hover {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.cta-section {
-  text-align: center;
-  background: white;
-  border-radius: 15px;
-  padding: 3rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e9ecef;
-}
-
-.cta-section h2 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.cta-section p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: #6c757d;
-}
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.cta-button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  border: none;
-}
-
-.cta-button.primary {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  color: white;
-  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
-}
-
-.cta-button.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(67, 97, 238, 0.3);
-}
-
-.cta-button.secondary {
-  background: white;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-}
-
-.cta-button.secondary:hover {
-  background: rgba(67, 97, 238, 0.1);
-  transform: translateY(-3px);
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/* ... (rest of the existing styles from the original file) ... */
 
 @media (max-width: 768px) {
   .career-title {

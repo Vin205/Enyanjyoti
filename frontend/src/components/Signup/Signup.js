@@ -160,9 +160,9 @@ function Signup() {
           }
         `}
       </style>
-      <div className="container mx-auto mt-5 flex flex-col justify-center bg-cyan-500" style={{ height: "auto" }}>
+      <div className="container mx-auto mt-5 flex flex-col justify-center px-3" style={{ height: "auto" }}>
         <div className="row justify-content-center" style={{ width: "100%" }}>
-          <div className="col-md-6">
+          <div className="col-11 col-md-6">
             <div className="card shadow signup-card">
               <div className="card-body">
                 <h2 className="text-center mb-4">Sign Up</h2>

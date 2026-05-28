@@ -148,20 +148,6 @@ body {
   background: var(--tertiary-color);
 }
 
-.loan-calculator .calculator-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center; /* Center align items */
-}
-
-.loan-button {
-  width: 50%; /* Adjust width if necessary */
-  display: flex;
-  justify-content: center; /* Center text inside the button */
-}
-
-
 .loan-calculator {
   margin-top: 2rem;
   background: linear-gradient(135deg, #ffffff, #f3f6fa);
@@ -206,22 +192,29 @@ body {
   z-index: -1;
 }
 
-.calculator-form {
+.loan-calculator:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.loan-calculator h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loan-calculator .calculator-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  animation: fadeIn var(--transition-speed) ease-in-out;
+  align-items: center;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.calculator-form label {
+  font-weight: bold;
+  width: 100%;
 }
-
 
 .calculator-form input,
 .calculator-form select {
@@ -232,6 +225,7 @@ body {
   font-size: 1rem;
   transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
   background: #fff;
+  margin-left: 0;
 }
 
 .calculator-form input:hover,
@@ -247,38 +241,42 @@ body {
   outline: none;
 }
 
-.calculator-button {
+.loan-button {
   background: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 12px 30px;
-  font-size: 1.2rem;
   border-radius: 50px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color var(--transition-speed), transform var(--transition-speed);
   position: relative;
+  z-index: 1;
   overflow: hidden;
+  width: 50%;
 }
 
-.calculator-button:hover {
-  background: var(--secondary-color);
-  transform: translateY(-5px);
-}
-
-.calculator-button::before {
+.loan-button::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.5s ease-in-out;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-color);
+  transition: left var(--transition-speed);
+  z-index: -1;
 }
 
-.calculator-button:hover::before {
-  transform: translate(-50%, -50%) scale(1);
+.loan-button:hover::before {
+  left: 0;
+}
+
+.loan-button:hover {
+  color: #fff;
+  transform: scale(1.1);
+  background: var(--tertiary-color);
+  width: 50%;
 }
 
 .calculator-result {
@@ -287,97 +285,7 @@ body {
   background: var(--card-background);
   border-radius: var(--border-radius);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  animation: popIn var(--transition-speed) ease-in-out;
 }
-
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.loan-calculator {
-  background: var(--card-background);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  margin-top: 2.5rem;
-  max-width: 1140px;
-  margin-left:10px;
-  animation: fadeIn 0.5s ease-in-out;
-  transition: .2s linear;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-
-}
-
-.loan-calculator:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.loan-calculator h2 {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.calculator-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.calculator-form label {
-  font-weight: bold;
-}
-
-.calculator-form input,
-.calculator-form select {
-  padding: 0.5rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--secondary-color);;
-  transition: border-color 0.3s;
-  margin-left: 20px;
-  box-shadow: none;
-}
-
-.calculator-form input:focus,
-.calculator-form select:focus {
-  border-color: var(--accent-color);
-}
-
-.loan-button {
-  background: var(--primary-color);
-  color: #fff;
-  font-size: 1rem;
-  width: 50%;
-  cursor: pointer;
-  padding: 0.75rem 1.5rem;
-  transition: background-color 0.3s;
-  transition: .2s linear;
-}
-
-.loan-button:hover {
-  width: 50%;
-  background-color: var(--secondary-color);
-}
-
-.calculator-result {
-  margin-top: 1rem;
-  background: var(--card-background);
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
 
 .calculator-result h3 {
   font-size: 1.8rem;
@@ -390,6 +298,26 @@ body {
   font-size: 1.2rem;
   text-align: center;
   color: #555;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {
@@ -405,6 +333,18 @@ body {
   .loan-section {
     margin: 10px 0;
     flex: 1 1 100%;
+  }
+
+  .loan-container {
+    padding: 15px;
+  }
+
+  .loan-calculator {
+    padding: 1.5rem;
+  }
+
+  .loan-button {
+    width: 100%;
   }
 }
 

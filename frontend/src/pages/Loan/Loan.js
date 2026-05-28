@@ -5,6 +5,12 @@ const Loan = () => {
     const [loanAmount, setLoanAmount] = useState('');
     const [interestRate, setInterestRate] = useState('');
     const [loanTerm, setLoanTerm] = useState('');
+
+    const preventInvalidInput = (e) => {
+      if (['e', 'E', '+', '-'].includes(e.key)) {
+        e.preventDefault();
+      }
+    };
     const [paymentFrequency, setPaymentFrequency] = useState('monthly');
     const [calculationResult, setCalculationResult] = useState(null);
 
@@ -105,8 +111,10 @@ const Loan = () => {
                         <input
                             id="loanAmount"
                             type="number"
+                            min="0"
                             value={loanAmount}
                             onChange={(e) => setLoanAmount(e.target.value)}
+                            onKeyDown={preventInvalidInput}
                             placeholder="Enter amount"
                             required
                         />
@@ -116,8 +124,11 @@ const Loan = () => {
                         <input
                             id="interestRate"
                             type="number"
+                            min="0"
+                            step="0.01"
                             value={interestRate}
                             onChange={(e) => setInterestRate(e.target.value)}
+                            onKeyDown={preventInvalidInput}
                             placeholder="Enter rate"
                             required
                         />
@@ -127,8 +138,11 @@ const Loan = () => {
                         <input
                             id="loanTerm"
                             type="number"
+                            min="0"
+                            step="1"
                             value={loanTerm}
                             onChange={(e) => setLoanTerm(e.target.value)}
+                            onKeyDown={preventInvalidInput}
                             placeholder="Enter term"
                             required
                         />

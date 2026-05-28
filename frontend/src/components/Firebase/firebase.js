@@ -23,7 +23,6 @@ export const signInWithGoogle = async () => {
     const result = await signInWithPopup(auth, provider);
     // You can access the Google Access Token and User info here
     const user = result.user;
-    console.log('User Info:', user);
     return user;
   } catch (error) {
     console.error('Error signing in with Google:', error);

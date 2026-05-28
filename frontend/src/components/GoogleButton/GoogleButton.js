@@ -9,7 +9,7 @@ const GoogleButton = () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log('User signed in: ', result.user); // You can handle the user info as needed
+      // User signed in successfully
     } catch (error) {
       console.error('Error during Google sign-in: ', error.message);
     }

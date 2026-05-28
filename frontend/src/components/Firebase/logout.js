@@ -9,7 +9,6 @@ const useLogout = () => {
     const logoutUser = useCallback(async () => {
         try {
             await auth.signOut();
-            console.log("User logged out successfully");
             navigate('/', { replace: true }); // Navigate to home after logging out
         } catch (error) {
             console.error("Error logging out:", error);
